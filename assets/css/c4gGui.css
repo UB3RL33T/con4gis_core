@@ -1,0 +1,80 @@
+@CHARSET "ISO-8859-1";
+.c4gGuiNavigation {
+	width: 200px;
+	height: 100%;
+	float: left;
+}
+.c4gGuiNavigation .c4gGuiTree {
+	height: 100%;
+	width: 100%;	
+}
+.c4gGuiNavigation .dynatree-container {
+	height: 100%;	
+	width: 192px;
+	float: left;
+}
+.c4gGuiContentWrapper {
+	height: 100%;
+	width: 50%;
+	float: left;
+	clear: none !important;
+}
+
+.c4gGuiScrollable {
+	overflow: scroll;
+	height: 100%;
+}
+
+.c4gGuiAjaxBusyImage {
+    display: none;
+    margin: 0px;
+    paddingLeft: 0px;
+    paddingRight: 0px;
+    paddingTop: 0px;
+    paddingBottom: 0px;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    width: auto;
+}
+
+.c4gGuiAjaxBusy {
+	opacity: 0.5;
+	cursor: wait !important;
+}
+
+.c4gGuiDialog {
+	text-align: left;
+}
+
+.c4gGuiDialogButtonsNoJqui a {
+	margin-right: 5px;
+}
+
+.c4gGuiDialogTitle {
+	padding: 10px;
+	margin-top: 10px;
+}
+.c4gGuiBreadcrumb a,.c4gGuiButtons a, .c4gGuiBreadcrumbDelim {
+	margin-right: 5px;
+}
+
+.c4gGuiTooltipComponent {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: #eee;
+	padding: 5px;
+	opacity: 0.85;
+	font-size: small;
+	max-width: 350px;
+
+	/* CSS3 */
+    -moz-box-shadow: #111 2px 2px 7px;
+    -webkit-box-shadow: #111 2px 2px 7px;
+	box-shadow: #111 2px 2px 7px;
+    /* ____ */
+}
+.c4gGuiTooltipComponent h3, .c4gGuiTooltipComponent div { margin: 0; }
+.c4gGuiPostContent { margin-top:20px; }
+.c4gGuiCollapsible_trigger { cursor: pointer; }
