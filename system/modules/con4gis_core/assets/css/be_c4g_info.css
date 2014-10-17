@@ -106,7 +106,16 @@ a.c4g_imgLink:focus {
 
 	font-size: 1.1em;
 	font-weight: bold;
-	text-shadow: 0 0 10px rgba(255,255,255,.5)
+	text-shadow: 0 0 10px rgba(255,255,255,.5);
+
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+@media (max-width: 450px) {
+		#c4g_header span.sub {
+		font-size: .9em;
+	}
 }
 #c4g_header img {
 	width: 320px; 
