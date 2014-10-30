@@ -14,7 +14,8 @@
         die();
     }
 
-    $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../../";
+    define("TL_MODE","FE");
+    $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../";
     require_once($sRootPath."system/initialize.php");
 
 
@@ -48,15 +49,11 @@
     }
 
     if (empty($err)) {
-        $dir  = $sDestinationPath;
-        $ziel = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../" . $sFileName;
+        $sDestination = $sDestinationPath . $sFileName;
 
-
-        if (move_uploaded_file($sTempname, '../../../../../../' . $ziel)) {
-            echo $ziel;
+        if (move_uploaded_file($sTempname, TL_ROOT."/". $sDestination)) {
+            echo $sDestination;
         } else {
             echo 0;
         }
     }
-
-?>
