@@ -20,7 +20,7 @@
   #
   # Depending on your server, you might have to remove the line entirely.
   ##
-  #RewriteBase /api4gis
+  RewriteBase /system/modules/con4gis_core/api/
 
 
   ##

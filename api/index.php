@@ -22,8 +22,9 @@ if (!isset( $_POST['REQUEST_TOKEN'] )) {
     define('BYPASS_TOKEN_CHECK', true);
 }
 
+
 // Initialize the system
-require('../system/initialize.php');
+require('../../../system/initialize.php');
 
 /**
  * Api controller.
