@@ -15,7 +15,7 @@
     }
 
     $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../../";
-
+    require_once($sRootPath."system/initialize.php");
 
 
     $sTempname        = $_FILES['File']['tmp_name'];
