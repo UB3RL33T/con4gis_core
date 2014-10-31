@@ -19,10 +19,20 @@
     require_once($sRootPath."system/initialize.php");
 
 
+    // User not logged in...
+    if (!FE_USER_LOGGED_IN) {
+        header('HTTP/1.0 403 Forbidden');
+        echo "Forbidden";
+        die();
+    }
+
+    // xss cleanup
+    $_FILES = \Contao\Input::xssClean($_FILES);
+
     $sTempname        = $_FILES['File']['tmp_name'];
     $sFileName        = $_FILES['File']['name'];
     $sFileType        = $_FILES['File']['type'];
-    $sDestinationPath = $_POST['Path'];
+    $sDestinationPath = \Contao\Input::post('Path');
 
     if ($sFileType != "image/gif" && $sFileType != "image/jpeg" && $sFileType != "image/png") {
         die();
@@ -32,23 +42,23 @@
 
     switch ($aImageType[2]) {
         case "1":
-            $endung    = "gif";
-            $uniqid    = uniqid();
-            $sFileName = $uniqid . ".gif";
+            $sExtension    = "gif";
+            $sUniqID    = uniqid();
+            $sFileName = $sUniqID . ".gif";
             break;
         case "2":
-            $endung    = "jpg";
-            $uniqid    = uniqid();
-            $sFileName = $uniqid . ".jpg";
+            $sExtension    = "jpg";
+            $sUniqID    = uniqid();
+            $sFileName = $sUniqID . ".jpg";
             break;
         case "3":
-            $endung    = "png";
-            $uniqid    = uniqid();
-            $sFileName = $uniqid . ".png";
+            $sExtension    = "png";
+            $sUniqID    = uniqid();
+            $sFileName = $sUniqID . ".png";
             break;
     }
 
-    if (empty($err)) {
+    if (empty($sError)) {
         $sDestination = $sDestinationPath . $sFileName;
 
         if (move_uploaded_file($sTempname, TL_ROOT."/". $sDestination)) {
