@@ -20,33 +20,57 @@
     $sRequestUri = \Contao\Environment::get("requestUri");
     $sHttps      = \Contao\Environment::get("https");
 
-    $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisUploadPath");
+    $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisImageUploadPath");
     $sConfigUploadPath = \Contao\Input::xssClean($sConfigUploadPath);
-    $sSubfolder = date("Y-m-d");
+    $sSubfolder        = date("Y-m-d");
 
     //if not configured, use fallbackpath
-    if(empty($sConfigUploadPath)) {
+    if (empty($sConfigUploadPath)) {
         $sUploadPath = \Contao\Config::get("uploadPath");
-        $sUploadDir = "/".$sUploadPath."/uploads/";
-    }else{
+        $sUploadDir  = "/" . $sUploadPath . "/uploads/";
+    } else {
         $sUploadDir = $sConfigUploadPath;
     }
 
     // add subfolder
-    $sUploadDir = TL_ROOT.$sUploadDir.$sSubfolder;
+    $sUploadDir = TL_ROOT . $sUploadDir . $sSubfolder;
 
     // create if not exist
-    if(!is_dir($sUploadDir)){
-        mkdir($sUploadDir);
+    if (!is_dir($sUploadDir)) {
+        mkdir(TL_ROOT . "/" . $sUploadDir,0777, true);
     }
 
 
     // HERE SET THE PATH TO THE FOLDER WITH IMAGES ON YOUR SERVER (RELATIVE TO THE ROOT OF YOUR WEBSITE ON SERVER)
 
-    $sValidFileTypes = \Contao\Config::get("uploadTypes");
-    $sMaxFileSize    = \Contao\Config::get("maxFileSize");
-    $sMaxImageWidth  = \Contao\Config::get("imageWidth");
-    $sMaxImageheight = \Contao\Config::get("imageHeight");
+
+    $sValidFileTypes = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_uploadTypes");
+    $sMaxFileSize    = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_maxFileSize");
+    $sMaxImageWidth  = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_imageWidth");
+    $sMaxImageheight = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_imageHeight");
+
+
+    if (empty($sValidFileTypes)) {
+        // get system-configured allowed filetypes
+        $sValidFileTypes = \Contao\Config::get("uploadTypes");
+    }
+    if (empty($sMaxFileSize)) {
+        // get system-configured max filesize
+        $sMaxFileSize = \Contao\Config::get("maxFileSize");
+    }
+    if (empty($sMaxImageWidth)) {
+        // get system-configured max filesize
+        $sMaxImageWidth = \Contao\Config::get("imageWidth");
+    }
+    if (empty($sMaxImageheight)) {
+        // get system-configured max filesize
+        $sMaxImageheight = \Contao\Config::get("imageHeight");
+    }
+
+    $sValidFileTypes = \Contao\Input::xssClean($sValidFileTypes);
+    $sMaxFileSize    = \Contao\Input::xssClean($sMaxFileSize);
+    $sMaxImageWidth  = \Contao\Input::xssClean($sMaxImageWidth);
+    $sMaxImageheight = \Contao\Input::xssClean($sMaxImageheight);
 
 
     // HERE PERMISSIONS FOR IMAGE

@@ -19,7 +19,7 @@
     $sHttps      = \Contao\Environment::get("https");
 
 
-    $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisUploadPath");
+    $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisFileUploadPath");
     $sConfigUploadPath = \Contao\Input::xssClean($sConfigUploadPath);
     $sSubfolder        = date("Y-m-d");
 
@@ -35,13 +35,24 @@
 
     // create if not exist
     if (!is_dir(TL_ROOT . "/" . $sUploadDir)) {
-        mkdir(TL_ROOT . "/" . $sUploadDir);
+        mkdir(TL_ROOT . "/" . $sUploadDir,0777, true);
     }
 
-    // get system-configured allowed filetypes
-    $sValidFileTypes = \Contao\Config::get("uploadTypes");
-    // get system-configured max filesize
-    $sMaxFileSize = \Contao\Config::get("maxFileSize");
+
+    $sValidFileTypes = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_uploadTypes");
+    $sMaxFileSize    = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_maxFileSize");
+
+    if (empty($sValidFileTypes)) {
+        // get system-configured allowed filetypes
+        $sValidFileTypes = \Contao\Config::get("uploadTypes");
+    }
+    if (empty($sMaxFileSize)) {
+        // get system-configured max filesize
+        $sMaxFileSize = \Contao\Config::get("maxFileSize");
+    }
+
+    $sValidFileTypes = \Contao\Input::xssClean($sValidFileTypes);
+    $sMaxFileSize    = \Contao\Input::xssClean($sMaxFileSize);
 
     //config array
     $aConfig = array(
