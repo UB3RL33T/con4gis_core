@@ -63,6 +63,7 @@ class C4GJQueryGUI
 			if (empty($GLOBALS['TL_CSS']['c4g_jquery_ui'])) {
 				$GLOBALS['TL_CSS']['c4g_jquery_ui'] 		= 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.theme.min.css';
 			}
+            $GLOBALS ['TL_JAVASCRIPT'] ['c4g_a'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.legacy.min.js';
    		}
    		
 		if ($useTable) 
@@ -91,7 +92,8 @@ class C4GJQueryGUI
 
 		if ($useTooltip) 
 		{
-   			$GLOBALS ['TL_JAVASCRIPT'] ['c4g_jq_tooltip'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.tooltip.pack.js';
+
+   			$GLOBALS ['TL_JAVASCRIPT'] ['c4g_jq_tooltip_b'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.tooltip.pack.js';
 			C4GJQueryGUI::optimizeJSForContao3('c4g_jq_tooltip');
 		}
 
