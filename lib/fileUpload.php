@@ -17,6 +17,7 @@
     $sServerName = \Contao\Environment::get("serverName");
     $sRequestUri = \Contao\Environment::get("requestUri");
     $sHttps      = \Contao\Environment::get("https");
+    $path      = \Contao\Environment::get("path");
 
 
     $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisFileUploadPath");
@@ -25,13 +26,14 @@
 
     //if not configured, use fallbackpath
     if (empty($sConfigUploadPath)) {
-        $sUploadDir = "/files/uploads/";
+        $sUploadDir = $path."/files/uploads/";
     } else {
-        $sUploadDir = $sConfigUploadPath;
+        $sUploadDir = $path."/".$sConfigUploadPath;
     }
 
     // add subfolder
     $sUploadDir = $sUploadDir . $sSubfolder;
+
 
     // create if not exist
     if (!is_dir(TL_ROOT . "/" . $sUploadDir)) {
@@ -70,7 +72,8 @@
 
         // get protocol and host name to send the absolute image path to CKEditor
         $sProtocol = !empty($sHttps) ? 'https://' : 'http://';
-        $sSite     = $sProtocol . $sServerName . '/system/modules/con4gis_core/lib/deliver.php?file=';
+        $sSite     = $sProtocol . $sServerName . $path.'/system/modules/con4gis_core/lib/deliver.php?file=';
+
 
         // build file path
         $sUploadpath = TL_ROOT . '/' . $sUploadDir . $sUniqFileName;       // full file path

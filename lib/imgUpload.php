@@ -19,6 +19,7 @@
     $sServerName = \Contao\Environment::get("serverName");
     $sRequestUri = \Contao\Environment::get("requestUri");
     $sHttps      = \Contao\Environment::get("https");
+    $path      = \Contao\Environment::get("path");
 
     $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisImageUploadPath");
     $sConfigUploadPath = \Contao\Input::xssClean($sConfigUploadPath);
@@ -27,19 +28,19 @@
     //if not configured, use fallbackpath
     if (empty($sConfigUploadPath)) {
         $sUploadPath = \Contao\Config::get("uploadPath");
-        $sUploadDir  = "/" . $sUploadPath . "/uploads/";
+        $sUploadDir  = $path."/".$sUploadPath . "/uploads/";
     } else {
-        $sUploadDir = $sConfigUploadPath;
+        $sUploadDir = $path."/".$sConfigUploadPath;
     }
 
     // add subfolder
-    $sUploadDir = TL_ROOT . $sUploadDir . $sSubfolder;
+    $sUploadDir = $sUploadDir . $sSubfolder;
+
 
     // create if not exist
     if (!is_dir($sUploadDir)) {
         mkdir(TL_ROOT . "/" . $sUploadDir,0777, true);
     }
-
 
     // HERE SET THE PATH TO THE FOLDER WITH IMAGES ON YOUR SERVER (RELATIVE TO THE ROOT OF YOUR WEBSITE ON SERVER)
 

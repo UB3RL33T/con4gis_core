@@ -11,9 +11,11 @@
     $sServerName   = \Contao\Environment::get("serverName");
     $sRequestUri   = \Contao\Environment::get("requestUri");
     $sHttps        = \Contao\Environment::get("https");
+    $path      = \Contao\Environment::get("path");
 
     $aInfo     = pathinfo($sFilePath);
     $sFilePath = str_replace($aInfo['basename'], "", $sFilePath) . $sUniqFileName;
+
 
     // User not logged in...
     if (!FE_USER_LOGGED_IN) {
@@ -44,14 +46,17 @@
     $protocol = !empty($sHttps) ? 'https://' : 'http://';
     $sUrl     = $protocol . $sServerName . $sRequestUri;
 
+
     // extract uri vars
     parse_str($sRequestUri, $aUriVars);
 
-    $sFileHashGenerated = md5($aUriVars['u'] . $GLOBALS['TL_CONFIG']['encryptionKey'] . basename($aUriVars['/system/modules/con4gis_core/lib/deliver_php?file']));
+    $sFileHashGenerated = md5($aUriVars['u'] . $GLOBALS['TL_CONFIG']['encryptionKey'] . basename($aUriVars[$path.'/system/modules/con4gis_core/lib/deliver_php?file']));
     if ($sFileHash !== $sFileHashGenerated) {
         header('HTTP/1.0 404 Not Found');
         die();
     }
+
+
 
     // output
     header('Content-Description: File Transfer');
