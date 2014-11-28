@@ -107,17 +107,14 @@
 
             // Checks if the file has allowed type, size, width and height (for images)
             if (!in_array($type, $imgsets['type'])) {
-                $err .= sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_extension'], $_FILES['upload']['name']);
-            }
-            if ($_FILES['upload']['size'] > $imgsets['maxsize']) {
-                $err .= sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
-            }
-            if (isset($width) && isset($height)) {
+                $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_extension'], $_FILES['upload']['name']);
+            }elseif ($_FILES['upload']['size'] > $imgsets['maxsize']) {
+                $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
+            }elseif (isset($width) && isset($height)) {
                 if ($width > $imgsets['maxwidth'] || $height > $imgsets['maxheight']) {
-                    $err .= sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_dimensions'], $width, $height, $imgsets['maxwidth'], $imgsets['maxheight']);
-                }
-                if ($width < $imgsets['minwidth'] || $height < $imgsets['minheight']) {
-                    $err .= sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_dimensions'], $width, $height, $imgsets['maxwidth'], $imgsets['maxheight']);
+                    $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_dimensions'], $width, $height, $imgsets['maxwidth'], $imgsets['maxheight']);
+                }elseif ($width < $imgsets['minwidth'] || $height < $imgsets['minheight']) {
+                    $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_dimensions'], $width, $height, $imgsets['maxwidth'], $imgsets['maxheight']);
                 }
             }
 
