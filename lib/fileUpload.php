@@ -1,109 +1,144 @@
 <?php
 
-    define("TL_MODE", "FE");
-    $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../";
-    require_once($sRootPath . "system/initialize.php");
+    try {
+        define("TL_MODE", "FE");
+        $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../";
+        require_once($sRootPath . "system/initialize.php");
 
-    // User not logged in...
-    if (!FE_USER_LOGGED_IN) {
-        header('HTTP/1.0 403 Forbidden');
-        echo "Forbidden";
-        die();
-    }
-
-    // xss cleanup
-    $_FILES = \Contao\Input::xssClean($_FILES);
-
-    $sServerName = \Contao\Environment::get("serverName");
-    $sRequestUri = \Contao\Environment::get("requestUri");
-    $sHttps      = \Contao\Environment::get("https");
-    $path      = \Contao\Environment::get("path");
-
-
-    $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisFileUploadPath");
-    $sConfigUploadPath = \Contao\Input::xssClean($sConfigUploadPath);
-    $sSubfolder        = date("Y-m-d");
-
-    //if not configured, use fallbackpath
-    if (empty($sConfigUploadPath)) {
-        $sUploadDir = $path."/files/uploads/";
-    } else {
-        $sUploadDir = $path."/".$sConfigUploadPath;
-    }
-
-    // add subfolder
-    $sUploadDir = $sUploadDir . $sSubfolder;
-
-
-    // create if not exist
-    if (!is_dir(TL_ROOT . "/" . $sUploadDir)) {
-        mkdir(TL_ROOT . "/" . $sUploadDir,0777, true);
-    }
-
-
-    $sValidFileTypes = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_uploadTypes");
-    $sMaxFileSize    = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_maxFileSize");
-
-    if (empty($sValidFileTypes)) {
-        // get system-configured allowed filetypes
-        $sValidFileTypes = \Contao\Config::get("uploadTypes");
-    }
-    if (empty($sMaxFileSize)) {
-        // get system-configured max filesize
-        $sMaxFileSize = \Contao\Config::get("maxFileSize");
-    }
-
-    $sValidFileTypes = \Contao\Input::xssClean($sValidFileTypes);
-    $sMaxFileSize    = \Contao\Input::xssClean($sMaxFileSize);
-
-    //config array
-    $aConfig = array(
-        'maxsize' => intval($sMaxFileSize),          // maximum file size, in KiloBytes (2 MB)
-        'type'    => explode(",", $sValidFileTypes)        // allowed extensions
-    );
-
-    $re = '';
-
-    if (isset($_FILES['uploadFile']) && strlen($_FILES['uploadFile']['name']) > 1) {
-        $aInfo         = pathinfo($_FILES['uploadFile']['name']);
-        $sUploadDir    = trim($sUploadDir, '/') . '/';
-        $sFileName     = basename($_FILES['uploadFile']['name']);
-        $sUniqFileName = md5(uniqid('', true)) . "." . $aInfo['extension'];
-
-        // get protocol and host name to send the absolute image path to CKEditor
-        $sProtocol = !empty($sHttps) ? 'https://' : 'http://';
-        $sSite     = $sProtocol . $sServerName . $path.'/system/modules/con4gis_core/lib/deliver.php?file=';
-
-
-        // build file path
-        $sUploadpath = TL_ROOT . '/' . $sUploadDir . $sUniqFileName;       // full file path
-        $sExtension  = explode('.', strtolower($_FILES['uploadFile']['name']));
-        $sType       = end($sExtension);       // gets extension
-        list($width, $height) = getimagesize($_FILES['uploadFile']['tmp_name']);     // gets image width and height
-        $sError = '';         // to store the errors
-
-        // Checks if the file has allowed type, size, width and height (for images)
-        if (!in_array($sType, $aConfig['type'])) {
-            $sError .= 'The file: ' . $_FILES['uploadFile']['name'] . ' has not the allowed extension type.';
-        }
-        if ($_FILES['uploadFile']['size'] > $aConfig['maxsize'] * 1000) {
-            $sError .= '\\n Maximum file size must be: ' . $aConfig['maxsize'] . ' KB.';
+        // User not logged in...
+        if (!FE_USER_LOGGED_IN) {
+            header('HTTP/1.0 403 Forbidden');
+            echo "Forbidden";
+            die();
         }
 
-        $sFileHash = md5($sUniqFileName . $GLOBALS['TL_CONFIG']['encryptionKey'] . $sFileName);
 
-        // If no errors, upload the image, else, output the errors
-        if ($sError == '') {
-            if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $sUploadpath)) {
-                $CKEditorFuncNum = \Contao\Input::get('CKEditorFuncNum');
-                $url             = $sSite . $sUploadDir . $sFileName . "&u=" . $sUniqFileName . "&c=" . $sFileHash;
-                $message         = $sFileName . ' successfully uploaded: \\n- Size: ' . number_format($_FILES['uploadFile']['size'] / 1024, 3, '.', '') . ' KB';
-                $re              = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$message')";
+        \Contao\System::loadLanguageFile("default");
+
+
+        // xss cleanup
+        $_FILES = \Contao\Input::xssClean($_FILES);
+
+        $sServerName = \Contao\Environment::get("serverName");
+        $sRequestUri = \Contao\Environment::get("requestUri");
+        $sHttps      = \Contao\Environment::get("https");
+        $path        = \Contao\Environment::get("path");
+
+
+        $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisFileUploadPath");
+        $sConfigUploadPath = \Contao\Input::xssClean($sConfigUploadPath);
+        $sSubfolder        = date("Y-m-d");
+
+        //if not configured, use fallbackpath
+        if (empty($sConfigUploadPath)) {
+            $sUploadDir = $path . "/files/uploads/";
+        } else {
+            $sUploadDir = $path . "/" . $sConfigUploadPath;
+        }
+
+        // add subfolder
+        $sUploadDir = $sUploadDir . $sSubfolder;
+
+
+        // create if not exist
+        if (!is_dir(TL_ROOT . "/" . $sUploadDir)) {
+            mkdir(TL_ROOT . "/" . $sUploadDir, 0777, true);
+        }
+
+
+        $sValidFileTypes = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_uploadTypes");
+        $sMaxFileSize    = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_maxFileSize");
+
+
+
+        if (empty($sValidFileTypes)) {
+            // get system-configured allowed filetypes
+            $sValidFileTypes = \Contao\Config::get("uploadTypes");
+        }
+        if (empty($sMaxFileSize)) {
+            // get system-configured max filesize
+            $sMaxFileSize = \Contao\Config::get("maxFileSize");
+        }
+
+
+        $sValidFileTypes = \Contao\Input::xssClean($sValidFileTypes);
+        $sMaxFileSize    = \Contao\Input::xssClean($sMaxFileSize);
+
+        //config array
+        $aConfig = array(
+            'maxsize' => intval($sMaxFileSize),          // maximum file size, in KiloBytes (2 MB)
+            'type'    => explode(",", $sValidFileTypes)        // allowed extensions
+        );
+
+        $sReturn         = '';
+        $CKEditorFuncNum = \Contao\Input::get('CKEditorFuncNum');
+        if (!empty($_FILES['uploadFile']) && strlen($_FILES['uploadFile']['name']) > 1 && !empty($_FILES['uploadFile']['tmp_name'])) {
+            $aInfo         = pathinfo($_FILES['uploadFile']['name']);
+            $sUploadDir    = trim($sUploadDir, '/') . '/';
+            $sFileName     = basename($_FILES['uploadFile']['name']);
+            $sUniqFileName = md5(uniqid('', true)) . "." . $aInfo['extension'];
+
+            // get protocol and host name to send the absolute image path to CKEditor
+            $sProtocol = !empty($sHttps) ? 'https://' : 'http://';
+            $sSite     = $sProtocol . $sServerName . $path . '/system/modules/con4gis_core/lib/deliver.php?file=';
+
+            // build file path
+            $sUploadpath = TL_ROOT . '/' . $sUploadDir . $sUniqFileName;       // full file path
+            $sExtension  = pathinfo($_FILES['uploadFile']['name']);
+            $sType       = $sExtension['extension'];       // gets extension
+
+            // Checks if the file has allowed type, size, width and height (for images)
+            if (!in_array($sType, $aConfig['type'])) {
+                $sError .= sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension'], $_FILES['uploadFile']['name']);
+            }
+            if ($_FILES['uploadFile']['size'] > $aConfig['maxsize']) {
+                $sError .= sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
+            }
+
+            $sFileHash = md5($sUniqFileName . $GLOBALS['TL_CONFIG']['encryptionKey'] . $sFileName);
+
+            // If no errors, upload the image, else, output the errors
+            if ($sError == '') {
+                if (move_uploaded_file($_FILES['uploadFile']['tmp_name'], $sUploadpath)) {
+                    $url     = $sSite . $sUploadDir . $sFileName . "&u=" . $sUniqFileName . "&c=" . $sFileHash;
+                    $message = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_successful'], $sFileName, number_format($_FILES['uploadFile']['size'] / 1024, 3, '.', ''));
+                    $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$message')";
+                } else {
+                    $message = $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error'];
+                    $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '', '$message')";
+                }
             } else {
-                $re = 'alert("Unable to upload the file")';
+                $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '', '$sError')";
             }
         } else {
-            $re = 'alert("' . $sError . '")';
+
+
+            if (!empty($_FILES['uploadFile']['name'])) {
+                $sExtension  = pathinfo($_FILES['uploadFile']['name']);
+                $sType       = $sExtension['extension'];       // gets extension
+
+                if (!in_array($sType, $aConfig['type'])) {
+                    $message = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension'], $_FILES['uploadFile']['name']);
+                }
+
+            }
+
+            if (!empty($_FILES['uploadFile']['size'])) {
+                // Checks if the file has allowed type, size, width and height (for images)
+                if ($_FILES['uploadFile']['size'] > $aConfig['maxsize']) {
+                    $message = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
+                }
+            }
+
+            if(empty($message)){
+                $message = $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error'];
+            }
+
+
+            $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '', '$message')";
         }
+    } catch (Exception $e) {
+        $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '', '" . $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['exception_'.$e->getCode()] . "')";
     }
-    echo "<script>$re;</script>";
+
+    echo "<script>$sReturn;</script>";
