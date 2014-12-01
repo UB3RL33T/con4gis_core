@@ -31,10 +31,11 @@
 
         //if not configured, use fallbackpath
         if (empty($sConfigUploadPath)) {
-            $sUploadDir = $path . "/files/uploads/";
+            $sUploadDir = "/files/uploads/";
         } else {
-            $sUploadDir = $path . "/" . $sConfigUploadPath;
+            $sUploadDir = "/" . $sConfigUploadPath;
         }
+
 
         // add subfolder
         $sUploadDir = $sUploadDir . $sSubfolder;
@@ -95,6 +96,7 @@
             }
 
             $sFileHash = md5($sUniqFileName . $GLOBALS['TL_CONFIG']['encryptionKey'] . $sFileName);
+
 
             // If no errors, upload the image, else, output the errors
             if ($sError == '') {
