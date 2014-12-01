@@ -106,7 +106,7 @@
             $err = '';         // to store the errors
 
             // Checks if the file has allowed type, size, width and height (for images)
-            if (!in_array($type, $imgsets['type'])) {
+            if (!in_array($sType, $imgsets['type'])) {
                 $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_extension'], $_FILES['upload']['name']);
             }elseif ($_FILES['upload']['size'] > $imgsets['maxsize']) {
                 $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
