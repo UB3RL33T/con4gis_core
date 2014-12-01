@@ -31,9 +31,9 @@
         //if not configured, use fallbackpath
         if (empty($sConfigUploadPath)) {
             $sUploadPath = \Contao\Config::get("uploadPath");
-            $sUploadDir  = $path . "/" . $sUploadPath . "/uploads/";
+            $sUploadDir  = "/" . $sUploadPath . "/uploads/";
         } else {
-            $sUploadDir = $path . "/" . $sConfigUploadPath;
+            $sUploadDir = "/" . $sConfigUploadPath;
         }
 
         // add subfolder
@@ -118,10 +118,16 @@
                 }
             }
 
+
+            if(!empty($path)){
+                $path = substr($path,1)."/";
+            }else{
+                $path = "";
+            }
             // If no errors, upload the image, else, output the errors
             if ($err == '') {
                 if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadpath)) {
-                    $url     = $site . $sUploadDir . $img_name;
+                    $url     = $site . $path.$sUploadDir . $img_name;
                     $message = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_successful'], $img_name, number_format($_FILES['upload']['size'] / 1024, 3, '.', ''), $width, $height);
                     $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$message')";
                 } else {
