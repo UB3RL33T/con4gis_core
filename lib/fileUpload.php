@@ -92,7 +92,7 @@
             if (!in_array($sType, $aConfig['type'])) {
                 $sError = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension'], $_FILES['uploadFile']['name']);
             }elseif ($_FILES['uploadFile']['size'] > $aConfig['maxsize']) {
-                $sError = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
+                $sError = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size'], ($sMaxFileSize / 1024));
             }
 
             $sFileHash = md5($sUniqFileName . $GLOBALS['TL_CONFIG']['encryptionKey'] . $sFileName);
@@ -127,7 +127,7 @@
             if (!empty($_FILES['uploadFile']['size'])) {
                 // Checks if the file has allowed type, size, width and height (for images)
                 if ($_FILES['uploadFile']['size'] > $aConfig['maxsize']) {
-                    $message = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
+                    $message = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size'], ($sMaxFileSize / 1024));
                 }
             }
 

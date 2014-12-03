@@ -109,7 +109,7 @@
             if (!in_array($sType, $imgsets['type'])) {
                 $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_extension'], $_FILES['upload']['name']);
             }elseif ($_FILES['upload']['size'] > $imgsets['maxsize']) {
-                $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
+                $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size'], ($sMaxFileSize / 1024));
             }elseif (isset($width) && isset($height)) {
                 if ($width > $imgsets['maxwidth'] || $height > $imgsets['maxheight']) {
                     $err = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_dimensions'], $width, $height, $imgsets['maxwidth'], $imgsets['maxheight']);
@@ -141,7 +141,7 @@
 
             if (!empty($_FILES['upload']['size'])) {
                 if ($_FILES['upload']['size'] > $imgsets['maxsize']) {
-                    $message .= sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size'], ($imgsets['maxsize'] / 1024));
+                    $message .= sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size'], ($sMaxFileSize / 1024));
                 } else {
                     $message .= $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_error'];
                 }
