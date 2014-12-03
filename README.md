@@ -1,4 +1,4 @@
-con4gis-common
+con4gis-core
 ==============
 
 part of the gis-kit con4gis
