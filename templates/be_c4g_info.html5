@@ -124,6 +124,11 @@
                     </span></a>
                 </li>
                 <li>
+                    <a href="http://github.com/Kuestenschmiede/" target="_blank"><span>
+                        <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']?>
+                    </span></a>
+                </li>
+                <li>
                     <a href="http://openstreetmap.org" target="_blank"><span>
                         <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osm_website']?>
                     </span></a>

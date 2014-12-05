@@ -51,6 +51,7 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']       = 'Install %s';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']     = 'Website Project';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']   = 'Coastforge @ GitHub';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osm_website']         = 'Website OpenStreetMap';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['ol_website']          = 'Website OpenLayers';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['overpassapi_website'] = 'Overpass-API informations';
