@@ -56,10 +56,10 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['overpassapi_website'] = 'Overpass-API informations';
 
 
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_successful']       = "%s successfully uploaded: \\n- Size: %s KB";
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error']            = "Unable to upload the file";
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension'] = 'The file: %s has not the allowed extension type.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size']     = '\\n Maximum file size must be: %s KB.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_successful']           = "%s successfully uploaded: \\n- Size: %s KB";
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error']                = "Unable to upload the file";
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension']    = 'The file: %s has not the allowed extension type.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size']         = '\\n Maximum file size must be: %s KB.';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_successful']         = "%s successfully uploaded: \\n- Size: %s KB \\n- Image Width x Height: %s x %s";
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_error']              = "Unable to upload the file";
