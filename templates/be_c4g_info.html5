@@ -53,12 +53,14 @@
 		<div>
 
 			<?php if ($GLOBALS['con4gis_forum_extension']['installed']): ?>
+                <!--
         		<?php echo C4GHTMLFactory::imgLink( array(
         			target 		=> '_blank',
         			c4gImg 		=> 'contao-board',
                     href        => 'https://community.contao.org/de/showthread.php? XXX ',
         			label 		=> $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']
         		)); ?>
+                -->
         		<?php echo C4GHTMLFactory::imgLink( array(
         			target 		=> '_blank',
         			href 		=> 'https://www.github.com/kuestenschmiede/con4gis_forum',
