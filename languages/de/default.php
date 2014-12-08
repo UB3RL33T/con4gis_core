@@ -35,6 +35,7 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['TRANSFEREDCOL'] = '%d Felder erfolgreich übertragen';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_1']  = 'Transfer erfolgreich abgeschlossen.';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_2']  = 'Contao-Einstellung erfolgreich abgeschlossen. Das Modul "cfs_%s" kann jetzt deinstalliert werden.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_3']  = 'Datenbankaktualisierung erforderlich.';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['FAIL']      = 'Fehlgeschlagen';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['FAILMSG_1'] = '%d von %d Übertragungen fehlgeschlagen. Bitte überprüfen Sie Ihre Installation und versuchen Sie es erneut.';
@@ -43,6 +44,7 @@
 // button
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['MIGRATE']   = 'Migration starten';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['UNINSTALL'] = '"cfs_%s" deinstallieren';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['DBUPDATE']  = 'Datenbank aktualisieren';
 
 // links
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']  = 'Community Forum (DE)';
@@ -51,21 +53,22 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']       = '%s installieren';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']     = 'con4gis Projektwebsite';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']   = 'Küstenschmiede @ GitHub';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osm_website']         = 'Website der OpenStreetMap';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['ol_website']          = 'OpenLayers Website';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['overpassapi_website'] = 'Overpass-API Informationen';
 
 
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_successful']         = "%s successfully uploaded: \\n- Size: %s KB";
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error']              = "Unable to upload the file";
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension']  = 'The file: %s has not the allowed extension type.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size']       = '\\n Maximum file size must be: %s KB.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_successful']         = "%s erfolgreich hochgeladen: \\n- Größe: %s KB";
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error']              = "Die Datei konnte nicht hochgeladen werden";
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension']  = 'Die Datei: %s hat keinen erlaubten Erweiterungs-Typen.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size']       = '\\n Die Datei darf nicht größer sein als: %s KB.';
 
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_successful']         = "%s successfully uploaded: \\n- Size: %s KB \\n- Image Width x Height: %s x %s";
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_error']              = "Unable to upload the file";
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_extension']  = 'The file: %s has not the allowed extension type.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size']       = '\\n Maximum file size must be: %s KB.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_dimensions'] = '\\n Width x Height = %s x %s \\n The maximum Width x Height must be: %s x %s';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_successful']         = "%s erfolgreich hochgeladen: \\n- Größe: %s KB \\n- Bild Breite x Höhe: %s x %s";
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_error']              = "Das Bild konnte nicht hochgeladen werden";
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_extension']  = 'Das Bild: %s hat ein nicht erlaubtem Format.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size']       = '\\n Das Bild draf nicht größer sein als: %s KB.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_dimensions'] = '\\n Breite x Höhe = %s x %s \\n Die Maße dürfen nicht größer sein als: %s x %s';
 
     // messages for exceptions by code
     // $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['exception_xxx'] = "";

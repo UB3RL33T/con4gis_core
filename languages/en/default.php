@@ -34,7 +34,8 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['TRANSFEREDROW'] = 'Successfully transfered %d of %d rows';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['TRANSFEREDCOL'] = 'Successfully transfered %d columns';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_1']  = 'Transfer complete.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_2']  = 'Reconfiguration complete. You can now uninstall "cfs_%s".';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_2']  = 'Reconfiguration complete. The module "cfs_%s" can now be uninstalled.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_3']  = 'Database update required';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['FAIL']      = 'Failed';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['FAILMSG_1'] = '%d of %d transfers failed. Please check your installation and try again.';
@@ -43,6 +44,7 @@
 // button
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['MIGRATE']   = 'Migrate data';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['UNINSTALL'] = 'Uninstall "cfs_%s"';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['DBUPDATE']  = 'Update database';
 
 // links
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']  = 'Community Board (DE)';
@@ -51,15 +53,16 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']       = 'Install %s';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']     = 'Website Project';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']   = 'Coastforge @ GitHub';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osm_website']         = 'Website OpenStreetMap';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['ol_website']          = 'Website OpenLayers';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['overpassapi_website'] = 'Overpass-API informations';
 
 
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_successful']       = "%s successfully uploaded: \\n- Size: %s KB";
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error']            = "Unable to upload the file";
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension'] = 'The file: %s has not the allowed extension type.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size']     = '\\n Maximum file size must be: %s KB.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_successful']           = "%s successfully uploaded: \\n- Size: %s KB";
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error']                = "Unable to upload the file";
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_extension']    = 'The file: %s has not the allowed extension type.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_invalid_size']         = '\\n Maximum file size must be: %s KB.';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_successful']         = "%s successfully uploaded: \\n- Size: %s KB \\n- Image Width x Height: %s x %s";
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_error']              = "Unable to upload the file";

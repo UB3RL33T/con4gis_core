@@ -43,7 +43,7 @@
         		)); ?>
         	<?php endif; ?>
         -->
-        <img src="system/modules/con4gis_core/assets/images/commingsoon.png" width="300" height="75" alt="comming_soon">
+        <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="comming_soon">
 		</div>
 	</fieldset>
 
@@ -51,13 +51,16 @@
 		<legend onclick="AjaxRequest.toggleFieldset(this,'c4g_forum')">con4gis-forum</legend>
 
 		<div>
-        <!--
+
 			<?php if ($GLOBALS['con4gis_forum_extension']['installed']): ?>
+                <!--
         		<?php echo C4GHTMLFactory::imgLink( array(
         			target 		=> '_blank',
         			c4gImg 		=> 'contao-board',
+                    href        => 'https://community.contao.org/de/showthread.php? XXX ',
         			label 		=> $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']
         		)); ?>
+                -->
         		<?php echo C4GHTMLFactory::imgLink( array(
         			target 		=> '_blank',
         			href 		=> 'https://www.github.com/kuestenschmiede/con4gis_forum',
@@ -65,12 +68,12 @@
         			label 		=> $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
         		)); ?>
         		<?php if ($GLOBALS['cfs_forum_extension']['installed']): ?>
-				<?php echo C4GHTMLFactory::imgLink( array(
-					addClass 	=> 'floatR',
-					href 		=> \Environment::get('script') . '?do=c4g_core&perf=migrate&mod=forum',
-	        			c4gImg 		=> 'migrate',
-	        			label 		=> $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL']
-	        		)); ?>
+    				<?php echo C4GHTMLFactory::imgLink( array(
+    					addClass 	=> 'floatR',
+    					href 		=> \Environment::get('script') . '?do=c4g_core&perf=migrate&mod=forum',
+    	        			c4gImg 		=> 'migrate',
+    	        			label 		=> $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL']
+    	        		)); ?>
         		<?php endif; ?>
         	<?php else: ?>
         		<?php echo C4GHTMLFactory::imgLink( array(
@@ -79,8 +82,8 @@
         			label 		=> sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL'], 'con4gis_forum')
         		)); ?>
         	<?php endif; ?>
-        -->
-        <img src="system/modules/con4gis_core/assets/images/commingsoon.png" width="300" height="75" alt="comming_soon">
+
+        <!-- <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="comming_soon"> -->
 		</div>
 	</fieldset>
 
@@ -109,17 +112,22 @@
         		)); ?>
         	<?php endif; ?>
         -->
-        <img src="system/modules/con4gis_core/assets/images/commingsoon.png" width="300" height="75" alt="comming_soon">
+        <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="comming_soon">
 		</div>
 	</fieldset>
 
 	<fieldset id="pal_c4g_links" class="tl_box">
 		<legend onclick="AjaxRequest.toggleFieldset(this,'c4g_links')">links</legend>
 		<div>
-            <ul> 
+            <ul>
                 <li>
                     <a href="http://con4gis.org" target="_blank"><span>
                         <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']?>
+                    </span></a>
+                </li>
+                <li>
+                    <a href="http://github.com/Kuestenschmiede/" target="_blank"><span>
+                        <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']?>
                     </span></a>
                 </li>
                 <li>
@@ -137,14 +145,14 @@
                         <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['overpassapi_website']?>
                     </span></a>
                 </li>
-            </ul>                        
+            </ul>
         </div>
 	</fieldset>
 
 </div>
 <div id="c4g_footer" class="tl_box c4g_info">
 	<!-- <img src="system/modules/con4gis_core/assets/images/con4gis_info_head.png" width="741" height="100" alt="con4gis_info_head"> -->
-	<span><?php 
+	<span><?php
 		echo sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['FOOTER'],
 			             '<a href="https://www.kuestenschmiede.de" target="_blank">K&uuml;stenschmiede GmbH Software & Design</a>'
 			);
