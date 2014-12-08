@@ -43,7 +43,7 @@
         		)); ?>
         	<?php endif; ?>
         -->
-        <img src="system/modules/con4gis_core/assets/images/commingsoon.png" width="300" height="75" alt="comming_soon">
+        <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="comming_soon">
 		</div>
 	</fieldset>
 
@@ -83,7 +83,7 @@
         		)); ?>
         	<?php endif; ?>
 
-        <!-- <img src="system/modules/con4gis_core/assets/images/commingsoon.png" width="300" height="75" alt="comming_soon"> -->
+        <!-- <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="comming_soon"> -->
 		</div>
 	</fieldset>
 
@@ -112,7 +112,7 @@
         		)); ?>
         	<?php endif; ?>
         -->
-        <img src="system/modules/con4gis_core/assets/images/commingsoon.png" width="300" height="75" alt="comming_soon">
+        <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="comming_soon">
 		</div>
 	</fieldset>
 
