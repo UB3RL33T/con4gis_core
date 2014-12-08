@@ -57,6 +57,8 @@ class C4GMigration extends \BackendModule
                 break;
             case 'back':
                 \Controller::redirect( \Environment::get('script') . '?do=c4g_core' );
+            case 'dbupdate':
+                \Controller::redirect( \Environment::get('script') . '?do=repository_manager&update=database' );
             case 'uninstall':
                 \Controller::redirect( \Environment::get('script') . '?do=repository_manager&uninstall=cfs_' . $this->module );
             case 'init':
@@ -230,6 +232,13 @@ class C4GMigration extends \BackendModule
                 $this->output[] = '<br><span class="c4g_successblock">' .
                                 sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_2'], $this->module ) .
                                 '</span>';
+                $this->output[] = '<br><span class="c4g_warningblock">' .
+                                sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['SUCCESSMSG_3'], $this->module ) .
+                                '</span>';
+                $this->buttons[] = array(
+                    action  => 'dbupdate',
+                    label   => sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['DBUPDATE'], $this->module)
+                );
                 $this->buttons[] = array(
                     action  => 'uninstall',
                     label   => sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['UNINSTALL'], $this->module)
