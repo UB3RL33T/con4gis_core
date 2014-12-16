@@ -27,7 +27,7 @@
   # Depending on your server, you might have to remove the line entirely.
   ##
 #  RewriteBase /system/modules/con4gis_core/api/
-
+    RewriteBase /system/modules/con4gis_core/api/
 
   ##
   # By default, Contao adds ".html" to the generated URLs to simulate static
