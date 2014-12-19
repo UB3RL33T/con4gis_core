@@ -1,7 +1,7 @@
-con4gis-core
+con4gis-Core
 ==============
 
-part of the gis-kit con4gis
+Part of the GIS-kit con4gis
 
 - [x] con4gis_core
 - [ ] con4gis_maps https://github.com/Kuestenschmiede/con4gis_maps
