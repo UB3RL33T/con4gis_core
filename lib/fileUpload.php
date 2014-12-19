@@ -13,20 +13,20 @@
         }
 
 
-        \Contao\System::loadLanguageFile("default");
+        \System::loadLanguageFile("default");
 
 
         // xss cleanup
-        $_FILES = \Contao\Input::xssClean($_FILES);
+        $_FILES = \Input::xssClean($_FILES);
 
-        $sServerName = \Contao\Environment::get("serverName");
-        $sRequestUri = \Contao\Environment::get("requestUri");
-        $sHttps      = \Contao\Environment::get("https");
-        $path        = \Contao\Environment::get("path");
+        $sServerName = \Environment::get("serverName");
+        $sRequestUri = \Environment::get("requestUri");
+        $sHttps      = \Environment::get("https");
+        $path        = \Environment::get("path");
 
 
-        $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisFileUploadPath");
-        $sConfigUploadPath = \Contao\Input::xssClean($sConfigUploadPath);
+        $sConfigUploadPath = \Session::getInstance()->get("con4gisFileUploadPath");
+        $sConfigUploadPath = \Input::xssClean($sConfigUploadPath);
         $sSubfolder        = date("Y-m-d");
 
         //if not configured, use fallbackpath
@@ -47,23 +47,23 @@
         }
 
 
-        $sValidFileTypes = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_uploadTypes");
-        $sMaxFileSize    = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_maxFileSize");
+        $sValidFileTypes = \Session::getInstance()->get("c4g_forum_bbcodes_editor_uploadTypes");
+        $sMaxFileSize    = \Session::getInstance()->get("c4g_forum_bbcodes_editor_maxFileSize");
 
 
 
         if (empty($sValidFileTypes)) {
             // get system-configured allowed filetypes
-            $sValidFileTypes = \Contao\Config::get("uploadTypes");
+            $sValidFileTypes = \Config::get("uploadTypes");
         }
         if (empty($sMaxFileSize)) {
             // get system-configured max filesize
-            $sMaxFileSize = \Contao\Config::get("maxFileSize");
+            $sMaxFileSize = \Config::get("maxFileSize");
         }
 
 
-        $sValidFileTypes = \Contao\Input::xssClean($sValidFileTypes);
-        $sMaxFileSize    = \Contao\Input::xssClean($sMaxFileSize);
+        $sValidFileTypes = \Input::xssClean($sValidFileTypes);
+        $sMaxFileSize    = \Input::xssClean($sMaxFileSize);
 
         //config array
         $aConfig = array(
@@ -72,7 +72,7 @@
         );
 
         $sReturn         = '';
-        $CKEditorFuncNum = \Contao\Input::get('CKEditorFuncNum');
+        $CKEditorFuncNum = \Input::get('CKEditorFuncNum');
         if (!empty($_FILES['uploadFile']) && strlen($_FILES['uploadFile']['name']) > 1 && !empty($_FILES['uploadFile']['tmp_name'])) {
             $aInfo         = pathinfo($_FILES['uploadFile']['name']);
             $sUploadDir    = trim($sUploadDir, '/') . '/';

@@ -1,6 +1,6 @@
 <?php
 // PHP Upload Script for CKEditor:  http://coursesweb.net/
-
+ini_set("display_errors","1");
     try {
         define("TL_MODE", "FE");
         $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../";
@@ -14,23 +14,23 @@
         }
 
 
-        \Contao\System::loadLanguageFile("default");
+        \System::loadLanguageFile("default");
 
         // xss cleanup
-        $_FILES = \Contao\Input::xssClean($_FILES);
+        $_FILES = \Input::xssClean($_FILES);
 
-        $sServerName = \Contao\Environment::get("serverName");
-        $sRequestUri = \Contao\Environment::get("requestUri");
-        $sHttps      = \Contao\Environment::get("https");
-        $path        = \Contao\Environment::get("path");
+        $sServerName = \Environment::get("serverName");
+        $sRequestUri = \Environment::get("requestUri");
+        $sHttps      = \Environment::get("https");
+        $path        = \Environment::get("path");
 
-        $sConfigUploadPath = \Contao\Session::getInstance()->get("con4gisImageUploadPath");
-        $sConfigUploadPath = \Contao\Input::xssClean($sConfigUploadPath);
+        $sConfigUploadPath = \Session::getInstance()->get("con4gisImageUploadPath");
+        $sConfigUploadPath = \Input::xssClean($sConfigUploadPath);
         $sSubfolder        = date("Y-m-d");
 
         //if not configured, use fallbackpath
         if (empty($sConfigUploadPath)) {
-            $sUploadPath = \Contao\Config::get("uploadPath");
+            $sUploadPath = \Config::get("uploadPath");
             $sUploadDir  = "/" . $sUploadPath . "/uploads/";
         } else {
             $sUploadDir = "/" . $sConfigUploadPath;
@@ -48,33 +48,33 @@
         // HERE SET THE PATH TO THE FOLDER WITH IMAGES ON YOUR SERVER (RELATIVE TO THE ROOT OF YOUR WEBSITE ON SERVER)
 
 
-        $sValidFileTypes = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_uploadTypes");
-        $sMaxFileSize    = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_maxFileSize");
-        $sMaxImageWidth  = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_imageWidth");
-        $sMaxImageheight = \Contao\Session::getInstance()->get("c4g_forum_bbcodes_editor_imageHeight");
+        $sValidFileTypes = \Session::getInstance()->get("c4g_forum_bbcodes_editor_uploadTypes");
+        $sMaxFileSize    = \Session::getInstance()->get("c4g_forum_bbcodes_editor_maxFileSize");
+        $sMaxImageWidth  = \Session::getInstance()->get("c4g_forum_bbcodes_editor_imageWidth");
+        $sMaxImageheight = \Session::getInstance()->get("c4g_forum_bbcodes_editor_imageHeight");
 
 
         if (empty($sValidFileTypes)) {
             // get system-configured allowed filetypes
-            $sValidFileTypes = \Contao\Config::get("uploadTypes");
+            $sValidFileTypes = \Config::get("uploadTypes");
         }
         if (empty($sMaxFileSize)) {
             // get system-configured max filesize
-            $sMaxFileSize = \Contao\Config::get("maxFileSize");
+            $sMaxFileSize = \Config::get("maxFileSize");
         }
         if (empty($sMaxImageWidth)) {
             // get system-configured max filesize
-            $sMaxImageWidth = \Contao\Config::get("imageWidth");
+            $sMaxImageWidth = \Config::get("imageWidth");
         }
         if (empty($sMaxImageheight)) {
             // get system-configured max filesize
-            $sMaxImageheight = \Contao\Config::get("imageHeight");
+            $sMaxImageheight = \Config::get("imageHeight");
         }
 
-        $sValidFileTypes = \Contao\Input::xssClean($sValidFileTypes);
-        $sMaxFileSize    = \Contao\Input::xssClean($sMaxFileSize);
-        $sMaxImageWidth  = \Contao\Input::xssClean($sMaxImageWidth);
-        $sMaxImageheight = \Contao\Input::xssClean($sMaxImageheight);
+        $sValidFileTypes = \Input::xssClean($sValidFileTypes);
+        $sMaxFileSize    = \Input::xssClean($sMaxFileSize);
+        $sMaxImageWidth  = \Input::xssClean($sMaxImageWidth);
+        $sMaxImageheight = \Input::xssClean($sMaxImageheight);
 
 
         // HERE PERMISSIONS FOR IMAGE
@@ -90,7 +90,7 @@
         $sReturn = '';
 
 
-        $CKEditorFuncNum = \Contao\Input::get('CKEditorFuncNum');
+        $CKEditorFuncNum = \Input::get('CKEditorFuncNum');
         if (!empty($_FILES['upload']) && strlen($_FILES['upload']['name']) > 1 && !empty($_FILES['upload']['tmp_name'])) {
             $sUploadDir = trim($sUploadDir, '/') . '/';
             $img_name   = basename($_FILES['upload']['name']);
