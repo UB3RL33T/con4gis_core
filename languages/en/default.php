@@ -49,6 +49,7 @@
 // links
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']  = 'Community Board (DE)';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']        = 'Fork on github';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']     = 'Get the App <br>(Android)';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL'] = 'Migrationtool';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']       = 'Install %s';
 
