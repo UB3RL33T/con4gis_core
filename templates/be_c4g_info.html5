@@ -77,7 +77,7 @@
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
                     addClass    => 'floatR',
-                    href        => 'https://play.google.com/store/apps/details?id=com.janoscholtmanns.con4gis.app4gis_tracking',
+                    href        => 'https://play.google.com/store/apps/details?id=org.con4gis.app4gis_tracking',
                     c4gImg      => 'playstore',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']
                 )); ?>
