@@ -7,9 +7,9 @@
  * @package   con4gis
  * @author    Tobias Dobbrunz
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2014
+ * @copyright Küstenschmiede GmbH Software & Design 2014 - 2015
  * @link      https://www.kuestenschmiede.de
- * @filesource 
+ * @filesource
  */
 
 namespace c4g;
@@ -26,7 +26,7 @@ class C4GInfo extends \BackendModule
     public function generate()
     {
         $GLOBALS['TL_CSS'][] = 'system/modules/con4gis_core/assets/css/be_c4g_info.css';
-        
+
     	// check for actions (atm only "migrate")
     	if (\Input::get('perf') != '' && \Input::get('perf') == 'migrate') {
     		if (\Input::get('mod') != '') {
