@@ -74,7 +74,6 @@
                     c4gImg      => 'github',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
                 )); ?>
-                <!--
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
                     addClass    => 'floatR',
@@ -82,7 +81,6 @@
                     c4gImg      => 'playstore',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']
                 )); ?>
-                -->
             <?php else: ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     c4gImg      => 'install',
