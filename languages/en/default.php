@@ -7,7 +7,7 @@
      * @package   con4gis
      * @author    Tobias Dobbrunz <http://www.kuestenschmiede.de>;
      * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
-     * @copyright Küstenschmiede GmbH Software & Design 2014
+     * @copyright Küstenschmiede GmbH Software & Design 2014 - 2015
      * @link      https://www.kuestenschmiede.de
      * @filesource
      */
@@ -49,6 +49,7 @@
 // links
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']  = 'Community Board (DE)';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']        = 'Fork on github';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']     = 'Get the App <br>(Android)';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL'] = 'Migrationtool';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']       = 'Install %s';
 
