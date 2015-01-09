@@ -102,6 +102,73 @@ class C4GUtils
 		return preg_match( '/([^@]+@{1}[^@\.]+\.{1}[A-Za-z0-9]+)/', $mail );
 	}
 
+	/**
+   * function to send mails
+   * @param array $mailData
+   * @return multitype:string
+   */
+  public static function sendMail ($mailData)
+  {
+    // preparemail
+    $data = array();
+    $data['command'] = 'sendmail';
+    $data['charset'] = 'UTF-8';
+
+    if ($mailData['from']) {
+    	$data['from'] = $mailData['from'];
+    } elseif ($GLOBALS ['TL_CONFIG'] ['useSMTP'] and filter_var( $GLOBALS ['TL_CONFIG'] ['smtpUser'] )) {
+      $data['from'] = $GLOBALS ['TL_CONFIG'] ['smtpUser'];
+    } else {
+      $data['from'] = $GLOBALS ['TL_CONFIG'] ['adminEmail'];
+    }
+
+    // check if fields are filled and prepare the data for sending
+    //
+    // reciever
+    if (empty( $mailData['to'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_ADDRESS']
+      );
+    } else {
+      //@TODO check if address is valid
+      $data['to'] = $mailData['to'];
+    }
+    // subject
+    if (empty( $data['subject'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_SUBJECT']
+      );
+    } else {
+      $data['subject'] = $mailData['subject'];
+    }
+    // message-text
+    if (empty( $data['text'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_MESSAGE']
+      );
+    } else {
+      $data['text'] = $mailData['text'];
+    }
+
+    //send mail
+    $cron[] = $data;
+    if ($cron) {
+      // send mails via cron job, (will be triggered in Javascript part)
+      $filename = md5(uniqid(mt_rand(), true));
+      $objFile = fopen(TL_ROOT . '/system/tmp/' . $filename.'.tmp', 'wb');
+      fputs($objFile, serialize($cron));
+      fclose($objFile);
+    }
+
+    return array
+    (
+      'cronexec' => $filename
+    );
+  } // end of function "sendMail"
+
 	public static function startsWith ( $haystack, $needle )
 	{
 	    $length = strlen($needle);
