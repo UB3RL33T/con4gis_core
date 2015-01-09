@@ -109,20 +109,33 @@ class C4GUtils
    */
   public static function sendMail ($mailData)
   {
-    // preparemail
-    $data = array();
-    $data['command'] = 'sendmail';
-    $data['charset'] = 'UTF-8';
+		try {
+    	// preparemail
+			$eMail = new \Email();
+			$eMail->charset = $data['charset'] ?: 'UTF-8';
 
-    if ($mailData['from']) {
-    	$data['from'] = $mailData['from'];
-    } elseif ($GLOBALS ['TL_CONFIG'] ['useSMTP'] and filter_var( $GLOBALS ['TL_CONFIG'] ['smtpUser'] )) {
-      $data['from'] = $GLOBALS ['TL_CONFIG'] ['smtpUser'];
-    } else {
-      $data['from'] = $GLOBALS ['TL_CONFIG'] ['adminEmail'];
-    }
+			$eMail->from = $data['from'];
+	    if ($mailData['from']) {
+	    	$eMail->from = $mailData['from'];
+	    } elseif ($GLOBALS['TL_CONFIG']['useSMTP'] and filter_var( $GLOBALS['TL_CONFIG']['smtpUser'] )) {
+	      $eMail->from = $GLOBALS['TL_CONFIG']['smtpUser'];
+	    } else {
+	      $eMail->from = $GLOBALS['TL_CONFIG']['adminEmail'];
+	    }
 
-    // check if fields are filled and prepare the data for sending
+			$eMail->subject = $mailData['subject'];
+			$eMail->text = $mailData['text'];
+			$eMail->sendTo($mailData['to']);
+			unset($eMail);
+		} catch ( Swift_RfcComplianceException $e ) {
+			return false;
+		}
+		return true;
+	}
+
+	public static function getMailErrors($mailData)
+	{
+    // check if fields are filled
     //
     // reciever
     if (empty( $mailData['to'] )) {
@@ -130,43 +143,23 @@ class C4GUtils
       (
         'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_ADDRESS']
       );
-    } else {
-      //@TODO check if address is valid
-      $data['to'] = $mailData['to'];
     }
     // subject
-    if (empty( $data['subject'] )) {
+    if (empty( $mailData['subject'] )) {
       return array
       (
         'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_SUBJECT']
       );
-    } else {
-      $data['subject'] = $mailData['subject'];
     }
     // message-text
-    if (empty( $data['text'] )) {
+    if (empty( $mailData['text'] )) {
       return array
       (
         'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_MESSAGE']
       );
-    } else {
-      $data['text'] = $mailData['text'];
     }
 
-    //send mail
-    $cron[] = $data;
-    if ($cron) {
-      // send mails via cron job, (will be triggered in Javascript part)
-      $filename = md5(uniqid(mt_rand(), true));
-      $objFile = fopen(TL_ROOT . '/system/tmp/' . $filename.'.tmp', 'wb');
-      fputs($objFile, serialize($cron));
-      fclose($objFile);
-    }
-
-    return array
-    (
-      'cronexec' => $filename
-    );
+    return array();
   } // end of function "sendMail"
 
 	public static function startsWith ( $haystack, $needle )
