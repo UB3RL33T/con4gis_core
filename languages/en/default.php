@@ -71,6 +71,11 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_size']       = '\\n Maximum file size must be: %s KB.';
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_invalid_dimensions'] = '\\n Width x Height = %s x %s \\n The maximum Width x Height must be: %s x %s';
 
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['INVALID_EMAIL_ADDRESS']        = 'Invalid email-address.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_ADDRESS']             = 'Please type in at least one valid email-address.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_SUBJECT']             = 'Please enter a subject for this email.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_MESSAGE']             = 'Please enter a message for this email.';
+
     // messages for exceptions by code
     // $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['exception_xxx'] = "";
 ?>

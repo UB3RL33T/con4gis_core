@@ -102,6 +102,66 @@ class C4GUtils
 		return preg_match( '/([^@]+@{1}[^@\.]+\.{1}[A-Za-z0-9]+)/', $mail );
 	}
 
+	/**
+   * function to send mails
+   * @param array $mailData
+   * @return multitype:string
+   */
+  public static function sendMail ($mailData)
+  {
+		try {
+    	// preparemail
+			$eMail = new \Email();
+			$eMail->charset = $data['charset'] ?: 'UTF-8';
+
+			$eMail->from = $data['from'];
+	    if ($mailData['from']) {
+	    	$eMail->from = $mailData['from'];
+	    } elseif ($GLOBALS['TL_CONFIG']['useSMTP'] and filter_var( $GLOBALS['TL_CONFIG']['smtpUser'] )) {
+	      $eMail->from = $GLOBALS['TL_CONFIG']['smtpUser'];
+	    } else {
+	      $eMail->from = $GLOBALS['TL_CONFIG']['adminEmail'];
+	    }
+
+			$eMail->subject = $mailData['subject'];
+			$eMail->text = $mailData['text'];
+			$eMail->sendTo($mailData['to']);
+			unset($eMail);
+		} catch ( Swift_RfcComplianceException $e ) {
+			return false;
+		}
+		return true;
+	}
+
+	public static function getMailErrors($mailData)
+	{
+    // check if fields are filled
+    //
+    // reciever
+    if (empty( $mailData['to'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_ADDRESS']
+      );
+    }
+    // subject
+    if (empty( $mailData['subject'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_SUBJECT']
+      );
+    }
+    // message-text
+    if (empty( $mailData['text'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_MESSAGE']
+      );
+    }
+
+    return array();
+  } // end of function "sendMail"
+
 	public static function startsWith ( $haystack, $needle )
 	{
 	    $length = strlen($needle);
