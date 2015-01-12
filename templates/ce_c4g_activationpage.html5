@@ -1,0 +1,13 @@
+<div class="ce_c4g_activationpage block <?php echo $this->class; ?>"<?php echo $this->cssID; if ($this->style){ echo ' style="'.$this->style.'"'; } ?>>
+
+	<h1><?php echo $this->title; ?></h1>
+
+	<?php if (!empty( $this->output )): // only create this div, if there is an output ?>
+		<div class="c4g_ap_output <?php if( $this->seperateOutput ){ echo ' ' . $this->state; } // if different outputs should have different classes (e.g. for styling) ?>">
+			<span>
+			  <?php echo $this->output; ?>
+			</span>
+		</div>
+	<?php endif; ?>
+
+</div>
