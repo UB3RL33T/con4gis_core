@@ -17,167 +17,227 @@ namespace c4g;
 
 class C4GUtils
 {
-	/**
-	 * Secure user generated content
-	 * @param $str
-	 */
-	public static function secure_ugc ($str)
-	{
-		// kritische Kontrollzeichen rausfiltern
-		$search = array( chr(0), chr(1), chr(2), chr(3), chr(4), chr(5), chr(6), chr(7), chr(8),
-		                 chr(11), chr(12), chr(14), chr(15), chr(16), chr(17), chr(18), chr(19) );
-		$result = str_replace( $search, ' ', $str );
+  /**
+   * Secure user generated content
+   * @param $str
+   */
+  public static function secure_ugc ($str)
+  {
+    // kritische Kontrollzeichen rausfiltern
+    $search = array( chr(0), chr(1), chr(2), chr(3), chr(4), chr(5), chr(6), chr(7), chr(8),
+                     chr(11), chr(12), chr(14), chr(15), chr(16), chr(17), chr(18), chr(19) );
+    $result = str_replace( $search, ' ', $str );
 
-		// Unerwünschte Unicode Sonderzeichen z.B. zur Umkehrung des Textflusses entfernen
-		$regex 	= '/(?:%E(?:2|3)%8(?:0|1)%(?:A|8|9)\w)/i';
-		$result = urldecode(preg_replace($regex,' ',urlencode($result)));
+    // Unerwünschte Unicode Sonderzeichen z.B. zur Umkehrung des Textflusses entfernen
+    $regex  = '/(?:%E(?:2|3)%8(?:0|1)%(?:A|8|9)\w)/i';
+    $result = urldecode(preg_replace($regex,' ',urlencode($result)));
 
-		// Eingangs-Html formatieren und überflüssige Leerzeichen entfernen
-		return trim(htmlspecialchars($result));
-	}
+    // Eingangs-Html formatieren und überflüssige Leerzeichen entfernen
+    return trim(htmlspecialchars($result));
+  }
 
-	/**
-	 * Flatten a multi dimensional array
-	 * @param array $a
-	 */
-	public static function array_flatten ($a)
-	{
-    	$ab = array();
-    	if(!is_array($a))
-    		return $ab;
-    	foreach($a as $value){
-        	if(is_array($value)){
-            	$ab = array_merge($ab,self::array_flatten($value));
-        	}else{
-            	array_push($ab,$value);
-        	}
-    	}
-    	return $ab;
-	}
+  /**
+   * Flatten a multi dimensional array
+   * @param array $a
+   */
+  public static function array_flatten ($a)
+  {
+      $ab = array();
+      if(!is_array($a))
+        return $ab;
+      foreach($a as $value){
+          if(is_array($value)){
+              $ab = array_merge($ab,self::array_flatten($value));
+          }else{
+              array_push($ab,$value);
+          }
+      }
+      return $ab;
+  }
 
-	/**
-	 * @param array $params
-	 */
-	public static function addParametersToURL ( $url, $params )
-	{
-		list( $urlpart, $qspart ) = array_pad( explode( '?', $url, 2 ), 2, '' );
-		if (!$urlpart) {
-			$urlpart = $url;
-		}
-		parse_str( $qspart, $qsvars );
-		foreach ($params AS $key=>$value)
-		{
-			$qsvars[$key] = $value;
-		}
-		$newqs = http_build_query( $qsvars );
-		return $urlpart . '?' . $newqs;
-	}
+  /**
+   * @param array $params
+   */
+  public static function addParametersToURL ( $url, $params )
+  {
+    list( $urlpart, $qspart ) = array_pad( explode( '?', $url, 2 ), 2, '' );
+    if (!$urlpart) {
+      $urlpart = $url;
+    }
+    parse_str( $qspart, $qsvars );
+    foreach ($params AS $key=>$value)
+    {
+      $qsvars[$key] = $value;
+    }
+    $newqs = http_build_query( $qsvars );
+    return $urlpart . '?' . $newqs;
+  }
 
-	/**
-	 * adds default options for dialogs to an array
-	 * @param array $options
-	 */
-	public static function addDefaultDialogOptions ( $options )
-	{
-		$options['show'] = 'fold';
-		$options['hide'] = 'fold';
-		if (!isset( $options['width'] )) {
-			$options['width'] = 'auto';
-		}
-		if (!isset( $options['height'] )) {
-			$options['height'] = 'auto';
-		}
-		return $options;
-	}
+  /**
+   * adds default options for dialogs to an array
+   * @param array $options
+   */
+  public static function addDefaultDialogOptions ( $options )
+  {
+    $options['show'] = 'fold';
+    $options['hide'] = 'fold';
+    if (!isset( $options['width'] )) {
+      $options['width'] = 'auto';
+    }
+    if (!isset( $options['height'] )) {
+      $options['height'] = 'auto';
+    }
+    return $options;
+  }
 
-	/**
-	 * validates an email-address
-	 * returns "1" if valid
-	 * @param string $mail
-	 * @return number
-	 */
-	public static function emailIsValid ( $mail )
-	{
-		$mail = trim( $mail );
-		return preg_match( '/([^@]+@{1}[^@\.]+\.{1}[A-Za-z0-9]+)/', $mail );
-	}
+  /**
+   * validates an email-address
+   * returns "1" if valid
+   * @param string $mail
+   * @return number
+   */
+  public static function emailIsValid ( $mail )
+  {
+    $mail = trim( $mail );
+    return preg_match( '/([^@]+@{1}[^@\.]+\.{1}[A-Za-z0-9]+)/', $mail );
+  }
 
-	public static function startsWith ( $haystack, $needle )
-	{
-	    $length = strlen($needle);
-	    return (substr($haystack, 0, $length) === $needle);
-	}
+  /**
+   * function to send mails
+   * @param array $mailData
+   * @return multitype:string
+   */
+  public static function sendMail ($mailData)
+  {
+    try {
+      // preparemail
+      $eMail = new \Email();
+      $eMail->charset = $data['charset'] ?: 'UTF-8';
 
-	public static function endsWith ( $haystack, $needle )
-	{
-	    $length = strlen($needle);
-	    if ($length == 0) {
-	    	return true;
-	    }
+      $eMail->from = $data['from'];
+      if ($mailData['from']) {
+        $eMail->from = $mailData['from'];
+      } elseif ($GLOBALS['TL_CONFIG']['useSMTP'] and filter_var( $GLOBALS['TL_CONFIG']['smtpUser'] )) {
+        $eMail->from = $GLOBALS['TL_CONFIG']['smtpUser'];
+      } else {
+        $eMail->from = $GLOBALS['TL_CONFIG']['adminEmail'];
+      }
 
-	    return (substr( $haystack, -$length ) === $needle);
-	}
+      $eMail->subject = $mailData['subject'];
+      $eMail->text = $mailData['text'];
+      $eMail->sendTo($mailData['to']);
+      unset($eMail);
+    } catch ( Swift_RfcComplianceException $e ) {
+      return false;
+    }
+    return true;
+  }
 
-	/**
-	 * compresses the raw data set for searching/indexing
-	 * and removes stopwords
-	 * @param array (of strings) 	$rawDataSet
-	 * @return string 				[compressed data]
-	 */
-	public static function compressDataSetForSearch ( $rawDataSet, $stripStopwords=true )
-	{
-		$dSearch = array(
-				'#ß#',
-				'#Ä|ä#',
-				'#Ö|ö#',
-				'#Ü|ü#',
-				'#Á|á|À|à|Â|â#',
-				'#Ó|ó|Ò|ò|Ô|ô#',
-				'#Ú|ú|Ù|ù|Û|û#',
-				'#É|é|È|è|Ê|ê#',
-				'#Í|í|Ì|ì|Î|î#',
-				'#([/.,+-]*\s)#',
-				'#([^A-Za-z])#',
-				'# +#'
-				);
-		$dReplace = array(
-				'ss',
-				'ae',
-				'oe',
-				'ue',
-				'a',
-				'o',
-				'u',
-				'e',
-				'i',
-				' ',
-				' ',
-				' '
-				);
+  public static function getMailErrors($mailData)
+  {
+    // check if fields are filled
+    //
+    // reciever
+    if (empty( $mailData['to'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_ADDRESS']
+      );
+    }
+    // subject
+    if (empty( $mailData['subject'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_SUBJECT']
+      );
+    }
+    // message-text
+    if (empty( $mailData['text'] )) {
+      return array
+      (
+        'usermessage' => $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_MESSAGE']
+      );
+    }
 
-		$dataSet = trim( stripslashes( strip_tags( $dataSet ) ) );
-		$dataSet = preg_replace( $dSearch, $dReplace, $rawDataSet );
-		$dataSet = trim( strtolower( $dataSet ) );
+    return array();
+  } // end of function "sendMail"
 
-		unset( $dSearch );
-		unset( $dReplace );
+  public static function startsWith ( $haystack, $needle )
+  {
+      $length = strlen($needle);
+      return (substr($haystack, 0, $length) === $needle);
+  }
 
-		if ($stripStopwords) {
-			$dSearch = array(
-					'#(\s[A-Za-z]{1,2})\s#',
-					'# ' . implode( ' | ', $GLOBALS['TL_LANG']['C4G_FORUM']['STOPWORDS'] ) . ' #',
-					'# +#'
-			);
-			$dReplace = array(
-					' ',
-					' ',
-					' '
-			);
+  public static function endsWith ( $haystack, $needle )
+  {
+      $length = strlen($needle);
+      if ($length == 0) {
+        return true;
+      }
 
-			$dataSet = ' ' . str_replace( ' ', '  ', $dataSet ) . ' ';
-			$dataSet = trim( preg_replace( $dSearch, $dReplace, $dataSet ) );
-		}
-		return $dataSet;
-	}
+      return (substr( $haystack, -$length ) === $needle);
+  }
+
+  /**
+   * compresses the raw data set for searching/indexing
+   * and removes stopwords
+   * @param array (of strings)  $rawDataSet
+   * @return string         [compressed data]
+   */
+  public static function compressDataSetForSearch ( $rawDataSet, $stripStopwords=true )
+  {
+    $dSearch = array(
+        '#ß#',
+        '#Ä|ä#',
+        '#Ö|ö#',
+        '#Ü|ü#',
+        '#Á|á|À|à|Â|â#',
+        '#Ó|ó|Ò|ò|Ô|ô#',
+        '#Ú|ú|Ù|ù|Û|û#',
+        '#É|é|È|è|Ê|ê#',
+        '#Í|í|Ì|ì|Î|î#',
+        '#([/.,+-]*\s)#',
+        '#([^A-Za-z])#',
+        '# +#'
+        );
+    $dReplace = array(
+        'ss',
+        'ae',
+        'oe',
+        'ue',
+        'a',
+        'o',
+        'u',
+        'e',
+        'i',
+        ' ',
+        ' ',
+        ' '
+        );
+
+    $dataSet = trim( stripslashes( strip_tags( $dataSet ) ) );
+    $dataSet = preg_replace( $dSearch, $dReplace, $rawDataSet );
+    $dataSet = trim( strtolower( $dataSet ) );
+
+    unset( $dSearch );
+    unset( $dReplace );
+
+    if ($stripStopwords) {
+      $dSearch = array(
+          '#(\s[A-Za-z]{1,2})\s#',
+          '# ' . implode( ' | ', $GLOBALS['TL_LANG']['C4G_FORUM']['STOPWORDS'] ) . ' #',
+          '# +#'
+      );
+      $dReplace = array(
+          ' ',
+          ' ',
+          ' '
+      );
+
+      $dataSet = ' ' . str_replace( ' ', '  ', $dataSet ) . ' ';
+      $dataSet = trim( preg_replace( $dSearch, $dReplace, $dataSet ) );
+    }
+    return $dataSet;
+  }
 }
 ?>
