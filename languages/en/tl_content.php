@@ -17,9 +17,18 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_id'] = array('', '');
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['execute_function']         = array('Execute function', 'The function that will be called, when a member with a valid key enters this page.');
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['success_msg']              = array('Custom success message', 'Enter a custom message that will be shown to the member, when the key was valid and the executed function returned a success. If this is empty, the functions default message will be used, if existant, otherwise the activationpage default message will be used.');
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['invalid_key_msg']          = array('Custom error message (invalid key)', 'Enter a custom message that will be shown to the member, when the used key is invalid or already used. If this is empty, the functions default message will be used, if existant, otherwise the activationpage default message will be used.');
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['function_error_msg']       = array('Custom error message (function error)', 'Enter a custom message that will be shown to the member, when the choosen function did not return a success. If this is empty, the functions default message will be used, if existant, otherwise the activationpage default message will be used.');
 
 /**
  * Legend
  */
-$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_'] = '';
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_function_legend']         = 'Function';
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_custom_message_legend']   = 'Custom Messages';
+
+/**
+ * Errors
+ */
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['no_function']              = array('No function', 'There is no function connected to this element.');

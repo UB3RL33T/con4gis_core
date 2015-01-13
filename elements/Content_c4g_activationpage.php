@@ -34,7 +34,8 @@ class Content_c4g_activationpage extends \Module
     {
       $objTemplate = new \BackendTemplate('be_wildcard');
 
-      $objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['CTE']['c4g_activationpage'][0]) . ' ###';
+      // $objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['CTE']['c4g_activationpage'][0]) . ' ###';
+      $objTemplate->wildcard = '### ' . ($this->c4g_activationpage_execute_function ?: utf8_strtoupper($GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['no_function'][0]) ). ' ###';
       $objTemplate->title = $this->headline;
       $objTemplate->id = $this->id;
       $objTemplate->link = $this->name;
