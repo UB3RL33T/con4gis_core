@@ -20,4 +20,8 @@
 $GLOBALS['TL_LANG']['MOD']['con4gis'] 					= array( 'con4gis (Baukasten)', 'www.con4gis.org' );
 $GLOBALS['TL_LANG']['MOD']['c4g_core'] 					= array( 'Info & Hilfe', 'Informationen und Hilfe zu con4gis.' );
 
+/**
+ * Frontend modules
+ */
+$GLOBALS['TL_LANG']['CTE']['c4g_activationpage']          = array('Aktivierungsseite (con4gis)', 'Mit diesem Modul binden Sie eine Aktivierungsseite ein.');
 ?>

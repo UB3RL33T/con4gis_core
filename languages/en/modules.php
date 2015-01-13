@@ -20,4 +20,8 @@
 $GLOBALS['TL_LANG']['MOD']['con4gis'] 				= array( 'con4gis (construction kit)', 'www.con4gis.org' );
 $GLOBALS['TL_LANG']['MOD']['c4g_core'] 				= array( 'Info & Help', 'Information and help for con4gis.' );
 
+/**
+ * Content elements
+ */
+$GLOBALS['TL_LANG']['CTE']['c4g_activationpage']          = array('Aktivationpage (con4gis)', 'With this module you include an activationpage.');
 ?>
