@@ -18,7 +18,7 @@ namespace c4g;
 /***
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['c4g_activationpage'] = '{type_legend},type,headline;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['c4g_activationpage'] = '{type_legend},type,headline;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 // $GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'c4g_switcher';
 // $GLOBALS['TL_DCA']['tl_content']['subpalettes']['c4g_map_layer_switcher'] = 'c4g_map_layer_switcher_open';
 // if ($GLOBALS['con4gis_core_extension']['installed']) {
