@@ -35,7 +35,7 @@ class Content_c4g_activationpage extends \Module
       $objTemplate = new \BackendTemplate('be_wildcard');
 
       // $objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['CTE']['c4g_activationpage'][0]) . ' ###';
-      $objTemplate->wildcard = '### ' . ($this->c4g_activationpage_execute_function ?: utf8_strtoupper($GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['no_function'][0]) ). ' ###';
+      $objTemplate->wildcard = '### ' . ($this->c4g_activationpage_action_handler ?: utf8_strtoupper($GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['auto_action_handler']) ). ' ###';
       $objTemplate->title = $this->headline;
       $objTemplate->id = $this->id;
       $objTemplate->link = $this->name;
@@ -52,7 +52,9 @@ class Content_c4g_activationpage extends \Module
    */
   protected function compile()
   {
-    $this->Template->output = "Activationpage compiled :)";
+    $this->Template->output = 'This state: ' . $this->state . '<br>';
+    $this->Template->output .= 'This action handler: ' . $this->c4g_activationpage_action_handler . '<br>';
+    $this->Template->output .= 'This success message: ' . $this->c4g_activationpage_success_msg . '<br>';
   }
 
   public function repInsertTags( $str )

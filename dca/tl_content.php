@@ -19,7 +19,7 @@ namespace c4g;
  * Palettes
  */
 $GLOBALS['TL_DCA']['tl_content']['palettes']['c4g_activationpage'] =  '{type_legend},type,headline;'.
-                                                                      '{c4g_activationpage_function_legend},c4g_activationpage_execute_function;'. //@TODO more actions in the future? (error-fct, etc)
+                                                                      '{c4g_activationpage_function_legend},c4g_activationpage_action_handler;'. //@TODO more actions in the future? (error-fct, etc)
                                                                       '{c4g_activationpage_custom_message_legend},c4g_activationpage_success_msg,c4g_activationpage_invalid_key_msg,c4g_activationpage_function_error_msg;'.
                                                                       '{template_legend:hide},customTpl;'.
                                                                       '{protected_legend:hide},protected;'.
@@ -31,13 +31,13 @@ $GLOBALS['TL_DCA']['tl_content']['palettes']['c4g_activationpage'] =  '{type_leg
 
 // function group
 //
-$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_execute_function'] = array
+$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_action_handler'] = array
 (
-  'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['execute_function'],
+  'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['action_handler'],
   'exclude'                 => true,
   'inputType'               => 'select',
-  'options_callback'        => array('c4g\tl_content_c4g_activationpage', 'get_registered_execute_functions'),
-  'eval'                    => array('mandatory' => true),
+  'options_callback'        => array('c4g\tl_content_c4g_activationpage', 'get_registered_action_handlers'),
+  'eval'                    => array('includeBlankOption' => true, 'blankOptionLabel' => $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['auto_action_handler']),
   'sql'                     => "varchar(255) NOT NULL default ''"
 );
 
@@ -63,7 +63,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_invalid_key_msg']
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_function_error_msg'] = array
 (
-  'label'           => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['function_error_msg'],
+  'label'           => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['handler_error_msg'],
   'search'          => true,
   'inputType'       => 'textarea',
   'eval'            => array('rte'=>'tinyMCE'),
@@ -77,7 +77,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_function_error_ms
  */
 class tl_content_c4g_activationpage extends \Backend
 {
-  public function get_registered_execute_functions (DataContainer $dc)
+  public function get_registered_action_handlers (DataContainer $dc)
   {
     // @TODO
     // walk through the "registered_functions"-array
