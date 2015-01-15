@@ -52,7 +52,7 @@ class Content_c4g_activationpage extends \Module
    */
   protected function compile()
   {
-    $this->Template->output = 'This state: ' . $this->state . '<br>';
+    $this->Template->output = 'Frontend-URL: {{env::path}}{{env::request}}<br>';
     $this->Template->output .= 'This action handler: ' . $this->c4g_activationpage_action_handler . '<br>';
     $this->Template->output .= 'This success message: ' . $this->c4g_activationpage_success_msg . '<br>';
   }
