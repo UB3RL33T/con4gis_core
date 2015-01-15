@@ -39,4 +39,5 @@ $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_custom_message_legend']   
 /**
  * Misc.
  */
-$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['auto_action_handler'] = 'Choose automatically';
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['auto_action_handler']             = 'Choose automatically';
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['default_confirmation_button']     = 'Confirm';

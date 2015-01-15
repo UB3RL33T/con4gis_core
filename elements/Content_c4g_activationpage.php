@@ -52,9 +52,15 @@ class Content_c4g_activationpage extends \Module
    */
   protected function compile()
   {
-    $this->Template->output = 'Frontend-URL: {{env::path}}{{env::request}}<br>';
-    $this->Template->output .= 'This action handler: ' . $this->c4g_activationpage_action_handler . '<br>';
-    $this->Template->output .= 'This success message: ' . $this->c4g_activationpage_success_msg . '<br>';
+    if ($this->c4g_activationpage_confirmation && empty( $_GET['confirm'] )) {
+      $this->Template->state = 'c4g_confirm';
+      $this->Template->output = $this->c4g_activationpage_confirmation_text;
+      $this->Template->output .= '<a href="{{env::path}}{{env::request}}&confirm=true" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">' . ($this->c4g_activationpage_confirmation_button ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['default_confirmation_button']) . '</span></a>';
+    } else {
+      $this->Template->output = 'Frontend-URL: {{env::path}}{{env::request}}<br>';
+      $this->Template->output .= 'This action handler: ' . $this->c4g_activationpage_action_handler . '<br>';
+      $this->Template->output .= 'This success message: ' . $this->c4g_activationpage_success_msg . '<br>';
+    }
   }
 
   public function repInsertTags( $str )
