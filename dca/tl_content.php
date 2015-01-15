@@ -20,7 +20,7 @@ namespace c4g;
  */
 $GLOBALS['TL_DCA']['tl_content']['palettes']['c4g_activationpage'] =  '{type_legend},type,headline;'.
                                                                       '{c4g_activationpage_function_legend},c4g_activationpage_action_handler,c4g_activationpage_confirmation;'.
-                                                                      '{c4g_activationpage_custom_message_legend:hide},c4g_activationpage_success_msg,c4g_activationpage_invalid_key_msg,c4g_activationpage_function_error_msg;'.
+                                                                      '{c4g_activationpage_custom_message_legend:hide},c4g_activationpage_success_msg,c4g_activationpage_invalid_key_msg,c4g_activationpage_handler_error_msg;'.
                                                                       '{template_legend:hide},customTpl;'.
                                                                       '{protected_legend:hide},protected;'.
                                                                       '{expert_legend:hide},guests,cssID,space';
@@ -93,7 +93,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_invalid_key_msg']
   'sql'             => "text NULL"
 );
 
-$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_function_error_msg'] = array
+$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_handler_error_msg'] = array
 (
   'label'           => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['handler_error_msg'],
   'search'          => true,

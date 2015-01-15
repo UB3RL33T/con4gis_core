@@ -50,7 +50,7 @@ class C4gActivationkeyModel extends \Model
 	 * @param  boolean $saveInDB
 	 * @return string
 	 */
-	public static function generateActivationkey( $action='', $saveInDB=true )
+	public static function generateActivationkey( $action='', $saveInDB=true, $durability=1 )
 	{
 		// generate a unique key
 		$attempts = 42;
@@ -65,7 +65,7 @@ class C4gActivationkeyModel extends \Model
 		if ($saveInDB) {
 			$objKey = new C4gActivationkeyModel();
 			$objKey->activationkey = $key;
-			$objKey->expiration_date = strtotime('+1 month', time());
+			$objKey->expiration_date = strtotime('+' . $durability . ' month', time());
 			$objKey->key_action = $action;
 			$objKey->save();
 		}
@@ -82,7 +82,7 @@ class C4gActivationkeyModel extends \Model
 	public static function assignUserToKey( $userId, $key )
 	{
 		$objKey = static::findBy( 'activationkey', $key );
-		if (empty( $hasKey ) || $objKey->used_by == 0) { return false; }
+		if (empty( $objKey ) || $objKey->used_by != 0) { return false; }
 		$objKey->used_by = $userId;
 		$objKey->save();
 		return true;
@@ -97,4 +97,16 @@ class C4gActivationkeyModel extends \Model
 	{
 		return static::findOneBy( 'activationkey', $key )->key_action;
 	}
-}?>
+
+	/**
+	 * returns the action connected to the given key
+	 * @param  string $key
+	 * @return string
+	 */
+	public static function keyIsValid( $key )
+	{
+		$key = static::findOneBy( 'activationkey', $key );
+		// the key exists, is not already claimed and is not expired
+		return (!empty( $key ) && empty( $key->used_by ) && ($key->expiration_date == 0 || $key->expiration_date > time()));
+	}
+}
