@@ -95,17 +95,18 @@ class Content_c4g_activationpage extends \Module
           // 3) execute handler
           try {
             $clActionHandler = new $actionHandler();
-            if ($clActionHandler->performActivationAction( $action[0], $action[1] ?: array() )) {
+            $arrResponse = $clActionHandler->performActivationAction( $action[0], $action[1] ?: array() );
+            if ($arrResponse && $arrResponse['success']) {
               // everything went right
               // claim key and return the success
               $this->Template->state = $stateClass[1];
-              $this->Template->output = $this->c4g_activationpage_success_msg ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['success_msg'];
+              $this->Template->output = $this->c4g_activationpage_success_msg ?: ($arrResponse['output'] ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['success_msg']);
               if( !C4gActivationkeyModel::assignUserToKey($this->User->id, $key) ) {
                 $this->Template->output .= '<div class="c4g_ap_warning">' . $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['key_not_claimed'] . '</div>';
               }
             } else {
               // ERROR: the handlers action failed
-              $this->Template->output = $this->c4g_activationpage_handler_error_msg ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['handler_failed'];
+              $this->Template->output = $this->c4g_activationpage_handler_error_msg ?: ($arrResponse['output'] ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['handler_failed']);
             }
           } catch (Exeption $e) {
             $this->Template->output = $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['no_handler'];

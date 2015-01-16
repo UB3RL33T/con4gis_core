@@ -31,15 +31,66 @@ class C4gActivationkeyModel extends \Model
 	 * @param  string $key
 	 * @return string
 	 */
-	public static function generateActivationLink( $url, $key )
+	public static function generateActivationLinkFromKey( $key )
 	{
 		// check if key exists
 		if (empty( $key )) {
 			return false;
+		// } else {
+		// 	$objKey = static::findOneBy( 'activationkey', $key );
+		// 	if (!$objKey) {
+		// 		return false;
+		// 	}
 		}
-		// build activation-link
-		$actLink = substr( $actPart, 0, strpos( $url, '=' ) + 1 );
-		$actLink .= static::getActionForKey( $key ) . ':' . $key;
+
+		// get action for this key
+		$keyAction = static::getActionForKey($key);
+		$keyAction = explode(':', $keyAction);
+
+		// find an appropriate activationpage
+		//
+		// try to find a page with a specific handler for the key-action
+		$objActivationPages = \ContentModel::findBy(
+			array
+			(
+				'type=?',
+				'c4g_activationpage_action_handler=?'
+			),
+			array
+			(
+				'c4g_activationpage',
+				$keyAction[0]
+			)
+		);
+		if (!$objActivationPages) {
+			// if no page was found, try to find pages with automatic-handlers
+			$objActivationPages = \ContentModel::findBy(
+				array
+				(
+					'type=?',
+					'c4g_activationpage_action_handler=?'
+				),
+				array
+				(
+					'c4g_activationpage',
+					''
+				)
+			);
+			// if still no page is found, the function failed
+			if (!$objActivationPages) {
+				return false;
+			}
+		}
+
+		// use the first page (even if more pages are found)
+		$objActivationPages->next();
+
+		// @TODO find page for CTE
+		return $objActivationPages->id;
+
+		// $actLink = substr( $actPart, 0, strpos( $url, '=' ) + 1 );
+		// $actLink .= static::getActionForKey( $key ) . ':' . $key;
+
 		// return the link as string 	TODO(/or html-link)
 		return $actLink;
 	}
@@ -50,7 +101,7 @@ class C4gActivationkeyModel extends \Model
 	 * @param  boolean $saveInDB
 	 * @return string
 	 */
-	public static function generateActivationkey( $action='', $saveInDB=true, $durability=1 )
+	public static function generateActivationkey( $action, $saveInDB=true, $durability=1 )
 	{
 		// generate a unique key
 		$attempts = 42;
