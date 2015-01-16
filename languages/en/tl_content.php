@@ -24,6 +24,7 @@ $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['confirmation_
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['success_msg']              = array('Custom success message', 'Enter a custom message that will be shown to the member, when the key was valid and the executed function returned a success. If this is empty, the handlers default message will be used, if existant, otherwise the activationpage default message will be used.');
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['invalid_key_msg']          = array('Custom error message (invalid key)', 'Enter a custom message that will be shown to the member, when the used key is invalid or already used. If this is empty, the activationpage default message will be used.');
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['handler_error_msg']        = array('Custom error message (handler error)', 'Enter a custom message that will be shown to the member, when the choosen function did not return a success. If this is empty, the handlers default message will be used, if existant, otherwise the activationpage default message will be used.');
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['use_default_css']          = array('Load default CSS', 'This will load a default CSS-file for the activationpage. Disable this option if you wish to style this page manually.');
 
 /**
  * Legend
@@ -35,7 +36,7 @@ $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_custom_message_legend']   
  * Errors
  */
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['invalid_key']                  = 'The used key is invalid!';
-$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['key_not_claimed']              = 'WARNING: The key could not be assigned to you! <br> Please contact the Systemadministrator.';
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['key_not_claimed']              = 'WARNING: <br> &nbsp; The key could not be assigned to you! <br> &nbsp; Please contact the Systemadministrator.';
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['handler_failed']               = 'The action could not be performed!';
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['no_handler']                   = 'Could not find an appropriate action-handler! <br> Please contact the Systemadministrator.';
 

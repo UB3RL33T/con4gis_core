@@ -21,7 +21,7 @@ namespace c4g;
 $GLOBALS['TL_DCA']['tl_content']['palettes']['c4g_activationpage'] =  '{type_legend},type,headline;'.
                                                                       '{c4g_activationpage_function_legend},c4g_activationpage_action_handler,c4g_activationpage_confirmation;'.
                                                                       '{c4g_activationpage_custom_message_legend:hide},c4g_activationpage_success_msg,c4g_activationpage_invalid_key_msg,c4g_activationpage_handler_error_msg;'.
-                                                                      '{template_legend:hide},customTpl;'.
+                                                                      '{template_legend:hide},c4g_activationpage_use_default_css,customTpl;'.
                                                                       '{protected_legend:hide},protected;'.
                                                                       '{expert_legend:hide},guests,cssID,space';
 /***
@@ -100,6 +100,17 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_handler_error_msg
   'inputType'       => 'textarea',
   'eval'            => array('rte'=>'tinyMCE'),
   'sql'             => "text NULL"
+);
+
+// template-group
+//
+$GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_use_default_css'] = array
+(
+  'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['use_default_css'] ,
+  'exclude'                 => true,
+  'inputType'               => 'checkbox',
+  // 'eval'                    => array('submitOnChange' => true),
+  'sql'                     => "char(1) NOT NULL default '1'"
 );
 
 /**

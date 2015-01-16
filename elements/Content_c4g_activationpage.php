@@ -56,16 +56,21 @@ class Content_c4g_activationpage extends \Module
     $this->import('FrontendUser', 'User');
     $stateClass = array
     (
-      1 => 'c4g_activation_success',
-      0 => 'c4g_activation_confirm',
-      -1 => 'c4g_activation_failure'
+      1 => 'c4g_ap_success',
+      0 => 'c4g_ap_confirm',
+      -1 => 'c4g_ap_failure'
     );
+
+    // load default CSS if enabled
+    if ($this->c4g_activationpage_use_default_css) {
+      $GLOBALS['TL_CSS']['c4g_activationpage'] = 'system/modules/con4gis_core/assets/css/ce_c4g_activationpage.css';
+    }
 
     // check if a confirmation is needed
     if ($this->c4g_activationpage_confirmation && empty( $_GET['confirm'] )) {
       $this->Template->state = $stateClass[0];
       $this->Template->output = $this->c4g_activationpage_confirmation_text;
-      $this->Template->output .= '<a href="{{env::path}}{{env::request}}&confirm=true" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"><span class="ui-button-text">' . ($this->c4g_activationpage_confirmation_button ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['default_confirmation_button']) . '</span></a>';
+      $this->Template->output .= '<a href="{{env::path}}{{env::request}}&confirm=true" class="c4g_button"><span class="c4g_button_text">' . ($this->c4g_activationpage_confirmation_button ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['default_confirmation_button']) . '</span></a>';
     } else {
       // 1) check key
       $action = '';
@@ -96,7 +101,7 @@ class Content_c4g_activationpage extends \Module
               $this->Template->state = $stateClass[1];
               $this->Template->output = $this->c4g_activationpage_success_msg ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['success_msg'];
               if( !C4gActivationkeyModel::assignUserToKey($this->User->id, $key) ) {
-              $this->Template->output .= '<div class="c4g_warning">' . $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['error']['key_not_claimed'] . '</div>';
+                $this->Template->output .= '<div class="c4g_ap_warning">' . $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['key_not_claimed'] . '</div>';
               }
             } else {
               // ERROR: the handlers action failed
@@ -136,5 +141,3 @@ class Content_c4g_activationpage extends \Module
 
 
 }
-
-?>
