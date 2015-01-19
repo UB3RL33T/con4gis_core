@@ -122,23 +122,5 @@ class Content_c4g_activationpage extends \Module
     }
   }
 
-  public function repInsertTags( $str )
-  {
-    return parent::replaceInsertTags($str);
-  }
-
-  public function import($strClass, $strKey=false, $blnForce=false)
-  {
-    parent::import($strClass, $strKey, $blnForce);
-  }
-
-  public function getInput() {
-    return $this->Input;
-  }
-
-  public function getFrontendUrl($arrRow) {
-    return parent::generateFrontendUrl($arrRow);
-  }
-
 
 }

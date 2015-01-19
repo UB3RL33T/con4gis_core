@@ -36,11 +36,6 @@ class C4gActivationkeyModel extends \Model
 		// check if key exists
 		if (empty( $key )) {
 			return false;
-		// } else {
-		// 	$objKey = static::findOneBy( 'activationkey', $key );
-		// 	if (!$objKey) {
-		// 		return false;
-		// 	}
 		}
 
 		// get action for this key
@@ -85,14 +80,19 @@ class C4gActivationkeyModel extends \Model
 		// use the first page (even if more pages are found)
 		$objActivationPages->next();
 
-		// @TODO find page for CTE
-		return $objActivationPages->id;
+		// get the article for this content-element
+		$objArticle = \ArticleModel::findByPk( $objActivationPages->pid );
+		if ($objArticle) {
+			// if found, find the Page, where this article is nested
+			$objPage = \PageModel::findByPk( $objArticle->pid );
+			if ($objPage) {
+				// if found build the desired URL (base + page-url + key)
+				return \Environment::get('base') . \Controller::generateFrontendUrl( $objPage->row() ) . '?key=' . $key;
+			}
+		}
 
-		// $actLink = substr( $actPart, 0, strpos( $url, '=' ) + 1 );
-		// $actLink .= static::getActionForKey( $key ) . ':' . $key;
-
-		// return the link as string 	TODO(/or html-link)
-		return $actLink;
+		// article or page not found
+		return false;
 	}
 
 	/**
