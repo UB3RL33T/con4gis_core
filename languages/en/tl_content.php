@@ -29,8 +29,8 @@ $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['use_default_c
 /**
  * Legend
  */
-$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_function_legend']         = 'Function';
-$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_custom_message_legend']   = 'Custom Messages';
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_function_legend']                       = 'Function';
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage_custom_message_legend']                 = 'Custom messages';
 
 /**
  * Errors
