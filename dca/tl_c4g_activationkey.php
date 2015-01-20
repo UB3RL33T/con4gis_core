@@ -69,7 +69,7 @@ $GLOBALS['TL_DCA']['tl_c4g_activationkey'] = array
 		),
 		'activationkey' => array
 		(
-			'sql'                     => "varchar(40) NOT NULL default ''"
+			'sql'                     => "varchar(255) NOT NULL default ''"
 		),
 		'expiration_date' => array
 		(
@@ -77,11 +77,11 @@ $GLOBALS['TL_DCA']['tl_c4g_activationkey'] = array
 		),
 		'key_action' => array
 		(
-			'sql'                     => "varchar(40) NOT NULL default '0'"
+			'sql'                     => "varchar(255) NOT NULL default '0'"
 		),
 		'used_by' => array
 		(
-			'sql'                     => "varchar(40) NOT NULL default '0'"
+			'sql'                     => "int(255) NOT NULL default '0'"
 		),
 	)
 );

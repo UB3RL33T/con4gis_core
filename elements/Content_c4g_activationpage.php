@@ -66,7 +66,7 @@ class Content_c4g_activationpage extends \Module
     }
 
     // check if a confirmation is needed
-    if ($this->c4g_activationpage_confirmation && \Input::get('confirm')) {
+    if ($this->c4g_activationpage_confirmation && !\Input::get('confirm')) {
       $this->Template->state = $stateClass[0];
       $this->Template->output = $this->c4g_activationpage_confirmation_text;
       $this->Template->output .= '<a href="{{env::path}}{{env::request}}&confirm=true" class="c4g_button"><span class="c4g_button_text">' . ($this->c4g_activationpage_confirmation_button ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['default_confirmation_button']) . '</span></a>';
