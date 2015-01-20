@@ -29,7 +29,6 @@ array_insert($GLOBALS['BE_MOD'], array_search('content', array_keys($GLOBALS['BE
         'c4g_core' => array
         (
             'callback' => 'c4g\C4GInfo',
-            'tables'   => array('tl_c4g_activationpage', 'tl_content'),
             'icon'     => 'system/modules/con4gis_core/assets/images/core.png'
         )
     )
