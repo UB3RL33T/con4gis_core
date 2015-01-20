@@ -101,7 +101,7 @@ class C4gActivationkeyModel extends \Model
 	 * @param  boolean $saveInDB
 	 * @return string
 	 */
-	public static function generateActivationkey( $action, $saveInDB=true, $durability=1 )
+	public static function generateActivationkey( $action, $saveInDB=true, $durabilityInDays=30 )
 	{
 		// generate a unique key
 		$attempts = 42;
@@ -116,7 +116,7 @@ class C4gActivationkeyModel extends \Model
 		if ($saveInDB) {
 			$objKey = new C4gActivationkeyModel();
 			$objKey->activationkey = hash('sha256', $key);
-			$objKey->expiration_date = strtotime('+' . $durability . ' month', time());
+			$objKey->expiration_date = strtotime('+' . $durabilityInDays . ' days', time());
 			$objKey->key_action = $action;
 			$objKey->save();
 		}
