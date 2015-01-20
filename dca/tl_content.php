@@ -69,7 +69,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_confirmation_butt
   'label'           => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['confirmation_button'] ,
   'search'          => true,
   'inputType'       => 'text',
-  // 'eval'            => array(),
   'sql'             => "varchar(255) NOT NULL default ''"
 );
 
@@ -109,7 +108,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_use_default_css']
   'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['use_default_css'] ,
   'exclude'                 => true,
   'inputType'               => 'checkbox',
-  // 'eval'                    => array('submitOnChange' => true),
   'sql'                     => "char(1) NOT NULL default '1'"
 );
 
