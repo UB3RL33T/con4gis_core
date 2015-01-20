@@ -140,6 +140,9 @@
     <fieldset id="pal_c4g_groups" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_groups')">
             con4gis-groups
+            <?php if ($GLOBALS['con4gis_groups_extension']['installed']) {
+                echo ' [' . $GLOBALS['con4gis_groups_extension']['version'] . ']';
+            }?>
         </legend>
         <div>
             <?php if ($GLOBALS['con4gis_groups_extension']['installed']): ?>
