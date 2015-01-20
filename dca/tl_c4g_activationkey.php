@@ -45,33 +45,14 @@ $GLOBALS['TL_DCA']['tl_c4g_activationkey'] = array
 			'fields'                  => array('tstamp', 'text'),
 			'format'                  => '<span style="color:#b3b3b3;padding-right:3px">[%s]</span> %s',
 			'maxCharacters'           => 96,
-			// 'label_callback'          => array('tl_log', 'colorize')
 		),
 		'global_operations' => array
 		(
-			// 'all' => array
-			// (
-			// 	'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
-			// 	'href'                => 'act=select',
-			// 	'class'               => 'header_edit_all',
-			// 	'attributes'          => 'onclick="Backend.getScrollOffset()" accesskey="e"'
-			// )
+
 		),
 		'operations' => array
 		(
-			// 'delete' => array
-			// (
-			// 	'label'               => &$GLOBALS['TL_LANG']['tl_log']['delete'],
-			// 	'href'                => 'act=delete',
-			// 	'icon'                => 'delete.gif',
-			// 	'attributes'          => 'onclick="if(!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\'))return false;Backend.getScrollOffset()"'
-			// ),
-			// 'show' => array
-			// (
-			// 	'label'               => &$GLOBALS['TL_LANG']['tl_log']['show'],
-			// 	'href'                => 'act=show',
-			// 	'icon'                => 'show.gif'
-			// )
+
 		)
 	),
 
@@ -104,4 +85,3 @@ $GLOBALS['TL_DCA']['tl_c4g_activationkey'] = array
 		),
 	)
 );
-?>

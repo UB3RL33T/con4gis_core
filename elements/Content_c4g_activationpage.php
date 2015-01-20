@@ -34,7 +34,6 @@ class Content_c4g_activationpage extends \Module
     {
       $objTemplate = new \BackendTemplate('be_wildcard');
 
-      // $objTemplate->wildcard = '### ' . utf8_strtoupper($GLOBALS['TL_LANG']['CTE']['c4g_activationpage'][0]) . ' ###';
       $objTemplate->wildcard = '### ' . ($this->c4g_activationpage_action_handler ?: utf8_strtoupper($GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['auto_action_handler']) ). ' ###';
       $objTemplate->title = $this->headline;
       $objTemplate->id = $this->id;
@@ -67,7 +66,7 @@ class Content_c4g_activationpage extends \Module
     }
 
     // check if a confirmation is needed
-    if ($this->c4g_activationpage_confirmation && empty( $_GET['confirm'] )) {
+    if ($this->c4g_activationpage_confirmation && \Input::get('confirm')) {
       $this->Template->state = $stateClass[0];
       $this->Template->output = $this->c4g_activationpage_confirmation_text;
       $this->Template->output .= '<a href="{{env::path}}{{env::request}}&confirm=true" class="c4g_button"><span class="c4g_button_text">' . ($this->c4g_activationpage_confirmation_button ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['default_confirmation_button']) . '</span></a>';
@@ -75,7 +74,7 @@ class Content_c4g_activationpage extends \Module
       // 1) check key
       $action = '';
       $this->Template->state = $stateClass[-1];
-      $key = $_GET['key'] ?: '';
+      $key = \Input::get('key') ?: '';
       if (!empty( $key ) && C4gActivationkeyModel::keyIsValid( $key )) {
         $action = C4gActivationkeyModel::getActionForKey( $key );
       }
