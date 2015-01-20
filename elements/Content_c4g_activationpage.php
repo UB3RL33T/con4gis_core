@@ -101,7 +101,7 @@ class Content_c4g_activationpage extends \Module
               // claim key and return the success
               $this->Template->state = $stateClass[1];
               $this->Template->output = $this->c4g_activationpage_success_msg ?: ($arrResponse['output'] ?: $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['success_msg']);
-              if( !C4gActivationkeyModel::assignUserToKey($this->User->id, $key) ) {
+              if( !C4gActivationkeyModel::assignUserToKey( (FE_USER_LOGGED_IN ? $this->User->id : -1), $key) ) {
                 $this->Template->output .= '<div class="c4g_ap_warning">' . $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['errors']['key_not_claimed'] . '</div>';
               }
             } else {
