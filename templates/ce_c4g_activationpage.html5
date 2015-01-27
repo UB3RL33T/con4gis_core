@@ -1,7 +1,7 @@
 <div class="ce_c4g_activationpage block <?php echo $this->class; ?>"<?php echo $this->cssID; if ($this->style){ echo ' style="'.$this->style.'"'; } ?>>
 
-  <?php if (!empty( $this->headline )):?>
-	  <h1><?php echo $this->headline; ?></h1>
+  <?php if ($this->headline): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
   <?php endif; ?>
 
 	<?php if (!empty( $this->output )): // only create this div, if there is an output ?>
