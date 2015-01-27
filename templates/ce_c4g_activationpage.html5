@@ -1,6 +1,8 @@
 <div class="ce_c4g_activationpage block <?php echo $this->class; ?>"<?php echo $this->cssID; if ($this->style){ echo ' style="'.$this->style.'"'; } ?>>
 
-	<h1><?php echo $this->headline; ?></h1>
+  <?php if (!empty( $this->headline )):?>
+	  <h1><?php echo $this->headline; ?></h1>
+  <?php endif; ?>
 
 	<?php if (!empty( $this->output )): // only create this div, if there is an output ?>
 		<div class="c4g_ap_output <?php echo $this->state; ?>">
