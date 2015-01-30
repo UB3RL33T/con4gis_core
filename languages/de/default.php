@@ -73,8 +73,8 @@
 
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['INVALID_EMAIL_ADDRESS']        = 'Ungültige EMail-Adresse.';
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_ADDRESS']             = 'Bitte tragen Sie mindestens eine gültige EMail-Adresse ein.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_SUBJECT']             = 'Bitte vergeben Sie einen EMail-Titel.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_MESSAGE']             = 'Bitte verfassen Sie einen EMail-Text.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_SUBJECT']             = 'Bitte vergeben Sie einen E-Mail-Betreff.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['NO_EMAIL_MESSAGE']             = 'Bitte verfassen Sie einen E-Mail-Text.';
 
     // messages for exceptions by code
     // $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['exception_xxx'] = "";
