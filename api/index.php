@@ -85,6 +85,16 @@
             // Extract api endpoint
             $strApiEndpoint = array_shift($arrFragments);
 
+            // check if its a test-call
+            if ($strApiEndpoint == 'c4g_apicheck_ajax') {
+                if (!$arrFragments[0] || array_key_exists($arrFragments[0], $GLOBALS['TL_API'])) {
+                    return true;
+                } else {
+                    header('HTTP/1.1 501 Not Implemented');
+                    exit;
+                }
+            }
+
             // Stop if no matching endpoint is found
             if (!array_key_exists($strApiEndpoint, $GLOBALS['TL_API'])) {
                 header('HTTP/1.1 400 Bad Request');
