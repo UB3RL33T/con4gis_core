@@ -43,8 +43,7 @@ class C4GInfo extends \BackendModule
      */
     protected function compile()
     {
-    	// $GLOBALS['TL_CSS'][] = 'system/modules/con4gis_core/assets/css/be_c4g_info.css';
-        // $this->Template->c4gModules->con4gis_maps->installed = $GLOBALS[];
+        // nothing to do here
     }
 
 }

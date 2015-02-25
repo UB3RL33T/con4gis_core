@@ -140,15 +140,20 @@
     <fieldset id="pal_c4g_groups" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_groups')">
             con4gis-groups
+            <?php if ($GLOBALS['con4gis_groups_extension']['installed']) {
+                echo ' [' . $GLOBALS['con4gis_groups_extension']['version'] . ']';
+            }?>
         </legend>
         <div>
-        <!--
             <?php if ($GLOBALS['con4gis_groups_extension']['installed']): ?>
+        <!--
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
+                    href        => '#',
                     c4gImg      => 'contao-board',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']
                 )); ?>
+        -->
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
                     href        => 'https://www.github.com/kuestenschmiede/con4gis_groups',
@@ -163,8 +168,9 @@
 
                 )); ?>
             <?php endif; ?>
-        -->
+        <!--
         <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="coming_soon">
+        -->
         </div>
     </fieldset>
 
