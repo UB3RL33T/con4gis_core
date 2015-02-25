@@ -1,5 +1,5 @@
 <div id="c4g_header">
-    <img src="system/modules/con4gis_core/assets/images/logo-con4gis.png" width="320" height="100" alt="con4gis_logo">
+    <img src="system/modules/con4gis_core/assets/images/logo-con4gis.png" width="250" height="90" alt="con4gis_logo">
     <span class="version"><?php echo $GLOBALS['con4gis_core_extension']['version'] ?></span>
     <span class="sub"><?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['TITLESUB'] ?></span>
 </div>
@@ -125,6 +125,12 @@
                         label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL']
                     )); ?>
                 <?php endif; ?>
+                <?php echo C4GHTMLFactory::imgLink( array(
+                    addClass    => 'floatR',
+                    href        => \Environment::get('script') . '?do=c4g_core&perf=apicheck&mod=forum',
+                    c4gImg      => 'apicheck',
+                    label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']
+                )); ?>
             <?php else: ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     c4gImg      => 'install',
