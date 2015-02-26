@@ -41,8 +41,24 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['FAILMSG_1'] = '%d of %d transfers failed. Please check your installation and try again.';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATION']['FAILMSG_2'] = 'Reconfiguration failed. Please check your installation and try again.';
 
+
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['HEADLINE']       = 'API-Check';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['INTRO']          = 'This tool checks the con4gis-API and reconfigures the .htaccess-File in the API-directory, if necessary.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['WARNING']        = 'This tool can damage the .htaccess-file in the API-directory ("con4gis_core/api/"), if you have already edited it manually. You should make a backup of the file before running this tool.';
+
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['WORKS']          = 'The API works.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['REPAIRED']       = 'The API has been repaired successfully.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['STILLBROKEN']    = 'The API is broken and could not be repaired automatically.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['OTHER']          = 'The HTTP-Request returned an unexpected Statuscode.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['MODULENOTFOUND'] = 'The API\'s endpoint seems to be missing.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['NOWRITERIGHTS']  = 'The .htaccess could not been modified. (Permission denied!)';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['NOREWRITEBASE']  = 'The .htaccess could not been modified. (Format error!)';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['UNKNOWNERROR']   = 'An unknown error occurred...';
+
+
 // button
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['MIGRATE']   = 'Migrate data';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['CHECKAPI']  = 'Check API';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['UNINSTALL'] = 'Uninstall "cfs_%s"';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['DBUPDATE']  = 'Update database';
 
@@ -51,6 +67,7 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']        = 'Fork on github';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']     = 'Get the App <br>(Android)';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL'] = 'Migrationtool';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECKTOOL']  = 'API-Check';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']       = 'Install %s';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']     = 'Website Project';

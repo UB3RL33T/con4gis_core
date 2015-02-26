@@ -26,6 +26,7 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
+	'c4g\C4GApiCheck'                => 'system/modules/con4gis_core/classes/C4GApiCheck.php',
 	'c4g\C4GHTMLFactory'             => 'system/modules/con4gis_core/classes/C4GHTMLFactory.php',
 	'c4g\C4GInfo'                    => 'system/modules/con4gis_core/classes/C4GInfo.php',
 	'C4GJQueryGUI'                   => 'system/modules/con4gis_core/classes/C4GJQueryGUI.php',
@@ -49,6 +50,7 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
+	'be_c4g_apicheck'       => 'system/modules/con4gis_core/templates',
 	'be_c4g_info'           => 'system/modules/con4gis_core/templates',
 	'be_c4g_migration'      => 'system/modules/con4gis_core/templates',
 	'ce_c4g_activationpage' => 'system/modules/con4gis_core/templates',
