@@ -1,5 +1,5 @@
 <div id="c4g_header">
-    <img src="system/modules/con4gis_core/assets/images/logo-con4gis.png" width="320" height="100" alt="con4gis_logo">
+    <img src="system/modules/con4gis_core/assets/images/logo-con4gis.png" width="250" height="90" alt="con4gis_logo">
     <span class="version"><?php echo $GLOBALS['con4gis_core_extension']['version'] ?></span>
     <span class="sub"><?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['TITLESUB'] ?></span>
 </div>
@@ -20,13 +20,12 @@
         </legend>
         <div>
             <?php if ($GLOBALS['con4gis_maps_extension']['installed']): ?>
-                <!--
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
+                    href        => 'https://community.contao.org/de/showthread.php?55909-con4gis_maps-Offizieller-Support-Thread',
                     c4gImg      => 'contao-board',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']
                 )); ?>
-                -->
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
                     href        => 'https://www.github.com/kuestenschmiede/con4gis_maps',
@@ -48,7 +47,6 @@
                     label       => sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL'], 'con4gis_maps')
                 )); ?>
             <?php endif; ?>
-        <!-- <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="coming_soon"> -->
         </div>
     </fieldset>
 
@@ -61,13 +59,12 @@
         </legend>
         <div>
             <?php if ($GLOBALS['con4gis_tracking_extension']['installed']): ?>
-                <!--
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
+                    href        => 'https://community.contao.org/de/showthread.php?55911-con4gis_tracking-Offizieller-Support-Thread',
                     c4gImg      => 'contao-board',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']
                 )); ?>
-                -->
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
                     href        => 'https://www.github.com/kuestenschmiede/con4gis_tracking',
@@ -88,7 +85,6 @@
                     label       => sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL'], 'con4gis_tracking')
                 )); ?>
             <?php endif; ?>
-        <!--<img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="coming_soon">-->
         </div>
     </fieldset>
 
@@ -103,14 +99,12 @@
         <div>
 
             <?php if ($GLOBALS['con4gis_forum_extension']['installed']): ?>
-                <!--
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
                     c4gImg      => 'contao-board',
-                    href        => 'https://community.contao.org/de/showthread.php? XXX ',
+                    href        => 'https://community.contao.org/de/showthread.php?55910-con4gis_forum-Offizieller-Support-Thread',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']
                 )); ?>
-                -->
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
                     href        => 'https://www.github.com/kuestenschmiede/con4gis_forum',
@@ -125,6 +119,12 @@
                         label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL']
                     )); ?>
                 <?php endif; ?>
+                <?php echo C4GHTMLFactory::imgLink( array(
+                    addClass    => 'floatR',
+                    href        => \Environment::get('script') . '?do=c4g_core&perf=apicheck&mod=forum',
+                    c4gImg      => 'apicheck',
+                    label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECKTOOL']
+                )); ?>
             <?php else: ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     c4gImg      => 'install',
@@ -132,20 +132,21 @@
                     label       => sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL'], 'con4gis_forum')
                 )); ?>
             <?php endif; ?>
-
-        <!-- <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="coming_soon"> -->
         </div>
     </fieldset>
 
     <fieldset id="pal_c4g_groups" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_groups')">
             con4gis-groups
+            <?php if ($GLOBALS['con4gis_groups_extension']['installed']) {
+                echo ' [' . $GLOBALS['con4gis_groups_extension']['version'] . ']';
+            }?>
         </legend>
         <div>
-        <!--
             <?php if ($GLOBALS['con4gis_groups_extension']['installed']): ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
+                    href        => 'https://community.contao.org/de/showthread.php?55912-con4gis_groups-Offizieller-Support-Thread',
                     c4gImg      => 'contao-board',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']
                 )); ?>
@@ -155,6 +156,12 @@
                     c4gImg      => 'github',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
                 )); ?>
+                <?php echo C4GHTMLFactory::imgLink( array(
+                    addClass    => 'floatR',
+                    href        => \Environment::get('script') . '?do=c4g_core&perf=apicheck&mod=groups',
+                    c4gImg      => 'apicheck',
+                    label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECKTOOL']
+                )); ?>
             <?php else: ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     c4gImg      => 'install',
@@ -163,8 +170,9 @@
 
                 )); ?>
             <?php endif; ?>
-        -->
+        <!--
         <img src="system/modules/con4gis_core/assets/images/comingsoon.png" width="300" height="75" alt="coming_soon">
+        -->
         </div>
     </fieldset>
 

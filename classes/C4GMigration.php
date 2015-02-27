@@ -261,4 +261,3 @@ class C4GMigration extends \BackendModule
                 );
     }
 }
-?>

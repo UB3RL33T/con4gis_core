@@ -28,11 +28,14 @@ class C4GInfo extends \BackendModule
         $GLOBALS['TL_CSS'][] = 'system/modules/con4gis_core/assets/css/be_c4g_info.css';
 
     	// check for actions (atm only "migrate")
-    	if (\Input::get('perf') != '' && \Input::get('perf') == 'migrate') {
-    		if (\Input::get('mod') != '') {
-	    		$objCallback = new C4GMigration(\Input::get('mod'));
-	    		return $objCallback->generate();
-    		}
+    	if (\Input::get('perf') != '') {
+    		if (\Input::get('perf') == 'migrate' && \Input::get('mod') != '') {
+        		$objCallback = new C4GMigration(\Input::get('mod'));
+        		return $objCallback->generate();
+    		} elseif (\Input::get('perf') == 'apicheck' && \Input::get('mod') != '') {
+                $objCallback = new C4GApiCheck(\Input::get('mod'));
+                return $objCallback->generate();
+            }
     	}
 
     	return parent::generate();
@@ -43,8 +46,7 @@ class C4GInfo extends \BackendModule
      */
     protected function compile()
     {
-    	// $GLOBALS['TL_CSS'][] = 'system/modules/con4gis_core/assets/css/be_c4g_info.css';
-        // $this->Template->c4gModules->con4gis_maps->installed = $GLOBALS[];
+        // nothing to do here
     }
 
 }

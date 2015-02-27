@@ -26,8 +26,9 @@
   #
   # Depending on your server, you might have to remove the line entirely.
   ##
-  # uncomment this line if you get a 404-Error on ajax-requests
-  ##
+  # uncomment the "RewriteBase"-Command line if you get a 404-Error on ajax-requests
+  # but never change the next line! It would break the API-Check-function
+  ##XX##
   # RewriteBase /system/modules/con4gis_core/api/
 
   ##

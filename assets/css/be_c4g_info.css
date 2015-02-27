@@ -121,6 +121,7 @@ a.c4g_imgLink:focus {
 	font-size: 1.1em;
 	font-weight: bold;
 	text-shadow: 0 0 10px rgba(255,255,255,.5);
+	text-shadow: 0 0 1px black;
 
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
@@ -132,13 +133,15 @@ a.c4g_imgLink:focus {
 	}
 }
 #c4g_header img {
-	width: 320px;
-	height: 100px;
+	margin: 5px 0 0 10px;
+	width: 250px;
+	height: 90px;
 	transition: all 0.5s;
 }
 @media (max-width: 660px) {
 	#c4g_header img {
-		width: 256px;
+		margin: 0 0 0 10px;
+		width: 222px;
 		height: 80px;
 	}
 }

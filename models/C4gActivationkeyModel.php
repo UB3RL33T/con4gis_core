@@ -31,17 +31,68 @@ class C4gActivationkeyModel extends \Model
 	 * @param  string $key
 	 * @return string
 	 */
-	public static function generateActivationLink( $url, $key )
+	public static function generateActivationLinkFromKey( $key )
 	{
 		// check if key exists
 		if (empty( $key )) {
 			return false;
 		}
-		// build activation-link
-		$actLink = substr( $actPart, 0, strpos( $url, '=' ) + 1 );
-		$actLink .= static::getActionForKey( $key ) . ':' . $key;
-		// return the link as string 	TODO(/or html-link)
-		return $actLink;
+
+		// get action for this key
+		$keyAction = static::getActionForKey($key);
+		$keyAction = explode(':', $keyAction);
+
+		// find an appropriate activationpage
+		//
+		// try to find a page with a specific handler for the key-action
+		$objActivationPages = \ContentModel::findBy(
+			array
+			(
+				'type=?',
+				'c4g_activationpage_action_handler=?'
+			),
+			array
+			(
+				'c4g_activationpage',
+				$keyAction[0]
+			)
+		);
+		if (!$objActivationPages) {
+			// if no page was found, try to find pages with automatic-handlers
+			$objActivationPages = \ContentModel::findBy(
+				array
+				(
+					'type=?',
+					'c4g_activationpage_action_handler=?'
+				),
+				array
+				(
+					'c4g_activationpage',
+					''
+				)
+			);
+			// if still no page is found, the function failed
+			if (!$objActivationPages) {
+				return false;
+			}
+		}
+
+		// use the first page (even if more pages are found)
+		$objActivationPages->next();
+
+		// get the article for this content-element
+		$objArticle = \ArticleModel::findByPk( $objActivationPages->pid );
+		if ($objArticle) {
+			// if found, find the Page, where this article is nested
+			$objPage = \PageModel::findByPk( $objArticle->pid );
+			if ($objPage) {
+				// if found build the desired URL (base + page-url + key)
+				return \Environment::get('base') . \Controller::generateFrontendUrl( $objPage->row() ) . '?key=' . $key;
+			}
+		}
+
+		// article or page not found
+		return false;
 	}
 
 	/**
@@ -50,7 +101,7 @@ class C4gActivationkeyModel extends \Model
 	 * @param  boolean $saveInDB
 	 * @return string
 	 */
-	public static function generateActivationkey( $action='', $saveInDB=true )
+	public static function generateActivationkey( $action, $saveInDB=true, $durabilityInDays=30 )
 	{
 		// generate a unique key
 		$attempts = 42;
@@ -64,8 +115,8 @@ class C4gActivationkeyModel extends \Model
 		// save key in database
 		if ($saveInDB) {
 			$objKey = new C4gActivationkeyModel();
-			$objKey->activationkey = $key;
-			$objKey->expiration_date = strtotime('+1 month', time());
+			$objKey->activationkey = hash('sha256', $key);
+			$objKey->expiration_date = strtotime('+' . $durabilityInDays . ' days', time());
 			$objKey->key_action = $action;
 			$objKey->save();
 		}
@@ -81,8 +132,8 @@ class C4gActivationkeyModel extends \Model
 	 */
 	public static function assignUserToKey( $userId, $key )
 	{
-		$objKey = static::findBy( 'activationkey', $key );
-		if (empty( $hasKey ) || $objKey->used_by == 0) { return false; }
+		$objKey = static::findBy( 'activationkey', hash('sha256', $key) );
+		if (empty( $objKey ) || $objKey->used_by != 0) { return false; }
 		$objKey->used_by = $userId;
 		$objKey->save();
 		return true;
@@ -95,6 +146,18 @@ class C4gActivationkeyModel extends \Model
 	 */
 	public static function getActionForKey( $key )
 	{
-		return static::findOneBy( 'activationkey', $key )->key_action;
+		return static::findOneBy( 'activationkey', hash('sha256', $key) )->key_action;
 	}
-}?>
+
+	/**
+	 * returns the action connected to the given key
+	 * @param  string $key
+	 * @return string
+	 */
+	public static function keyIsValid( $key )
+	{
+		$key = static::findOneBy( 'activationkey', hash('sha256', $key) );
+		// the key exists, is not already claimed and is not expired
+		return (!empty( $key ) && empty( $key->used_by ) && ($key->expiration_date == 0 || $key->expiration_date > time()));
+	}
+}

@@ -117,18 +117,18 @@ class C4GJQueryGUI
 			$GLOBALS['TL_CSS']['c4g_jq_scrollpane'] 		= 'system/modules/con4gis_core/lib/jQuery/plugins/jScrollPane/css/jquery.jscrollpane.css';
 		}
 
-		if ($useMaps && $GLOBALS['c4g_maps_extension']['installed'])
+		if ($useMaps && $GLOBALS['con4gis_maps_extension']['installed'])
 		{
-			$GLOBALS['TL_JAVASCRIPT']['c4g_openlayers'] = $GLOBALS['c4g_maps_extension']['js_openlayers_libs']['DEFAULT'];
+			$GLOBALS['TL_JAVASCRIPT']['c4g_openlayers'] = $GLOBALS['con4gis_maps_extension']['js_openlayers_libs']['DEFAULT'];
 	    	$GLOBALS['TL_JAVASCRIPT']['c4g_maps'] 		= 'system/modules/con4gis_maps/html/js/C4GMaps.js';
 
 	    	if ($useGoogleMaps) {
-	    		$GLOBALS['TL_JAVASCRIPT']['c4g_google'] = $GLOBALS['c4g_maps_extension']['js_google'];
+	    		$GLOBALS['TL_JAVASCRIPT']['c4g_google'] = $GLOBALS['con4gis_maps_extension']['js_google'];
 	    	}
 		   	if ($useMapsEditor) {
-		   		if ($GLOBALS['c4g_maps_extension']['js_editor']) {
-		    		$GLOBALS['TL_JAVASCRIPT']['c4g_maps_edit'] 	= $GLOBALS['c4g_maps_extension']['js_editor'];
-		    		$GLOBALS['TL_CSS']['c4g_maps_edit'] 		= $GLOBALS['c4g_maps_extension']['css_editor'];
+		   		if ($GLOBALS['con4gis_maps_extension']['js_editor']) {
+		    		$GLOBALS['TL_JAVASCRIPT']['c4g_maps_edit'] 	= $GLOBALS['con4gis_maps_extension']['js_editor'];
+		    		$GLOBALS['TL_CSS']['c4g_maps_edit'] 		= $GLOBALS['con4gis_maps_extension']['css_editor'];
 		   		}
 		   	}
 		   	// Include Extended LayerSwitcher JS
