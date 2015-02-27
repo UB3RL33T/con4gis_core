@@ -13,8 +13,6 @@
  */
 
 
-namespace c4g;
-
 /***
  * Palettes
  */
