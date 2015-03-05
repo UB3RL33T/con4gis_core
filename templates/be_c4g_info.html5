@@ -162,6 +162,12 @@
                     c4gImg      => 'apicheck',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECKTOOL']
                 )); ?>
+                <?php echo C4GHTMLFactory::imgLink( array(
+                    addClass    => 'floatR',
+                    href        => \Environment::get('script') . '?do=c4g_core&perf=membergroupsync',
+                    c4gImg      => 'membergroupsync',
+                    label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNCTOOL']
+                )); ?>
             <?php else: ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     c4gImg      => 'install',

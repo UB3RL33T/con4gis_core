@@ -44,7 +44,7 @@
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['HEADLINE']       = 'API-Check';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['INTRO']          = 'Dieses Tool prüft die con4gis-API und reconfiguriert, wenn notwendig, die .htaccess-Datei des API-Verzeichnisses.';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['WARNING']        = 'Dieses Tool kann die .htaccess im API-Verzeichnis ("con4gis_core/api/") beschädigen, wenn diese zuvor manuell bearbeitet wurde. Ein Backup der Datei wird daher empfohlen!.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['WARNING']        = 'Dieser Vorgang kann die .htaccess im API-Verzeichnis ("con4gis_core/api/") beschädigen, wenn diese zuvor manuell bearbeitet wurde. Ein Backup der Datei wird daher empfohlen!.';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['WORKS']          = 'Die API funktioniert ordnungsgemäß.';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['REPAIRED']       = 'Die API konnte erfolgreich repariert werden.';
@@ -55,19 +55,30 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['NOREWRITEBASE']  = 'Die .htaccess konnte nicht angepasst werden. (Format-Fehler!)';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECK']['UNKNOWNERROR']   = 'Ein unbekannter Fehler ist aufgetreten...';
 
+
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNC']['HEADLINE']       = 'Synchronisiere Mitglieder-Gruppen Zuordnungen';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNC']['INTRO']          = 'Dieses Tool synchronisiert die Zuordnungen "Mitglied->Gruppen" und "Gruppe->Mitglieder".';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNC']['WARNING']        = 'Bei diesem Vorgang können vorhandene "Gruppe->Mitglieder"-Zuordnungen überschrieben werden, was aber in den meisten Fällen der gewünschte Effekt ist.';
+
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNC']['SUCCESS']                 = 'Die Zuordnungen wurden erfolgreich synchronisiert.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNC']['FAILED']                  = 'Die Zuordnungen konnten nicht erfolgreich synchronisiert werden.';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNC']['ERROR_GROUPLIMITREACHED'] = 'Das Mitglied mit der ID %s konnte der Gruppen mit der ID %s nicht zugeordnet werden, da dies das Gruppenlimit überschreiten würde.';
+
 // button
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['MIGRATE']   = 'Migration starten';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['CHECKAPI']  = 'Starte API-Check';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['UNINSTALL'] = '"cfs_%s" deinstallieren';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['DBUPDATE']  = 'Datenbank aktualisieren';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['MIGRATE']         = 'Migration starten';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['CHECKAPI']        = 'Starte API-Check';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['SYNCBINDINGS']    = 'Synchronisation starten';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['UNINSTALL']       = '"cfs_%s" deinstallieren';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BTN']['DBUPDATE']        = 'Datenbank aktualisieren';
 
 // links
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']  = 'Community Forum (DE)';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']        = 'Fork on github';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']     = 'App beziehen <br>(Android)';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL'] = 'Migrationstool';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECKTOOL']  = 'API-Check';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']       = '%s installieren';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']           = 'Community Forum (DE)';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']                 = 'Fork on github';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']              = 'App beziehen <br>(Android)';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL']          = 'Migrationstool';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECKTOOL']           = 'API-Check';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNCTOOL']    = 'Gruppen-Zuordnungen<br>synchronisieren';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']                = '%s installieren';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']     = 'con4gis Projektwebsite';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']   = 'Küstenschmiede @ GitHub';

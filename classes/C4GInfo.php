@@ -35,6 +35,9 @@ class C4GInfo extends \BackendModule
     		} elseif (\Input::get('perf') == 'apicheck' && \Input::get('mod') != '') {
                 $objCallback = new C4GApiCheck(\Input::get('mod'));
                 return $objCallback->generate();
+            } elseif (\Input::get('perf') == 'membergroupsync') {
+                $objCallback = new C4GMembergroupSync();
+                return $objCallback->generate();
             }
     	}
 
@@ -50,4 +53,3 @@ class C4GInfo extends \BackendModule
     }
 
 }
-?>
