@@ -43,5 +43,5 @@ if(TL_MODE == "FE") {
  */
 array_insert($GLOBALS['TL_CTE']['con4gis'], 2, array
 (
-    'c4g_activationpage' => 'Content_c4g_activationpage'
+    'c4g_activationpage' => 'c4g\Content_c4g_activationpage'
 ));

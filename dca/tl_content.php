@@ -39,7 +39,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_action_handler'] 
   'label'                   => &$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['action_handler'],
   'exclude'                 => true,
   'inputType'               => 'select',
-  'options_callback'        => array('c4g\tl_content_c4g_activationpage', 'get_registered_action_handlers'),
+  'options_callback'        => array('tl_content_c4g_activationpage', 'get_registered_action_handlers'),
   'eval'                    => array('includeBlankOption' => true, 'blankOptionLabel' => $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['msc']['auto_action_handler']),
   'sql'                     => "varchar(255) NOT NULL default ''"
 );
