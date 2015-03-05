@@ -14,7 +14,7 @@
 
 
 $GLOBALS['con4gis_core_extension']['installed'] = true;
-$GLOBALS['con4gis_core_extension']['version']   = '1.1.1';
+$GLOBALS['con4gis_core_extension']['version']   = '1.1.2';
 
 // API-Registration
 $GLOBALS['TL_API'] = array();
@@ -43,5 +43,5 @@ if(TL_MODE == "FE") {
  */
 array_insert($GLOBALS['TL_CTE']['con4gis'], 2, array
 (
-    'c4g_activationpage' => 'Content_c4g_activationpage'
+    'c4g_activationpage' => 'c4g\Content_c4g_activationpage'
 ));
