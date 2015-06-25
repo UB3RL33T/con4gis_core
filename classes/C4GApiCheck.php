@@ -127,7 +127,7 @@ class C4GApiCheck extends \BackendModule
         }
 
         // connection-check
-        $oHandle = curl_init( \Environment::get('base') . 'system/modules/con4gis_core/api/c4g_apicheck_ajax/' . $testParams );
+        $oHandle = curl_init( \Environment::get('base') . 'system/modules/con4gis_core/api/index.php/c4g_apicheck_ajax/' . $testParams );
         curl_setopt($oHandle, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($oHandle);
         $httpCode = curl_getinfo($oHandle, CURLINFO_HTTP_CODE);

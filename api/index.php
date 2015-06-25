@@ -39,7 +39,7 @@
         /**
          * @var string
          */
-        private $_sApiUrl = 'system/modules/con4gis_core/api/';
+        private $_sApiUrl = 'system/modules/con4gis_core/api/index.php';
 
 
         /**
@@ -136,6 +136,7 @@
 
             // URL decode here
             $strRequest = rawurldecode($strRequest);
+            $strRequest = substr($strRequest,1);
 
             // return the fragments
             return explode('/', $strRequest);
