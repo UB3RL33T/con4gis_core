@@ -119,12 +119,6 @@
                         label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MIGRATIONTOOL']
                     )); ?>
                 <?php endif; ?>
-                <?php echo C4GHTMLFactory::imgLink( array(
-                    addClass    => 'floatR',
-                    href        => \Environment::get('script') . '?do=c4g_core&perf=apicheck&mod=forum',
-                    c4gImg      => 'apicheck',
-                    label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECKTOOL']
-                )); ?>
             <?php else: ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     c4gImg      => 'install',
@@ -155,12 +149,6 @@
                     href        => 'https://www.github.com/kuestenschmiede/con4gis_groups',
                     c4gImg      => 'github',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
-                )); ?>
-                <?php echo C4GHTMLFactory::imgLink( array(
-                    addClass    => 'floatR',
-                    href        => \Environment::get('script') . '?do=c4g_core&perf=apicheck&mod=groups',
-                    c4gImg      => 'apicheck',
-                    label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['APICHECKTOOL']
                 )); ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     addClass    => 'floatR',

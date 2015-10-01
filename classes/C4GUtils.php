@@ -112,9 +112,9 @@ class C4GUtils
     try {
       // preparemail
       $eMail = new \Email();
-      $eMail->charset = $data['charset'] ?: 'UTF-8';
+      $eMail->charset = $mailData['charset'] ?: 'UTF-8';
 
-      $eMail->from = $data['from'];
+      $eMail->from = $mailData['from'];
       if ($mailData['from']) {
         $eMail->from = $mailData['from'];
       } elseif ($GLOBALS['TL_CONFIG']['useSMTP'] and filter_var( $GLOBALS['TL_CONFIG']['smtpUser'] )) {
@@ -215,8 +215,8 @@ class C4GUtils
         ' '
         );
 
-    $dataSet = trim( stripslashes( strip_tags( $dataSet ) ) );
-    $dataSet = preg_replace( $dSearch, $dReplace, $rawDataSet );
+    $dataSet = trim( stripslashes( strip_tags( $rawDataSet ) ) );
+    $dataSet = preg_replace( $dSearch, $dReplace, $dataSet );
     $dataSet = trim( strtolower( $dataSet ) );
 
     unset( $dSearch );
@@ -240,4 +240,3 @@ class C4GUtils
     return $dataSet;
   }
 }
-?>
