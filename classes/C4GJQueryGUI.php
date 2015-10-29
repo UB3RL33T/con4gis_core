@@ -55,14 +55,9 @@ class C4GJQueryGUI
 
    		if ($addJQueryUI || $useTree || $useMaps)
    		{
-			// Include JQuery UI JS
+			// Include JQuery UI JS - only js to append the css files to the end of $GLOBALS['TL_CSS'] array.
 			$GLOBALS['TL_JAVASCRIPT']['c4g_jquery_ui'] 		= 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.min.js';
 			C4GJQueryGUI::optimizeJSForContao3('c4g_jquery_ui');
-			$GLOBALS['TL_CSS']['c4g_jquery_ui_core'] 		= 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.min.css';
-			// Set the JQuery UI theme to be used
-			if (empty($GLOBALS['TL_CSS']['c4g_jquery_ui'])) {
-				$GLOBALS['TL_CSS']['c4g_jquery_ui'] 		= 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.theme.min.css';
-			}
             $GLOBALS ['TL_JAVASCRIPT'] ['c4g_a'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.legacy.min.js';
    		}
 
@@ -142,6 +137,16 @@ class C4GJQueryGUI
 	        $GLOBALS ['TL_JAVASCRIPT'] ['c4g_jquery_gui'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.c4gGui.js';
 	        C4GJQueryGUI::optimizeJSForContao3('c4g_jquery_gui');
 	        $GLOBALS ['TL_CSS'] ['c4g_jquery_gui'] 			= 'system/modules/con4gis_core/assets/css/c4gGui.css';
+		}
+
+		if ($addJQueryUI || $useTree || $useMaps)
+		{
+			// Add the JQuery UI CSS to the bottom of the $GLOBALS['TL_CSS'] array to prevent overriding from other plugins
+			$GLOBALS['TL_CSS']['c4g_jquery_ui_core'] 		= 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.min.css';
+			// Set the JQuery UI theme to be used
+			if (empty($GLOBALS['TL_CSS']['c4g_jquery_ui'])) {
+				$GLOBALS['TL_CSS']['c4g_jquery_ui'] 		= 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.theme.min.css';
+			}
 		}
 	}
 }
