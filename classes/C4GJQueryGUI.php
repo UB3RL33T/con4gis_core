@@ -20,7 +20,7 @@ class C4GJQueryGUI
 {
 	public static function initializeTree ( $addCore=false, $addJQuery=true, $addJQueryUI=true )
 	{
-		C4GJQueryGUI::initializeLibraries( $addCore, $addJQuery, $addJQueryUI, true, false, false, false, false, false, false, false, true);
+		C4GJQueryGUI::initializeLibraries( $addCore, $addJQuery, $addJQueryUI, true, false, false, false, false, false, false, false, true, false);
 	}
 
 	private static function optimizeJSForContao3 ( $libKey )
@@ -31,7 +31,7 @@ class C4GJQueryGUI
 	}
 
 	public static function initializeLibraries ( $addCore=true, $addJQuery=true, $addJQueryUI=true, $useTree=true, $useTable=true, $useHistory=true, $useTooltip=true,
-											   		$useMaps=false, $useGoogleMaps=false, $useMapsEditor=false, $useWswgEditor=false, $useScrollpane=false )
+											   		$useMaps=false, $useGoogleMaps=false, $useMapsEditor=false, $useWswgEditor=false, $useScrollpane=false, $usePopups=false )
 	{
    		if ($addJQuery)
    		{
@@ -43,7 +43,7 @@ class C4GJQueryGUI
    			}
    			else {
 				// Include JQuery JS
-				$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] 			= 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js';
+				$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] 			= 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
 				// just until the old plugins are replaced
 				// $GLOBALS['TL_JAVASCRIPT']['c4g_jquery_migrate']		= 'system/modules/con4gis_core/lib/jQuery/jquery-migrate-1.2.1.min.js';
 				C4GJQueryGUI::optimizeJSForContao3('c4g_jquery');
@@ -112,24 +112,42 @@ class C4GJQueryGUI
 			$GLOBALS['TL_CSS']['c4g_jq_scrollpane'] 		= 'system/modules/con4gis_core/lib/jQuery/plugins/jScrollPane/css/jquery.jscrollpane.css';
 		}
 
+		if ($usePopups || ($GLOBALS['con4gis_projects_extension']['installed'] && $useMaps))
+		{
+			$GLOBALS['TL_CSS']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.css';
+			$GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.js';
+		}
+
 		if ($useMaps && $GLOBALS['con4gis_maps_extension']['installed'])
 		{
-			$GLOBALS['TL_JAVASCRIPT']['c4g_openlayers'] = $GLOBALS['con4gis_maps_extension']['js_openlayers_libs']['DEFAULT'];
-	    	$GLOBALS['TL_JAVASCRIPT']['c4g_maps'] 		= 'system/modules/con4gis_maps/html/js/C4GMaps.js';
+			if (version_compare($GLOBALS['con4gis_maps_extension']['version'], '3.0.0', '<'))
+			{
+				// Maps 2
+				//
+				$GLOBALS['TL_JAVASCRIPT']['c4g_openlayers'] = $GLOBALS['con4gis_maps_extension']['js_openlayers_libs']['DEFAULT'];
+		    	$GLOBALS['TL_JAVASCRIPT']['c4g_maps'] 		= 'system/modules/con4gis_maps/html/js/C4GMaps.js';
 
-	    	if ($useGoogleMaps) {
-	    		$GLOBALS['TL_JAVASCRIPT']['c4g_google'] = $GLOBALS['con4gis_maps_extension']['js_google'];
-	    	}
-		   	if ($useMapsEditor) {
-		   		if ($GLOBALS['con4gis_maps_extension']['js_editor']) {
-		    		$GLOBALS['TL_JAVASCRIPT']['c4g_maps_edit'] 	= $GLOBALS['con4gis_maps_extension']['js_editor'];
-		    		$GLOBALS['TL_CSS']['c4g_maps_edit'] 		= $GLOBALS['con4gis_maps_extension']['css_editor'];
-		   		}
-		   	}
-		   	// Include Extended LayerSwitcher JS
-		   	$GLOBALS['TL_JAVASCRIPT']['c4g_layerswitcher'] 		= 'system/modules/con4gis_maps/html/js/C4GLayerSwitcher.js';
-		   	// Include LayerSwitcher CSS (Dynatree styling)
-		   	$GLOBALS['TL_CSS']['c4g_layerswitcher'] 			= 'system/modules/con4gis_maps/html/css/C4GLayerSwitcher.css';
+		    	if ($useGoogleMaps) {
+		    		$GLOBALS['TL_JAVASCRIPT']['c4g_google'] = $GLOBALS['con4gis_maps_extension']['js_google'];
+		    	}
+			   	if ($useMapsEditor) {
+			   		if ($GLOBALS['con4gis_maps_extension']['js_editor']) {
+			    		$GLOBALS['TL_JAVASCRIPT']['c4g_maps_edit'] 	= $GLOBALS['con4gis_maps_extension']['js_editor'];
+			    		$GLOBALS['TL_CSS']['c4g_maps_edit'] 		= $GLOBALS['con4gis_maps_extension']['css_editor'];
+			   		}
+			   	}
+			   	// Include Extended LayerSwitcher JS
+			   	$GLOBALS['TL_JAVASCRIPT']['c4g_layerswitcher'] 		= 'system/modules/con4gis_maps/html/js/C4GLayerSwitcher.js';
+			   	// Include LayerSwitcher CSS (Dynatree styling)
+			   	$GLOBALS['TL_CSS']['c4g_layerswitcher'] 			= 'system/modules/con4gis_maps/html/css/C4GLayerSwitcher.css';
+
+			} else
+			{
+				// Maps 3
+				//
+				\Maps\ResourceLoader::loadInternalScripts();
+				\Maps\ResourceLoader::loadInternalStylesheets();
+			}
 		}
 
 		if ($addCore)
@@ -150,5 +168,3 @@ class C4GJQueryGUI
 		}
 	}
 }
-
-?>
