@@ -25,6 +25,7 @@ $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['success_msg']
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['invalid_key_msg']          = array('Benutzerdefinierte Fehlermeldung (ungültiger Schlüssel)', 'Dieser Text wird angezeigt, wenn der verwendete Schlüssel ungültig ist. Ist dieses Feld leer, wird eine Standardausgabe der Aktivierungsseite angezeigt.');
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['handler_error_msg']        = array('Benutzerdefinierte Fehlermeldung (Ausführungsfehler)', 'Dieser Text wird angezeigt, wenn die Aktion nicht ausgeführt werden konnte. Ist dieses Feld leer, so wird die Standardausgabe des "Handlers" ausgegeben, insofern es eine gibt, ansonnsten eine Standardausgabe der Aktivierungsseite.');
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['use_default_css']          = array('Standard-CSS laden', 'Die standard CSS-Datei der Aktivierungsseite laden. Deaktivieren Sie diese Option, wenn Sie die Aktivierungsseite selbst gestalten wollen.');
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['c4g_activationpage_visitor_redirect'] = array('Weiterleitungsseite für Besucher', 'Geben Sie hier eine Seite ein, auf die Besucher weitergeleitet werden sollen (z.B. eine Seite mit einem Login-Formular).');
 
 /**
  * Legend
