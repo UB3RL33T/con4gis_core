@@ -40,10 +40,6 @@ class ResourceLoader
                 }
 
                 $GLOBALS['TL_JAVASCRIPT']['clipboard'] = 'system/modules/con4gis_core/lib/clipboard.min.js|static';
-
-                $GLOBALS['TL_JAVASCRIPT']['c4g_jq_bbc'] = 'system/modules/con4gis_core/lib/wswgEditor/editor.js';
-                $GLOBALS['TL_CSS']['c4g_jq_bbc'] = 'system/modules/con4gis_core/lib/wswgEditor/css/editor.css';
-                $GLOBALS['TL_CSS']['c4g_jq_bbc2'] = 'system/modules/con4gis_core/lib/wswgEditor/css/bbcodes.css';
                 break;
 
             default:
