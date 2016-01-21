@@ -67,10 +67,20 @@ class ResourceLoader
      */
     public static function loadResources($resources=array())
     {
-        if (!is_array($resources))
-        {
-            return false;
+        if (!is_array($resources) || empty($resources)) {
+            $allByDefault = true;
+            $resources = array();
+        } else {
+            $allByDefault = false;
         }
+
+        $resources = array_merge(array
+        (
+            'jquery' => $allByDefault,
+            'magnific-popup' => $allByDefault,
+            'clipboard' => $allByDefault
+        ),
+        $resources);
 
         if ($resources['jquery']) {
             // load jQuery
