@@ -57,7 +57,7 @@ class ResourceLoader
                 return false;
         }
 
-        return ResourceLoader::loadResources($neededResources);
+        return self::loadResources($neededResources);
     }
 
     /**
