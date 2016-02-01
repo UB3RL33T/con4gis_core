@@ -64,11 +64,11 @@ class C4GJQueryGUI
 		if ($useTable)
 		{
 			// Include DataTables JS
-			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables/js/jquery.dataTables.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/media/js/jquery.dataTables.min.js';
 			C4GJQueryGUI::optimizeJSForContao3('c4g_jq_datatables');
 			// Include DataTables CSS
-			$GLOBALS['TL_CSS']['c4g_jq_datatables'] 		= 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables/css/jquery.dataTables_themeroller.css';
-		}
+			$GLOBALS['TL_CSS']['c4g_jq_datatables'] 		= 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/media/css/jquery.dataTables_themeroller.css';
+        }
 
 		if ($useTree || $useMaps)
 		{
@@ -120,7 +120,7 @@ class C4GJQueryGUI
 
 		if ($useMaps && $GLOBALS['con4gis_maps_extension']['installed'])
 		{
-			if (version_compare($GLOBALS['con4gis_maps_extension']['version'], '3.0.0', '<'))
+			if (version_compare($GLOBALS['con4gis_maps_extension']['version'], '3.0', '<'))
 			{
 				// Maps 2
 				//
@@ -144,10 +144,6 @@ class C4GJQueryGUI
 			} else
 			{
 				// Maps 3
-				//
-				\c4g\Maps\ResourceLoader::loadInternalScripts();
-				\c4g\Maps\ResourceLoader::loadInternalStylesheets();
-
 				// Core-Resources
 				//
 		        $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
@@ -158,6 +154,8 @@ class C4GJQueryGUI
 		        }
 
 		        $GLOBALS['TL_JAVASCRIPT']['clipboard'] = 'system/modules/con4gis_core/lib/clipboard.min.js|static';
+				$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/con4gis_core/lib/jQuery/plugins/jquery-simple-datetimepicker/1.13.0/jquery.simple-dtpicker.js' . '|static';
+
 
 		        $GLOBALS['TL_JAVASCRIPT']['c4g_jq_bbc'] = 'system/modules/con4gis_core/lib/wswgEditor/editor.js';
 		        $GLOBALS['TL_CSS']['c4g_jq_bbc'] = 'system/modules/con4gis_core/lib/wswgEditor/css/editor.css';

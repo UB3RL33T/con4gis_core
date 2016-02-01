@@ -39,18 +39,22 @@ class ResourceLoader
 
                 // check if jQuery needs to be loaded
                 $jQueryLoaded = false;
-                foreach ($GLOBALS['TL_JAVASCRIPT'] as $strScriptUrl) {
-                    if (preg_match('/assets\/jquery\/core\/\d+\.\d+\.\d+\/jquery\.min\.js/i', $strScriptUrl))
-                    {
-                        $jQueryLoaded = true;
-                        break;
+                $scripts = $GLOBALS['TL_JAVASCRIPT'];
+                if (is_array($scripts)) {
+                    foreach ($scripts as $strScriptUrl) {
+                        if (preg_match('/assets\/jquery\/core\/\d+\.\d+\.\d+\/jquery\.min\.js/i', $strScriptUrl)) {
+                            $jQueryLoaded = true;
+                            break;
+                        }
                     }
                 }
+
                 $neededResources['jquery'] = !$jQueryLoaded;
 
                 // @TODO: check
                 // Load magnific-popup.js for projects
                 $neededResources['magnific-popup'] = $GLOBALS['con4gis_projects_extension']['installed'];
+
                 break;
 
             default:
