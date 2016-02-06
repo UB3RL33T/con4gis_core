@@ -78,3 +78,5 @@
 .c4gGuiTooltipComponent h3, .c4gGuiTooltipComponent div { margin: 0; }
 .c4gGuiPostContent { margin-top:20px; }
 .c4gGuiCollapsible_trigger { cursor: pointer; }
+
+.c4gGuiDataTable {width: 100%!important;}
