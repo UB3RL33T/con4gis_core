@@ -157,6 +157,10 @@ class C4GJQueryGUI
 			} else
 			{
 				// Maps 3
+				//
+				// TODO: recieve and use profileId
+ 				\c4g\Maps\ResourceLoader::loadResources();
+
 				// Core-Resources
 				//
 		        $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
@@ -167,12 +171,7 @@ class C4GJQueryGUI
 		        }
 
 		        $GLOBALS['TL_JAVASCRIPT']['clipboard'] = 'system/modules/con4gis_core/lib/clipboard.min.js|static';
-				$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/con4gis_core/lib/jQuery/plugins/jquery-simple-datetimepicker/1.13.0/jquery.simple-dtpicker.js' . '|static';
-
-
-		        $GLOBALS['TL_JAVASCRIPT']['c4g_jq_bbc'] = 'system/modules/con4gis_core/lib/wswgEditor/editor.js';
-		        $GLOBALS['TL_CSS']['c4g_jq_bbc'] = 'system/modules/con4gis_core/lib/wswgEditor/css/editor.css';
-		        $GLOBALS['TL_CSS']['c4g_jq_bbc2'] = 'system/modules/con4gis_core/lib/wswgEditor/css/bbcodes.css';
+				$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/con4gis_core/lib/jQuery/plugins/jquery-simple-datetimepicker/1.13.0/jquery.simple-dtpicker.js|static';
 			}
 		}
 
