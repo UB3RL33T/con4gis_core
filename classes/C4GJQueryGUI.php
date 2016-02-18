@@ -64,23 +64,21 @@ class C4GJQueryGUI
 		if ($useTable)
 		{
 			// Include DataTables JS
-			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/media/js/jquery.dataTables.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/media/js/jquery.dataTables.min.js';
             C4GJQueryGUI::optimizeJSForContao3('c4g_jq_datatables');
 
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_buttons'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/dataTables.buttons.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_buttons_print'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/buttons.print.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_buttons_jquery'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/buttons.jqueryui.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_buttons_pdf'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/pdfmake.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_buttons_html5'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/buttons.html5.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_buttons_font'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/vfs_fonts.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_jszip'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/jszip.min.js';
+
             // Include DataTables CSS
-			$GLOBALS['TL_CSS']['c4g_jq_datatables'] 		= 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/media/css/jquery.dataTables_themeroller.css';
-
-            $GLOBALS['TL_JAVASCRIPT']['buttons'] = 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/js/dataTables.buttons.min.js';
-            $GLOBALS['TL_JAVASCRIPT']['buttons_print'] = 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/js/buttons.print.min.js';
-            $GLOBALS['TL_JAVASCRIPT']['buttons_jquery'] = 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/js/buttons.jqueryui.min.js';
-            $GLOBALS['TL_JAVASCRIPT']['buttons_pdf'] = 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/js/pdfmake.min.js';
-            $GLOBALS['TL_JAVASCRIPT']['buttons_html5'] = 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/js/buttons.html5.js';
-            $GLOBALS['TL_JAVASCRIPT']['buttons_font'] = 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/js/vfs_fonts.js';
-			$GLOBALS['TL_JAVASCRIPT']['jszip'] = 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/js/jszip.min.js';
-
-            $GLOBALS['TL_CSS']['c4g_jq_buttons'] 		= 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/css/buttons.dataTables.min.css';
-            $GLOBALS['TL_CSS']['c4g_jq_buttons_jquery'] = 'system/modules/con4gis_core/lib/jQuery/plugins/dataTables_1_10_10/extensions/Buttons/css/buttons.jqueryui.min.css';
-
+			$GLOBALS['TL_CSS']['c4g_jq_datatables'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/media/css/jquery.dataTables_themeroller.css';
+			$GLOBALS['TL_CSS']['c4g_jq_datatables_buttons']	= 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/css/buttons.dataTables.min.css';
+			$GLOBALS['TL_CSS']['c4g_jq_datatables_buttons_jquery'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/css/buttons.jqueryui.min.css';
         }
 
 		if ($useTree || $useMaps)
