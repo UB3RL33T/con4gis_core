@@ -74,8 +74,9 @@ class C4GJQueryGUI
 			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_buttons_html5'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/buttons.html5.min.js';
 			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_buttons_font'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/vfs_fonts.js';
 			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_jszip'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/js/jszip.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_sort_date_de'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Sorting/date-de.js';
 
-            // Include DataTables CSS
+			// Include DataTables CSS
 			$GLOBALS['TL_CSS']['c4g_jq_datatables'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/media/css/jquery.dataTables_themeroller.css';
 			$GLOBALS['TL_CSS']['c4g_jq_datatables_buttons']	= 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/css/buttons.dataTables.min.css';
 			$GLOBALS['TL_CSS']['c4g_jq_datatables_buttons_jquery'] = 'system/modules/con4gis_core/lib/jQuery/plugins/datatables/extensions/Buttons/css/buttons.jqueryui.min.css';
