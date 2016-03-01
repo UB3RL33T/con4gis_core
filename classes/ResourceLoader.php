@@ -55,6 +55,9 @@ class ResourceLoader
                 // Load magnific-popup.js for projects
                 $neededResources['magnific-popup'] = $GLOBALS['con4gis_projects_extension']['installed'];
 
+                //ToDo switch for pdf export
+                $neededResources['jspdf'] = false;
+
                 break;
 
             default:
@@ -82,7 +85,8 @@ class ResourceLoader
         (
             'jquery' => $allByDefault,
             'magnific-popup' => $allByDefault,
-            'clipboard' => $allByDefault
+            'clipboard' => $allByDefault,
+            'jspdf' => $allByDefault,
         ),
         $resources);
 
@@ -98,6 +102,11 @@ class ResourceLoader
         if ($resources['clipboard']) {
             // load clipboard
             $GLOBALS['TL_JAVASCRIPT']['clipboard'] = 'system/modules/con4gis_core/lib/clipboard.min.js|static';
+        }
+        if ($resources['jspdf']) {
+            // load clipboard
+            $GLOBALS['TL_JAVASCRIPT']['jspdf'] = 'system/modules/con4gis_core/lib/jspdf/jspdf.min.js|static';
+            //$GLOBALS['TL_JAVASCRIPT']['jspdf.plugin.from_html'] = 'system/modules/con4gis_core/lib/jspdf/plugins/from_html.js|static';
         }
 
         return true;

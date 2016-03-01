@@ -171,23 +171,26 @@ class C4GJQueryGUI
 
 		        $GLOBALS['TL_JAVASCRIPT']['clipboard'] = 'system/modules/con4gis_core/lib/clipboard.min.js|static';
 				$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/con4gis_core/lib/jQuery/plugins/jquery-simple-datetimepicker/1.13.0/jquery.simple-dtpicker.js|static';
+
+				//ToDo uncomment for PDF Export
+				//$GLOBALS['TL_JAVASCRIPT']['jspdf'] = 'system/modules/con4gis_core/lib/jspdf/jspdf.min.js|static';
 			}
 		}
 
 		if ($addCore)
 		{
-	        $GLOBALS ['TL_JAVASCRIPT'] ['c4g_jquery_gui'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.c4gGui.js';
+	        $GLOBALS ['TL_JAVASCRIPT']['c4g_jquery_gui'] = 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.c4gGui.js';
 	        C4GJQueryGUI::optimizeJSForContao3('c4g_jquery_gui');
-	        $GLOBALS ['TL_CSS'] ['c4g_jquery_gui'] 			= 'system/modules/con4gis_core/assets/css/c4gGui.css';
+	        $GLOBALS ['TL_CSS']['c4g_jquery_gui'] = 'system/modules/con4gis_core/assets/css/c4gGui.css';
 		}
 
 		if ($addJQueryUI || $useTree || $useMaps)
 		{
 			// Add the JQuery UI CSS to the bottom of the $GLOBALS['TL_CSS'] array to prevent overriding from other plugins
-			$GLOBALS['TL_CSS']['c4g_jquery_ui_core'] 		= 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.min.css';
+			$GLOBALS['TL_CSS']['c4g_jquery_ui_core'] = 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.min.css';
 			// Set the JQuery UI theme to be used
 			if (empty($GLOBALS['TL_CSS']['c4g_jquery_ui'])) {
-				$GLOBALS['TL_CSS']['c4g_jquery_ui'] 		= 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.theme.min.css';
+				$GLOBALS['TL_CSS']['c4g_jquery_ui'] = 'system/modules/con4gis_core/lib/jQuery/ui-1.11.0.custom/jquery-ui.theme.min.css';
 			}
 		}
 
