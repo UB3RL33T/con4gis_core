@@ -37,19 +37,6 @@
 	height: 100%;
 }
 
-.c4gGuiAjaxBusyImage {
-    display: none;
-    margin: 0px;
-    paddingLeft: 0px;
-    paddingRight: 0px;
-    paddingTop: 0px;
-    paddingBottom: 0px;
-    position: absolute;
-    right: 3px;
-    top: 3px;
-    width: auto;
-}
-
 .c4gGuiAjaxBusy {
 	opacity: 1.0;
 	cursor: wait !important;

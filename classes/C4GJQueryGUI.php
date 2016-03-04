@@ -182,6 +182,7 @@ class C4GJQueryGUI
 	        $GLOBALS ['TL_JAVASCRIPT']['c4g_jquery_gui'] = 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.c4gGui.js';
 	        C4GJQueryGUI::optimizeJSForContao3('c4g_jquery_gui');
 	        $GLOBALS ['TL_CSS']['c4g_jquery_gui'] = 'system/modules/con4gis_core/assets/css/c4gGui.css';
+			$GLOBALS ['TL_CSS']['c4g_loader'] = 'system/modules/con4gis_core/assets/css/c4gLoader.css';
 		}
 
 		if ($addJQueryUI || $useTree || $useMaps)
