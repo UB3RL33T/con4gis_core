@@ -148,3 +148,7 @@ a.dt-button {
 .buttons-copy .ui-button-text:before {
     content: "\f0ea";
 }
+
+#uiMessage {
+	text-align: left;
+}
