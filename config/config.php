@@ -7,14 +7,14 @@
  * @package   con4gis
  * @author    Tobias Dobbrunz &#40;http://www.kuestenschmiede.de&#41;
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2014 - 2015
+ * @copyright Küstenschmiede GmbH Software & Design 2014 - 2016
  * @link      https://www.kuestenschmiede.de
  * @filesource
  */
 
 
 $GLOBALS['con4gis_core_extension']['installed'] = true;
-$GLOBALS['con4gis_core_extension']['version']   = '1.2.0';
+$GLOBALS['con4gis_core_extension']['version']   = '1.3.0';
 
 // API-Registration
 $GLOBALS['TL_API'] = array();
