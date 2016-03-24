@@ -32,6 +32,7 @@ ClassLoader::addClasses(array
 	'c4g\C4GMigration'               => 'system/modules/con4gis_core/classes/C4GMigration.php',
 	'c4g\C4GUtils'                   => 'system/modules/con4gis_core/classes/C4GUtils.php',
 	'c4g\HttpResultHelper'           => 'system/modules/con4gis_core/classes/HttpResultHelper.php',
+	'c4g\Core\ResourceLoader'      	 => 'system/modules/con4gis_core/classes/ResourceLoader.php',
 
 	// Elements
 	'c4g\Content_c4g_activationpage' => 'system/modules/con4gis_core/elements/Content_c4g_activationpage.php',

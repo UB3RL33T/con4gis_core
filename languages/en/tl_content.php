@@ -25,6 +25,7 @@ $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['success_msg']
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['invalid_key_msg']          = array('Custom error message (invalid key)', 'Enter a custom message that will be shown to the member, when the used key is invalid or already used. If this is empty, the activationpage default message will be used.');
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['handler_error_msg']        = array('Custom error message (handler error)', 'Enter a custom message that will be shown to the member, when the choosen function did not return a success. If this is empty, the handlers default message will be used, if existant, otherwise the activationpage default message will be used.');
 $GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['use_default_css']          = array('Load default CSS', 'This will load a default CSS-file for the activationpage. Disable this option if you wish to style this page manually.');
+$GLOBALS['TL_LANG']['tl_content']['c4g_activationpage']['fields']['c4g_activationpage_visitor_redirect'] = array('Redirect visitors', 'Choose a page to which visitors should be redirected.');
 
 /**
  * Legend

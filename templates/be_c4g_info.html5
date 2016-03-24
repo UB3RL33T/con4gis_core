@@ -28,11 +28,11 @@
                 )); ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     target      => '_blank',
-                    href        => 'https://www.github.com/kuestenschmiede/con4gis_maps',
+                    href        => 'https://www.github.com/kuestenschmiede/con4gis_maps3',
                     c4gImg      => 'github',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
                 )); ?>
-                <?php if ($GLOBALS['cfs_maps_extension']['installed'] && version_compare($GLOBALS['con4gis_maps_extension']['version'], '2.0.0', '<')): ?>
+                <?php if ($GLOBALS['cfs_maps_extension']['installed'] && version_compare($GLOBALS['con4gis_maps_extension']['version'], '3.0', '<')): ?>
                     <?php echo C4GHTMLFactory::imgLink( array(
                         addClass    => 'floatR',
                         href        => \Environment::get('script') . '?do=c4g_core&perf=migrate&mod=maps',
