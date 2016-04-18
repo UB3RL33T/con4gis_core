@@ -104,9 +104,11 @@ class C4GJQueryGUI
 			C4GJQueryGUI::optimizeJSForContao3('c4g_jq_tooltip');
 		}
 
+		//ToDo editor.js is used in jquery.c4gGui.js for default buttons. We have to check the configuration in this file to load editor.js just as needed.
+		$GLOBALS['TL_JAVASCRIPT']['c4g_jq_bbc'] 		= 'system/modules/con4gis_core/lib/wswgEditor/editor.js';
+
 		if ($useWswgEditor)
 		{
-			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_bbc'] 		= 'system/modules/con4gis_core/lib/wswgEditor/editor.js';
 			$GLOBALS['TL_CSS']['c4g_jq_bbc'] 				= 'system/modules/con4gis_core/lib/wswgEditor/css/editor.css';
 			$GLOBALS['TL_CSS']['c4g_jq_bbc2'] 				= 'system/modules/con4gis_core/lib/wswgEditor/css/bbcodes.css';
 			// also use file-upload
