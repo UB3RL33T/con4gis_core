@@ -1,6 +1,6 @@
 Font Awesome 
 ===
-*Version 4.4.0*
+*Version 4.6.1*
 by Dave Gandy - http://fontawesome.io
 
 
