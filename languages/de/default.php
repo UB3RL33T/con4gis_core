@@ -19,7 +19,7 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BACK']   = 'Zurück';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CANCEL'] = 'Abbrechen';
 
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['TITLESUB'] = 'Content-Management für Ihr Geo-Informations-System';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['TITLESUB'] = 'Content-Management für Ihr Geoinformationssystem';
 //@todo: shorter!
 // $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INTRO']              = 'Wir möchten es leichter machen, Karten und Kartenprojekte im Internet zu veröffentlichen. con4gis bietet eine einfache Möglichkeit Karten mit Hilfe mächtiger OpenSource Bibliotheken in Websites einzubinden.</br></br>
 // Wer ein Geoinformationssystem aufbauen möchte, kann das ohne Programmierkenntnisse schnell und einfach mit con4gis und Contao erreichen - stellen Sie verschiedene Werkzeuge auf der Karte zur Verfügung, binden Sie den Karteneditor an oder zeigen Sie ausgewählte Daten direkt aus der OpenStreetMap-Datenbank an.</br></br>Doch con4gis ist noch mehr. Zum Beispiel ist das Forum ein fester Bestandteil des Baukastens. Mit Hilfe des Forums können Beiträge georeferenziert werden und in der Karte dargestellt werden. Viele weitere Erweiterung sind in der Planung.';
@@ -80,6 +80,7 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNCTOOL']    = 'Gruppen-Zuordnungen<br>synchronisieren';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']                = '%s installieren';
 
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_documentation'] = 'con4gis Compendium (Handbuch)';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']     = 'con4gis Projektwebsite';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']   = 'Küstenschmiede @ GitHub';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osm_website']         = 'Website der OpenStreetMap';

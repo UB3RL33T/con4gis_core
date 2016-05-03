@@ -1,6 +1,6 @@
 <div id="c4g_header">
     <img src="system/modules/con4gis_core/assets/images/logo-con4gis.png" width="250" height="90" alt="con4gis_logo">
-    <span class="version"><?php echo $GLOBALS['con4gis_core_extension']['version'] ?></span>
+    <span class="version"><?php echo $GLOBALS['con4gis_core_extension']['con4gis_version'] ?></span>
     <span class="sub"><?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['TITLESUB'] ?></span>
 </div>
 
@@ -10,6 +10,25 @@
 
 </div> -->
 <div class="tl_formbody_edit c4g_info">
+
+    <fieldset id="pal_c4g_core" class="tl_box">
+        <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_core')">
+            con4gis-core
+            <?php if ($GLOBALS['con4gis_core_extension']['installed']) {
+                echo ' [' . $GLOBALS['con4gis_core_extension']['version'] . ']';
+            }?>
+        </legend>
+        <div>
+            <?php if ($GLOBALS['con4gis_core_extension']['installed']): ?>
+            <?php echo C4GHTMLFactory::imgLink( array(
+                    target      => '_blank',
+            href        => 'https://www.github.com/kuestenschmiede/con4gis_core',
+            c4gImg      => 'github',
+            label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
+            )); ?>
+            <?php endif; ?>
+        </div>
+    </fieldset>
 
     <fieldset id="pal_c4g_maps" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_maps')">
@@ -71,19 +90,51 @@
                     c4gImg      => 'github',
                     label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
                 )); ?>
-                <?php echo C4GHTMLFactory::imgLink( array(
-                    target      => '_blank',
-                    addClass    => 'floatR',
-                    href        => 'https://play.google.com/store/apps/details?id=org.con4gis.app4gis_tracking',
-                    c4gImg      => 'playstore',
-                    label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']
-                )); ?>
             <?php else: ?>
                 <?php echo C4GHTMLFactory::imgLink( array(
                     c4gImg      => 'install',
                     href        => \Environment::get('script') . '?do=repository_catalog&view=con4gis_tracking',
                     label       => sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL'], 'con4gis_tracking')
                 )); ?>
+            <?php endif; ?>
+        </div>
+    </fieldset>
+
+
+    <fieldset id="pal_c4g_tracking_android" class="tl_box">
+        <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_tracking_android')">
+            con4gis-tracking-android
+            <?php if ($GLOBALS['con4gis_tracking_android_extension']['installed']) {
+                echo ' [' . $GLOBALS['con4gis_tracking_android_extension']['version'] . ']';
+            }?>
+        </legend>
+        <div>
+            <?php if ($GLOBALS['con4gis_tracking_android_extension']['installed']): ?>
+            <?php echo C4GHTMLFactory::imgLink( array(
+                    target      => '_blank',
+            href        => 'https://community.contao.org/de/showthread.php?55911-con4gis_tracking-Offizieller-Support-Thread',
+            c4gImg      => 'contao-board',
+            label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CONTAO_BOARD']
+            )); ?>
+            <?php echo C4GHTMLFactory::imgLink( array(
+                    target      => '_blank',
+            href        => 'https://www.github.com/kuestenschmiede/con4gis_tracking_android',
+            c4gImg      => 'github',
+            label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
+            )); ?>
+            <?php echo C4GHTMLFactory::imgLink( array(
+                    target      => '_blank',
+            addClass    => 'floatR',
+            href        => 'https://play.google.com/store/apps/details?id=org.con4gis.app4gis_tracking',
+            c4gImg      => 'playstore',
+            label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['PLAYSTORE']
+            )); ?>
+            <?php else: ?>
+            <?php echo C4GHTMLFactory::imgLink( array(
+                    c4gImg      => 'install',
+            href        => \Environment::get('script') . '?do=repository_catalog&view=con4gis_tracking_android',
+            label       => sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL'], 'con4gis_tracking_android')
+            )); ?>
             <?php endif; ?>
         </div>
     </fieldset>
@@ -175,7 +226,12 @@
         <div>
             <ul>
                 <li>
-                    <a href="http://con4gis.org" target="_blank"><span>
+                    <a href="https://con4gis.org/downloads.html#handbuch" target="_blank"><span>
+                        <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_documentation']?>
+                    </span></a>
+                </li>
+                <li>
+                    <a href="https://con4gis.org" target="_blank"><span>
                         <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']?>
                     </span></a>
                 </li>
@@ -208,7 +264,7 @@
     <!-- <img src="system/modules/con4gis_core/assets/images/con4gis_info_head.png" width="741" height="100" alt="con4gis_info_head"> -->
     <span><?php
         echo sprintf( $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['FOOTER'],
-                         '<a href="https://www.kuestenschmiede.de" target="_blank">K&uuml;stenschmiede GmbH Software & Design</a>'
+                         '<a href="https://kuestenschmiede.de" target="_blank">K&uuml;stenschmiede</a>'
             );
     ?></span>
 </div>

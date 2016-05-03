@@ -80,6 +80,7 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNCTOOL']    = 'Synkronoi ryhmäsiteet';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']                = 'Asenna %s';
 
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_documentation'] = 'con4gis Compendium (german)';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']     = 'Verkkosivu projekti';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']   = 'Coastforge @ GitHub';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osm_website']         = 'Verkkosivu OpenStreetMap';

@@ -187,4 +187,11 @@ a.c4g_imgLink:focus {
 	text-align: center;
 	background-color: #2c3e50;
 	border-radius: 0 0 2px 2px;
+
+}
+#c4g_footer a,#c4g_footer a span,#c4g_footer a:after{
+	color: #ddd!important;
+}
+#c4g_footer a:hover, #c4g_footer a:active, #c4g_footer a:focus{
+	color: #ddd!important;
 }
