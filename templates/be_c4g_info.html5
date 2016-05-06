@@ -5,15 +5,17 @@
 </div>
 
 <br><br>
-<!-- <div id="c4g_intro">
+<!-- ToDo styling and text
+<div id="c4g_intro">
     <div><?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INTRO'] ?></div>
 
-</div> -->
+</div>
+-->
 <div class="tl_formbody_edit c4g_info">
 
     <fieldset id="pal_c4g_core" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_core')">
-            con4gis-core
+            con4gis-Core
             <?php if ($GLOBALS['con4gis_core_extension']['installed']) {
                 echo ' [' . $GLOBALS['con4gis_core_extension']['version'] . ']';
             }?>
@@ -32,7 +34,11 @@
 
     <fieldset id="pal_c4g_maps" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_maps')">
-            con4gis-maps
+            <?php if ($GLOBALS['cfs_maps_extension']['installed'] && version_compare($GLOBALS['con4gis_maps_extension']['version'], '3.0', '<')): ?>
+                con4gis-Maps
+            <?php else: ?>
+                con4gis-Maps3
+            <?php endif; ?>
             <?php if ($GLOBALS['con4gis_maps_extension']['installed']) {
                 echo ' [' . $GLOBALS['con4gis_maps_extension']['version'] . ']';
             }?>
@@ -71,7 +77,7 @@
 
     <fieldset id="pal_c4g_tracking" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_tracking')">
-            con4gis-tracking
+            con4gis-Tracking
             <?php if ($GLOBALS['con4gis_tracking_extension']['installed']) {
                 echo ' [' . $GLOBALS['con4gis_tracking_extension']['version'] . ']';
             }?>
@@ -103,7 +109,7 @@
 
     <fieldset id="pal_c4g_tracking_android" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_tracking_android')">
-            con4gis-tracking-android
+            con4gis-Tracking-Android
             <?php if ($GLOBALS['con4gis_tracking_android_extension']['installed']) {
                 echo ' [' . $GLOBALS['con4gis_tracking_android_extension']['version'] . ']';
             }?>
@@ -141,7 +147,7 @@
 
     <fieldset id="pal_c4g_forum" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_forum')">
-            con4gis-forum
+            con4gis-Forum
             <?php if ($GLOBALS['con4gis_forum_extension']['installed']) {
                 echo ' [' . $GLOBALS['con4gis_forum_extension']['version'] . ']';
             }?>
@@ -182,7 +188,7 @@
 
     <fieldset id="pal_c4g_groups" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_groups')">
-            con4gis-groups
+            con4gis-Groups
             <?php if ($GLOBALS['con4gis_groups_extension']['installed']) {
                 echo ' [' . $GLOBALS['con4gis_groups_extension']['version'] . ']';
             }?>

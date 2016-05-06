@@ -51,7 +51,6 @@ class ResourceLoader
 
                 $neededResources['jquery'] = !$jQueryLoaded;
 
-                // @TODO: check
                 // Load magnific-popup.js for projects
                 $neededResources['magnific-popup'] = $GLOBALS['con4gis_projects_extension']['installed'];
 
