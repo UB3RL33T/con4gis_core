@@ -14,7 +14,7 @@
 
 
 $GLOBALS['con4gis_core_extension']['installed'] = true;
-$GLOBALS['con4gis_core_extension']['version']   = '1.3.1';
+$GLOBALS['con4gis_core_extension']['version']   = '1.3.2-snapshot';
 
 $GLOBALS['con4gis_core_extension']['con4gis_version']   = 'v3.0';
 
