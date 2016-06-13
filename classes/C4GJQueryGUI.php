@@ -164,7 +164,15 @@ class C4GJQueryGUI
 
 				// Core-Resources
 				//
-		        $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
+				if (version_compare( VERSION, '3', '>=' ) &&
+					is_array( $GLOBALS['TL_JAVASCRIPT'] ) &&
+					(array_search( 'assets/jquery/core/' . JQUERY . '/jquery.min.js|static', $GLOBALS['TL_JAVASCRIPT'] ) !== false))
+				{
+					// jQuery is already loaded by Contao 3, don't load again!
+				}
+				else {
+					$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
+				}
 				// Load magnific-popup.js for projects
 		        if ($GLOBALS['con4gis_projects_extension']['installed']) {
 		            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.js|static';
