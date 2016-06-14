@@ -1,13 +1,14 @@
 <?php
-    /** *********************************************************************************************** *\
-     * |** Image Upload for wswgEditor
-     * |** Version: 0.1 (alpha)
-     * |** Last Modified Date: 2013-Sptember-25
-     * |** License: LGPL (http://opensource.org/licenses/lgpl-3.0.html)
-     * |** Author: Tobias Dobbrunz (Küstenschmiede GmbH Software & Design)
-     * |** EMail: tobias.dobbrunz@kuestenschmiede.de
-     * |** URL: http://www.kuestenschmiede.de
-     * \** *********************************************************************************************** */
+/**
+ * con4gis - the gis-kit
+ *
+ * @version   php 5
+ * @package   con4gis
+ * @author    con4gis contributors (see "authors.txt")
+ * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
+ * @link      https://www.kuestenschmiede.de
+ */
 
 
     if (!isset($_POST['Path']) || !isset($_FILES['File']['tmp_name'])) {

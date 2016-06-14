@@ -1,18 +1,15 @@
 <?php
 
 /**
- * Contao Open Source CMS
+ * con4gis - the gis-kit
  *
  * @version   php 5
  * @package   con4gis
- * @author    Tobias Dobbrunz
+ * @author    con4gis contributors (see "authors.txt")
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2014 - 2015
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
  * @link      https://www.kuestenschmiede.de
- * @filesource
  */
-
-
 
 $GLOBALS['TL_DCA']['tl_c4g_activationkey'] = array
 (
