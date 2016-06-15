@@ -128,8 +128,10 @@ class tl_content_c4g_activationpage extends \Backend
         // prepare the "registered-action-handlers"-array
         // for returning
         $arrHandlerList = array();
-        foreach ($GLOBALS['C4G_ACTIVATIONACTION'] as $action => $handler) {
-            $arrHandlerList[$action] = $action . ' (' . $handler . ')';
+        if ($GLOBALS['C4G_ACTIVATIONACTION']) {
+            foreach ($GLOBALS['C4G_ACTIVATIONACTION'] as $action => $handler) {
+                $arrHandlerList[$action] = $action . ' (' . $handler . ')';
+            }
         }
 
         return $arrHandlerList;
