@@ -1,23 +1,21 @@
 <?php
 
 /**
- * Contao Open Source CMS
+ * con4gis - the gis-kit
  *
  * @version   php 5
  * @package   con4gis
- * @author    Tobias Dobbrunz <http://www.kuestenschmiede.de>
+ * @author    con4gis contributors (see "authors.txt")
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2014 - 2016
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
  * @link      https://www.kuestenschmiede.de
- * @filesource
  */
 
 namespace c4g\Core;
 
 /**
  * Class ResourceLoader
- *
- * Static Function library for con4gis_core
+ * @package c4g\Core
  */
 class ResourceLoader
 {
@@ -91,7 +89,15 @@ class ResourceLoader
 
         if ($resources['jquery']) {
             // load jQuery
-            $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
+            if (version_compare( VERSION, '3', '>=' ) &&
+                is_array( $GLOBALS['TL_JAVASCRIPT'] ) &&
+                (array_search( 'assets/jquery/core/' . JQUERY . '/jquery.min.js|static', $GLOBALS['TL_JAVASCRIPT'] ) !== false))
+            {
+                // jQuery is already loaded by Contao 3, don't load again!
+            }
+            else {
+                $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
+            }
         }
         if ($resources['magnific-popup']) {
             // load magnific-popup

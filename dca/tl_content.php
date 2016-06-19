@@ -1,17 +1,15 @@
 <?php
 
 /**
- * Contao Open Source CMS
+ * con4gis - the gis-kit
  *
  * @version   php 5
  * @package   con4gis
- * @author    Tobias Dobbrunz <http://www.kuestenschmiede.de>
+ * @author    con4gis contributors (see "authors.txt")
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2014 - 2015
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
  * @link      https://www.kuestenschmiede.de
- * @filesource
  */
-
 
 /***
  * Palettes
@@ -122,8 +120,6 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['c4g_activationpage_visitor_redirect'
 
 /**
  * Class tl_content_c4g_activationpage
- *
- * Provide methods that are used by the data configuration array.
  */
 class tl_content_c4g_activationpage extends \Backend
 {
@@ -132,8 +128,10 @@ class tl_content_c4g_activationpage extends \Backend
         // prepare the "registered-action-handlers"-array
         // for returning
         $arrHandlerList = array();
-        foreach ($GLOBALS['C4G_ACTIVATIONACTION'] as $action => $handler) {
-            $arrHandlerList[$action] = $action . ' (' . $handler . ')';
+        if ($GLOBALS['C4G_ACTIVATIONACTION']) {
+            foreach ($GLOBALS['C4G_ACTIVATIONACTION'] as $action => $handler) {
+                $arrHandlerList[$action] = $action . ' (' . $handler . ')';
+            }
         }
 
         return $arrHandlerList;

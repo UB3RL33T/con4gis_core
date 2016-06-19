@@ -1,11 +1,14 @@
 <?php
 
 /**
- * Contao Open Source CMS
+ * con4gis - the gis-kit
  *
- * Copyright (c) 2005-2015 Leo Feyer
- *
- * @license LGPL-3.0+
+ * @version   php 5
+ * @package   con4gis
+ * @author    con4gis contributors (see "authors.txt")
+ * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
+ * @link      https://www.kuestenschmiede.de
  */
 
 
@@ -42,6 +45,7 @@ ClassLoader::addClasses(array
 
 	// Models
 	'c4g\C4gActivationkeyModel'      => 'system/modules/con4gis_core/models/C4gActivationkeyModel.php',
+	
 ));
 
 

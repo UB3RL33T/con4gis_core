@@ -1,15 +1,14 @@
 <?php if (!defined('TL_ROOT')) die('You can not access this file directly!');
 
 /**
- * Contao Open Source CMS
+ * con4gis - the gis-kit
  *
  * @version   php 5
  * @package   con4gis
- * @author    Jürgen Witte & Tobias Dobbrunz <http://www.kuestenschmiede.de>
+ * @author    con4gis contributors (see "authors.txt")
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2014 - 2015
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
  * @link      https://www.kuestenschmiede.de
- * @filesource
  */
 
 
@@ -99,16 +98,13 @@ class C4GJQueryGUI
 
 		if ($useTooltip)
 		{
-
    			$GLOBALS ['TL_JAVASCRIPT'] ['c4g_jq_tooltip_b'] 	= 'system/modules/con4gis_core/lib/jQuery/plugins/jquery.tooltip.pack.js';
 			C4GJQueryGUI::optimizeJSForContao3('c4g_jq_tooltip');
 		}
 
-		//ToDo editor.js is used in jquery.c4gGui.js for default buttons. We have to check the configuration in this file to load editor.js just as needed.
-		$GLOBALS['TL_JAVASCRIPT']['c4g_jq_bbc'] 		= 'system/modules/con4gis_core/lib/wswgEditor/editor.js';
-
 		if ($useWswgEditor)
 		{
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_bbc'] 		= 'system/modules/con4gis_core/lib/wswgEditor/editor.js';
 			$GLOBALS['TL_CSS']['c4g_jq_bbc'] 				= 'system/modules/con4gis_core/lib/wswgEditor/css/editor.css';
 			$GLOBALS['TL_CSS']['c4g_jq_bbc2'] 				= 'system/modules/con4gis_core/lib/wswgEditor/css/bbcodes.css';
 			// also use file-upload
@@ -164,7 +160,15 @@ class C4GJQueryGUI
 
 				// Core-Resources
 				//
-		        $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
+				if (version_compare( VERSION, '3', '>=' ) &&
+					is_array( $GLOBALS['TL_JAVASCRIPT'] ) &&
+					(array_search( 'assets/jquery/core/' . JQUERY . '/jquery.min.js|static', $GLOBALS['TL_JAVASCRIPT'] ) !== false))
+				{
+					// jQuery is already loaded by Contao 3, don't load again!
+				}
+				else {
+					$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
+				}
 				// Load magnific-popup.js for projects
 		        if ($GLOBALS['con4gis_projects_extension']['installed']) {
 		            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.js|static';
