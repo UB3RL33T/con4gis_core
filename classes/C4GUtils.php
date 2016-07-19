@@ -104,17 +104,6 @@ class C4GUtils
     return preg_match( '/([^@]+@{1}[^@\.]+\.{1}[A-Za-z0-9]+)/', $mail );
   }
 
-    /**
-     * validates a postal-number
-     * returns "1" if valid
-     * @param string $postal
-     * @return number
-     */
-    public static function postalIsValid ($postal)
-    {
-        $postal = trim($postal);
-        return is_numeric($postal);
-    }
   /**
    * function to send mails
    * @param array $mailData
