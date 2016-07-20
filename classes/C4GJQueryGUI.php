@@ -157,6 +157,7 @@ class C4GJQueryGUI
 				//
 				// TODO: recieve and use profileId
  				\c4g\Maps\ResourceLoader::loadResources();
+                \c4g\Maps\ResourceLoader::loadTheme();
 
 				// Core-Resources
 				//
