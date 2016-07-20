@@ -92,6 +92,18 @@ class C4GUtils
     return $options;
   }
 
+
+  /**
+     * validates a postal-number
+     * returns "1" if valid
+     * @param string $postal
+     * @return number
+   */
+  public static function postalIsValid ($postal)
+  {
+      $postal = trim($postal);
+      return is_numeric($postal);
+  }
   /**
    * validates an email-address
    * returns "1" if valid
