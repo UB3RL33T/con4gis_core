@@ -100,8 +100,14 @@
                 exit;
             }
 
-            $blnUseCache = true; // Todo in Systemkonfiguration auslagern
+            $blnUseCache = false;
             $blnOutputFromCache = false;
+
+
+            if (!\Config::get('debugMode') && (\Config::get('cacheMode') == 'both' || \Config::get('cacheMode') == 'server'))
+            {
+                $blnUseCache = true;
+            }
 
             if ($blnUseCache)
             {
@@ -111,13 +117,6 @@
                     $blnOutputFromCache = true;
                 }
             }
-
-            // Create the api endpoint handler
-            if (!$blnOutputFromCache)
-            {
-                $objHandler = new $GLOBALS['TL_API'][$strApiEndpoint]();
-            }
-
 
             // Generate the result
 
@@ -133,6 +132,10 @@
             }
             else
             {
+
+                // Create the api endpoint handler
+                $objHandler = new $GLOBALS['TL_API'][$strApiEndpoint]();
+
                 $strResponse = $objHandler->generate($arrFragments);
 
                 if ($blnUseCache)
