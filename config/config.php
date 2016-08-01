@@ -45,3 +45,12 @@ array_insert($GLOBALS['TL_CTE']['con4gis'], 2, array
 (
     'c4g_activationpage' => 'c4g\Content_c4g_activationpage'
 ));
+
+/**
+ * Purge jobs
+ */
+$GLOBALS['TL_PURGE']['folders']['con4gis'] = array
+(
+    'callback' => array('c4g\Core\C4GAutomator', 'purgeApiCache'),
+    'affected' => array('system/cache/con4gis')
+);

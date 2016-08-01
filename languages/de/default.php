@@ -106,5 +106,4 @@
     // messages for exceptions by code
     // $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['exception_xxx'] = "";
 
-
-?>
+    $GLOBALS['TL_LANG']['tl_maintenance_jobs']['con4gis'] = array('con4gis Cache leeren', 'Löscht die temporären con4gis API-Dateien.');

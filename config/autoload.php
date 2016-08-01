@@ -36,6 +36,8 @@ ClassLoader::addClasses(array
 	'c4g\C4GUtils'                   => 'system/modules/con4gis_core/classes/C4GUtils.php',
 	'c4g\HttpResultHelper'           => 'system/modules/con4gis_core/classes/HttpResultHelper.php',
 	'c4g\Core\ResourceLoader'      	 => 'system/modules/con4gis_core/classes/ResourceLoader.php',
+	'c4g\Core\C4GApiCache' 			 => 'system/modules/con4gis_core/classes/C4GApiCache.php',
+	'c4g\Core\C4GAutomator'			 =>  'system/modules/con4gis_core/classes/C4GAutomator.php',
 
 	// Elements
 	'c4g\Content_c4g_activationpage' => 'system/modules/con4gis_core/elements/Content_c4g_activationpage.php',
@@ -45,7 +47,7 @@ ClassLoader::addClasses(array
 
 	// Models
 	'c4g\C4gActivationkeyModel'      => 'system/modules/con4gis_core/models/C4gActivationkeyModel.php',
-	
+
 ));
 
 

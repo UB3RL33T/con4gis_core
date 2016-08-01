@@ -100,11 +100,58 @@
                 exit;
             }
 
+            $blnUseCache = true; // Todo in Systemkonfiguration auslagern
+            $blnOutputFromCache = false;
+
+            if ($blnUseCache)
+            {
+                // check for cached data
+                if ($strResponse = c4g\Core\C4GApiCache::getCacheData($strApiEndpoint, $arrFragments))
+                {
+                    $blnOutputFromCache = true;
+                }
+            }
+
             // Create the api endpoint handler
-            $objHandler = new $GLOBALS['TL_API'][$strApiEndpoint]();
+            if (!$blnOutputFromCache)
+            {
+                $objHandler = new $GLOBALS['TL_API'][$strApiEndpoint]();
+            }
+
 
             // Generate the result
-            echo $objHandler->generate($arrFragments);
+
+            // check for jsonp request
+            if (\Input::get('callback'))
+            {
+                echo \Input::get('callback') . '(';
+            }
+
+            if ($blnOutputFromCache)
+            {
+                echo $strResponse;
+            }
+            else
+            {
+                $strResponse = $objHandler->generate($arrFragments);
+
+                if ($blnUseCache)
+                {
+                    // write data into cache
+                    c4g\Core\C4GApiCache::putCacheData($strApiEndpoint, $arrFragments, $strResponse);
+                }
+
+                echo $strResponse;
+
+            }
+
+
+            // check for jsonp request
+            if (\Input::get('callback'))
+            {
+                echo ');';
+            }
+
         }
 
 
