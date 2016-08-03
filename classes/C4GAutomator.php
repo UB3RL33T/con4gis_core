@@ -39,7 +39,7 @@ class C4GAutomator extends \System
         $objFolder->purge();
 
         // Add a log entry
-        $this->log('Purged the con4gis cache', __METHOD__, TL_CRON);
+        self::log('Purged the con4gis cache', __METHOD__, TL_CRON);
     }
 
 }
