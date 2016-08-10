@@ -103,11 +103,22 @@
             $blnUseCache = false;
             $blnOutputFromCache = false;
 
-
-            if (!\Config::get('debugMode') && (\Config::get('cacheMode') == 'both' || \Config::get('cacheMode') == 'server'))
+            if (!\Config::get('debugMode') && (\Config::get('cacheMode') == 'both' || \Config::get('cacheMode') == 'server') && !in_array($strApiEndpoint, $GLOBALS['CON4GIS']['PREVENT_CACHE']['SERVICES']))
             {
                 $blnUseCache = true;
             }
+
+            if (is_array($GLOBALS['CON4GIS']['PREVENT_CACHE']['PARAMS']))
+            {
+                foreach ($GLOBALS['CON4GIS']['PREVENT_CACHE']['PARAMS'] as $key=>$arrValues)
+                {
+                    if (\Input::get($key) && in_array(\Input::get($key), $arrValues))
+                    {
+                        $blnUseCache = false;
+                    }
+                }
+            }
+
 
             if ($blnUseCache)
             {
