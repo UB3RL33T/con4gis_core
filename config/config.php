@@ -58,13 +58,13 @@ $GLOBALS['TL_PURGE']['folders']['con4gis'] = array
 /**
  * Con4Gis Caching
  *
- * it is possible to prevent caching from selected services
- * eg: $GLOBALS['CON4GIS']['PREVENT_CACHE']['SERVICES'][] = "layerService"; => layerService requests are not cached
+ * caching is not auto-enabled. To register a service to be cached, insert it in the GLOBALS-Array
+ * eg: $GLOBALS['CON4GIS']['USE_CACHE']['SERVICES'][] = "layerService"; => layerService requests are cached
  *
- * it is also possible to prevent caching while existence of defined get parameters and values
- * eg: $GLOBALS['CON4GIS']['PREVENT_CACHE']['PARAMS']['method'] = array('getLive'); => request with method=getLive won't be cached
+ * it is also possible to enable caching while existence of defined get parameters and values
+ * eg: $GLOBALS['CON4GIS']['USE_CACHE']['PARAMS']['method'] = array('getLive'); => request with method=getLive will be cached
  *
  */
-$GLOBALS['CON4GIS']['PREVENT_CACHE'] = array();
-$GLOBALS['CON4GIS']['PREVENT_CACHE']['SERVICES'] = array();
-$GLOBALS['CON4GIS']['PREVENT_CACHE']['PARAMS'] = array();
+$GLOBALS['CON4GIS']['USE_CACHE'] = array();
+$GLOBALS['CON4GIS']['USE_CACHE']['SERVICES'] = array();
+$GLOBALS['CON4GIS']['USE_CACHE']['PARAMS'] = array();
