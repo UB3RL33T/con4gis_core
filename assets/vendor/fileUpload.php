@@ -2,7 +2,7 @@
 
     try {
         define("TL_MODE", "FE");
-        $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../";
+        $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../";
         require_once($sRootPath . "system/initialize.php");
 
         // User not logged in...
