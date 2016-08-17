@@ -229,8 +229,8 @@
                                         language:options.contaoLanguage,
                                         defaultLanguage:"en",
                                         disableObjectResizing : true,
-                                        filebrowserImageUploadUrl: options.contaoPath+"system/modules/con4gis_core/lib/imgUpload.php",
-                                        filebrowserUploadUrl: options.contaoPath+'system/modules/con4gis_core/lib/fileUpload.php'
+                                        filebrowserImageUploadUrl: options.contaoPath+"system/modules/con4gis_core/assets/vendor/imgUpload.php",
+                                        filebrowserUploadUrl: options.contaoPath+'system/modules/con4gis_core/assets/vendor/fileUpload.php'
                                     });
                                 },500);
 

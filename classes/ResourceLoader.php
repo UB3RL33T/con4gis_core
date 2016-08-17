@@ -96,22 +96,22 @@ class ResourceLoader
                 // jQuery is already loaded by Contao 3, don't load again!
             }
             else {
-                $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/lib/jQuery/jquery-1.11.1.min.js|static';
+                $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.1.min.js|static';
             }
         }
         if ($resources['magnific-popup']) {
             // load magnific-popup
-            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.js|static';
-            $GLOBALS['TL_CSS']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.css';
+            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/assets/vendor/magnific-popup/magnific-popup.js|static';
+            $GLOBALS['TL_CSS']['magnific-popup'] = 'system/modules/con4gis_core/assets/vendor/magnific-popup/magnific-popup.css';
         }
         if ($resources['clipboard']) {
             // load clipboard
-            $GLOBALS['TL_JAVASCRIPT']['clipboard'] = 'system/modules/con4gis_core/lib/clipboard.min.js|static';
+            $GLOBALS['TL_JAVASCRIPT']['clipboard'] = 'system/modules/con4gis_core/assets/vendor/clipboard.min.js|static';
         }
         if ($resources['jspdf']) {
             // load clipboard
-            $GLOBALS['TL_JAVASCRIPT']['jspdf'] = 'system/modules/con4gis_core/lib/jspdf/jspdf.min.js|static';
-            //$GLOBALS['TL_JAVASCRIPT']['jspdf.plugin.from_html'] = 'system/modules/con4gis_core/lib/jspdf/plugins/from_html.js|static';
+            $GLOBALS['TL_JAVASCRIPT']['jspdf'] = 'system/modules/con4gis_core/assets/vendor/jspdf/jspdf.min.js|static';
+            //$GLOBALS['TL_JAVASCRIPT']['jspdf.plugin.from_html'] = 'system/modules/con4gis_core/assets/vendor/jspdf/plugins/from_html.js|static';
         }
 
         return true;

@@ -81,7 +81,7 @@
 
             // get protocol and host name to send the absolute image path to CKEditor
             $sProtocol = !empty($sHttps) ? 'https://' : 'http://';
-            $sSite     = $sProtocol . $sServerName . $path . '/system/modules/con4gis_core/lib/deliver.php?file=';
+            $sSite     = $sProtocol . $sServerName . $path . '/system/modules/con4gis_core/assets/vendor/deliver.php?file=';
 
             // build file path
             $sUploadpath = TL_ROOT . '/' . $sUploadDir . $sUniqFileName;       // full file path
