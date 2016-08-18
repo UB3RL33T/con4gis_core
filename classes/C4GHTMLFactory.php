@@ -117,9 +117,9 @@ class C4GHTMLFactory
 				$options['label'] . '</a>';
 	}
 
-	public static function c4gGuiButton( $label, $action, $additionalClass='' )
+	public static function c4gGuiButton( $label, $action, $additionalClass='', $accesskey='' )
 	{
-		return '<a href="#" class="c4gGuiAction c4gGuiButton ' . $additionalClass . '" data-action="' . $action . '" role="button">' . $label . '</a>';
+		return '<a href="#" class="c4gGuiAction c4gGuiButton ' . $additionalClass . '" accesskey="' . $accesskey . '" data-action="' . $action . '" role="button">' . $label . '</a>';
 	}
 
 	// ----------------------------------------------------------------------------------
