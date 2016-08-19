@@ -18,6 +18,7 @@ $GLOBALS['con4gis_core_extension']['con4gis_version']   = 'v3.2';
 
 // API-Registration
 $GLOBALS['TL_API'] = array();
+$GLOBALS['TL_API']['fileUpload'] = 'C4GFileUpload';
 
 /**
  * Backend Modules

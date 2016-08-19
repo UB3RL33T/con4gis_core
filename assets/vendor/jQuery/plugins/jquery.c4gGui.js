@@ -231,7 +231,8 @@ this.c4g = this.c4g || {};
                                         defaultLanguage:"en",
                                         disableObjectResizing : true,
                                         filebrowserImageUploadUrl: options.contaoPath+"system/modules/con4gis_core/assets/vendor/imgUpload.php",
-                                        filebrowserUploadUrl: options.contaoPath+'system/modules/con4gis_core/assets/vendor/fileUpload.php'
+                                        //filebrowserUploadUrl: options.contaoPath+'system/modules/con4gis_core/assets/vendor/fileUpload.php'
+                                        filebrowserUploadUrl: options.contaoPath+'con4gis/api/fileUpload'
                                     });
                                 },500);
 
