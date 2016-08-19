@@ -23,9 +23,10 @@
  * @package    con4gis
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
+this.c4g = this.c4g || {};
 
 // use local namespace with single execution function
-(function($) {
+(function($, c4g) {
 
   // id for generated DIVs
   var
@@ -1355,5 +1356,5 @@
   };
 
 
-})(jQuery);  // single execution function
+})(jQuery, this.c4g);  // single execution function
 
