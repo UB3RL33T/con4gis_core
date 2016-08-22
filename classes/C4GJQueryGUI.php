@@ -122,10 +122,10 @@ class C4GJQueryGUI
 			$GLOBALS['TL_CSS']['c4g_jq_scrollpane'] 		= 'system/modules/con4gis_core/lib/jQuery/plugins/jScrollPane/css/jquery.jscrollpane.css';
 		}
 
-		if ($usePopups || ($GLOBALS['con4gis_projects_extension']['installed'] && $useMaps))
+		if ($usePopups || ($GLOBALS['con4gis_projects_extension']['installed']))
 		{
 			$GLOBALS['TL_CSS']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.css';
-			$GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.js';
+			$GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/jquery.magnific-popup.min.js';
 		}
 
 		if ($useMaps && $GLOBALS['con4gis_maps_extension']['installed'])
@@ -172,7 +172,7 @@ class C4GJQueryGUI
 				}
 				// Load magnific-popup.js for projects
 		        if ($GLOBALS['con4gis_projects_extension']['installed']) {
-		            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.js|static';
+		            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/jquery.magnific-popup.min.js|static';
 		            $GLOBALS['TL_CSS']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.css';
 		        }
 

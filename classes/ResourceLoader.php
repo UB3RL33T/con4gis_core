@@ -101,7 +101,7 @@ class ResourceLoader
         }
         if ($resources['magnific-popup']) {
             // load magnific-popup
-            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.js|static';
+            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/jquery.magnific-popup.min.js|static';
             $GLOBALS['TL_CSS']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.css';
         }
         if ($resources['clipboard']) {
