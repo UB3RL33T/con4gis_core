@@ -148,6 +148,10 @@
                 $objHandler = new $GLOBALS['TL_API'][$strApiEndpoint]();
 
                 $strResponse = $objHandler->generate($arrFragments);
+                if (is_array($strResponse)) {
+                    header("Content-Type: " . $strResponse['type']);
+                    $strResponse = $strResponse['data'];
+                }
 
                 if ($blnUseCache)
                 {

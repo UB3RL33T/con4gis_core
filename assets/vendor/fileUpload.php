@@ -3,6 +3,7 @@
 namespace c4g;
 
 use Contao\File;
+use Contao\Frontend;
 
 class C4GFileUpload {
 
@@ -149,7 +150,7 @@ class C4GFileUpload {
         }
 
         $sReturn = "<script>$sReturn;</script>";
-        return array("data" => $sReturn, "type" => "document");
+        return array("data" => $sReturn, "type" => "Document");
     }
 
 }
