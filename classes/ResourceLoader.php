@@ -101,13 +101,10 @@ class ResourceLoader
         }
         if ($resources['magnific-popup']) {
             // load magnific-popup
-<<<<<<< HEAD
-            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/jquery.magnific-popup.min.js|static';
-            $GLOBALS['TL_CSS']['magnific-popup'] = 'system/modules/con4gis_core/lib/magnific-popup/magnific-popup.css';
-=======
-            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/assets/vendor/magnific-popup/magnific-popup.js|static';
+
+            $GLOBALS['TL_JAVASCRIPT']['magnific-popup'] = 'system/modules/con4gis_core/assets/vendor/magnific-popup/jquery.magnific-popup.min.js|static';
             $GLOBALS['TL_CSS']['magnific-popup'] = 'system/modules/con4gis_core/assets/vendor/magnific-popup/magnific-popup.css';
->>>>>>> feature/contao4
+
         }
         if ($resources['clipboard']) {
             // load clipboard
