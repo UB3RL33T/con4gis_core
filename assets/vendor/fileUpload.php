@@ -2,6 +2,8 @@
 
 namespace c4g;
 
+use Contao\File;
+
 class C4GFileUpload {
 
     public function generate() {
@@ -145,10 +147,9 @@ class C4GFileUpload {
         } catch (Exception $e) {
             $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '', '" . $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['exception_'.$e->getCode()] . "')";
         }
-//        $sReturn = '(' . $sReturn . ')';
-//        return json_encode($sReturn);
-//        return json_encode("&lt;script&gt;" . $sReturn . ";&lt;/script&gt;");
-        echo "$sReturn;";
+
+        $sReturn = "<script>$sReturn;</script>";
+        return array("data" => $sReturn, "type" => "document");
     }
 
 }
