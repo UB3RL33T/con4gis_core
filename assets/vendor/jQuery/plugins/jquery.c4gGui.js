@@ -23,9 +23,10 @@
  * @package    con4gis
  * @license    http://opensource.org/licenses/lgpl-3.0.html
  */
+this.c4g = this.c4g || {};
 
 // use local namespace with single execution function
-(function($) {
+(function($, c4g) {
 
   // id for generated DIVs
   var
@@ -229,8 +230,8 @@
                                         language:options.contaoLanguage,
                                         defaultLanguage:"en",
                                         disableObjectResizing : true,
-                                        filebrowserImageUploadUrl: options.contaoPath+"system/modules/con4gis_core/lib/imgUpload.php",
-                                        filebrowserUploadUrl: options.contaoPath+'system/modules/con4gis_core/lib/fileUpload.php'
+                                        filebrowserImageUploadUrl: options.contaoPath + uploadApiUrl,
+                                        filebrowserUploadUrl: options.contaoPath + uploadApiUrl
                                     });
                                 },500);
 
@@ -1358,5 +1359,5 @@
   };
 
 
-})(jQuery);  // single execution function
+})(jQuery, this.c4g);  // single execution function
 
