@@ -32,6 +32,23 @@
         </div>
     </fieldset>
 
+    <?php if (class_exists('c4g\ApiBundle\Controller\ApiController')):?>
+    <fieldset id="pal_c4g_api_bundle" class="tl_box">
+        <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_api_bundle')">
+            con4gis-ApiBundle
+            <?php echo ' [' . \c4g\ApiBundle\Controller\ApiController::getSApiBundleVersion() . ']'; ?>
+        </legend>
+        <div>
+            <?php echo C4GHTMLFactory::imgLink( array(
+                    target      => '_blank',
+            href        => 'https://www.github.com/kuestenschmiede/con4gis_api_bundle',
+            c4gImg      => 'github',
+            label       => $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['GITHUB']
+            )); ?>
+        </div>
+    </fieldset>
+    <?php endif; ?>
+
     <fieldset id="pal_c4g_maps" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_maps')">
             <?php if ($GLOBALS['cfs_maps_extension']['installed'] && version_compare($GLOBALS['con4gis_maps_extension']['version'], '3.0', '<')): ?>
