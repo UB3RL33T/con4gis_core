@@ -20,6 +20,8 @@ $GLOBALS['con4gis_core_extension']['con4gis_version']   = 'v3.2';
 $GLOBALS['TL_API'] = array();
 $GLOBALS['TL_API']['fileUpload'] = 'c4g\C4GFileUpload';
 
+
+
 /**
  * Backend Modules
  */
@@ -38,6 +40,16 @@ array_insert($GLOBALS['BE_MOD'], array_search('content', array_keys($GLOBALS['BE
 if(TL_MODE == "FE") {
     $GLOBALS['TL_HEAD'][] = "<script>var c4g_rq = '" . $_SESSION['REQUEST_TOKEN'] . "';</script>";
 }
+
+if (class_exists('Con4gis\ApiBundle\Controller\ApiController'))
+{
+    $apiBaseUrl = 'con4gis/api';
+}
+else
+{
+    $apiBaseUrl = 'system/modules/con4gis_core/api/index.php';
+}
+$GLOBALS['TL_HEAD'][] = "<script>var apiBaseUrl = '" . $apiBaseUrl . "';</script>";
 
 /**
  * Content Elements
