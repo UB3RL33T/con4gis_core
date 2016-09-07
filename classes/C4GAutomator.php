@@ -32,7 +32,7 @@ class C4GAutomator extends \System
     /**
      * Purge the con4gis cache
      */
-    public function purgeApiCache()
+    public static function purgeApiCache()
     {
         // Purge the folder
         $objFolder = new \Folder('system/cache/con4gis');

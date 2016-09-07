@@ -41,7 +41,7 @@ class C4GApiCache extends \Frontend
         return false;
     }
 
-    private function getCacheFile($strChecksum)
+    private static function getCacheFile($strChecksum)
     {
         return 'system/cache/con4gis/' . $strChecksum . '.json';
     }

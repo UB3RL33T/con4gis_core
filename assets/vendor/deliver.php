@@ -50,7 +50,7 @@
     // extract uri vars
     parse_str($sRequestUri, $aUriVars);
 
-    $sFileHashGenerated = md5($aUriVars['u'] . $GLOBALS['TL_CONFIG']['encryptionKey'] . basename($aUriVars[$path.'/system/modules/con4gis_core/lib/deliver_php?file']));
+    $sFileHashGenerated = md5($aUriVars['u'] . $GLOBALS['TL_CONFIG']['encryptionKey'] . basename($aUriVars[$path.'/system/modules/con4gis_core/assets/vendor/deliver_php?file']));
     if ($sFileHash !== $sFileHashGenerated) {
         header('HTTP/1.0 404 Not Found');
         die();

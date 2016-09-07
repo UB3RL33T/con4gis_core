@@ -48,6 +48,9 @@ ClassLoader::addClasses(array
 	// Models
 	'c4g\C4gActivationkeyModel'      => 'system/modules/con4gis_core/models/C4gActivationkeyModel.php',
 
+	// API
+    'c4g\C4GFileUpload'         => 'system/modules/con4gis_core/assets/vendor/fileUpload.php'
+
 ));
 
 
