@@ -41,7 +41,7 @@ if(TL_MODE == "FE") {
     $GLOBALS['TL_HEAD'][] = "<script>var c4g_rq = '" . $_SESSION['REQUEST_TOKEN'] . "';</script>";
 }
 
-if (class_exists('con4gis\ApiBundle\Controller\ApiController') && VERSION >= '4.0')
+if (class_exists('con4gis\ApiBundle\Controller\ApiController') && VERSION >= 4.0)
 {
     $apiBaseUrl = 'con4gis/api';
 }
