@@ -12,8 +12,8 @@
  */
 
 $GLOBALS['con4gis_core_extension']['installed'] = true;
-$GLOBALS['con4gis_core_extension']['version']   = '1.6.0';
-$GLOBALS['con4gis_core_extension']['con4gis_version']   = 'v3.3';
+$GLOBALS['con4gis_core_extension']['version']   = '1.6.1';
+$GLOBALS['con4gis_core_extension']['con4gis_version'] = 'v3.3';
 
 // API-Registration
 $GLOBALS['TL_API'] = array();
@@ -40,7 +40,7 @@ if(TL_MODE == "FE") {
     $GLOBALS['TL_HEAD'][] = "<script>var c4g_rq = '" . $_SESSION['REQUEST_TOKEN'] . "';</script>";
 }
 
-if (class_exists('con4gis\ApiBundle\Controller\ApiController'))
+if (class_exists('con4gis\ApiBundle\Controller\ApiController') &&  (version_compare( VERSION, '4', '>=' )))
 {
     $apiBaseUrl = 'con4gis/api';
 }
@@ -80,3 +80,13 @@ $GLOBALS['TL_PURGE']['folders']['con4gis'] = array
 $GLOBALS['CON4GIS']['USE_CACHE'] = array();
 $GLOBALS['CON4GIS']['USE_CACHE']['SERVICES'] = array();
 $GLOBALS['CON4GIS']['USE_CACHE']['PARAMS'] = array();
+<<<<<<< HEAD
+=======
+
+// check whether to use stringutil or string class
+if (class_exists('\Contao\StringUtil')) {
+    $GLOBALS['con4gis']['stringClass'] = '\Contao\StringUtil';
+} else {
+    $GLOBALS['con4gis']['stringClass'] = '\Contao\String';
+}
+>>>>>>> develop

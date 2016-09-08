@@ -32,7 +32,7 @@
         </div>
     </fieldset>
 
-    <?php if (class_exists('con4gis\ApiBundle\Controller\ApiController')):?>
+    <?php if (class_exists('con4gis\ApiBundle\Controller\ApiController') &&  (version_compare( VERSION, '4', '>=' ))):?>
     <fieldset id="pal_c4g_api_bundle" class="tl_box">
         <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_api_bundle')">
             con4gis-ApiBundle
