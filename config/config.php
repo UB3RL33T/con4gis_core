@@ -80,8 +80,6 @@ $GLOBALS['TL_PURGE']['folders']['con4gis'] = array
 $GLOBALS['CON4GIS']['USE_CACHE'] = array();
 $GLOBALS['CON4GIS']['USE_CACHE']['SERVICES'] = array();
 $GLOBALS['CON4GIS']['USE_CACHE']['PARAMS'] = array();
-<<<<<<< HEAD
-=======
 
 // check whether to use stringutil or string class
 if (class_exists('\Contao\StringUtil')) {
@@ -89,4 +87,3 @@ if (class_exists('\Contao\StringUtil')) {
 } else {
     $GLOBALS['con4gis']['stringClass'] = '\Contao\String';
 }
->>>>>>> develop
