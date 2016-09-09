@@ -12,7 +12,7 @@
  */
 
 $GLOBALS['con4gis_core_extension']['installed'] = true;
-$GLOBALS['con4gis_core_extension']['version']   = '1.6.5';
+$GLOBALS['con4gis_core_extension']['version']   = '1.6.6';
 $GLOBALS['con4gis_core_extension']['con4gis_version'] = 'v3.3';
 
 // API-Registration
@@ -43,6 +43,7 @@ if(TL_MODE == "FE") {
 if (class_exists('con4gis\ApiBundle\Controller\ApiController') &&  (version_compare( VERSION, '4', '>=' )))
 {
     $apiBaseUrl = 'con4gis/api';
+    $GLOBALS['TL_CSS']['c4g_backend'] = 'system/modules/con4gis_core/assets/css/c4gBackend.css';
 }
 else
 {
