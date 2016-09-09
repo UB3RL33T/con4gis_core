@@ -43,6 +43,7 @@ if(TL_MODE == "FE") {
 if (class_exists('con4gis\ApiBundle\Controller\ApiController') &&  (version_compare( VERSION, '4', '>=' )))
 {
     $apiBaseUrl = 'con4gis/api';
+    $GLOBALS['TL_CSS']['c4g_backend'] = 'system/modules/con4gis_core/assets/css/c4gBackend.css';
 }
 else
 {
