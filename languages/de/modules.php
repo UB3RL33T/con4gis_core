@@ -15,7 +15,7 @@
 /**
  * Back end modules
  */
-$GLOBALS['TL_LANG']['MOD']['con4gis'] 					= array( 'con4gis (Baukasten)', 'www.con4gis.org' );
+$GLOBALS['TL_LANG']['MOD']['con4gis'] 					= array( 'con4gis', 'www.con4gis.org' );
 $GLOBALS['TL_LANG']['MOD']['c4g_core'] 					= array( 'Info & Hilfe', 'Informationen und Hilfe zu con4gis.' );
 
 /**
