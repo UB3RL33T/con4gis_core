@@ -83,12 +83,20 @@ class C4GFileUpload {
             if (!empty($_FILES['uploadFile']) && strlen($_FILES['uploadFile']['name']) > 1 && !empty($_FILES['uploadFile']['tmp_name'])) {
                 $aInfo         = pathinfo($_FILES['uploadFile']['name']);
                 $sUploadDir    = trim($sUploadDir, '/') . '/';
+                // test
+                $sUploadDir = str_replace('web/', '', $sUploadDir);
+
                 $sFileName     = basename($_FILES['uploadFile']['name']);
                 $sUniqFileName = md5(uniqid('', true)) . "." . $aInfo['extension'];
 
                 // get protocol and host name to send the absolute image path to CKEditor
                 $sProtocol = !empty($sHttps) ? 'https://' : 'http://';
-                $sSite     = $sProtocol . $sServerName . $path . '/system/modules/con4gis_core/assets/vendor/deliver.php?file=';
+                if (class_exists('con4gis\ApiBundle\Controller\ApiController') &&  (version_compare( VERSION, '4', '>=' ))) {
+                    $sSite     = $sProtocol . $sServerName . $path . '/con4gis/api/deliver?file=';
+                } else {
+                    $sSite     = $sProtocol . $sServerName . $path . '/system/modules/con4gis_core/assets/vendor/deliver.php?file=';
+                }
+
 
                 // build file path
                 $sUploadpath = TL_ROOT . '/' . $sUploadDir . $sUniqFileName;       // full file path
