@@ -17,7 +17,7 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['BACK']   = 'Back';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['CANCEL'] = 'Cancel';
 
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['TITLESUB'] = 'Content-Management for your geographical information system';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['TITLESUB'] = 'Content Management for geographical information systems';
 //@todo: shorter!
 // $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INTRO'] 				= 'We want to make publishing maps and mapping projects more easy. con4gis offers an easy way to integrate maps into websites using the OpenLayers library.</br></br>
 // Building a GIS website without any programming knowledge becomes simple with con4gis and Contao.';
@@ -78,13 +78,17 @@
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['MEMBERGROUPSYNCTOOL']    = 'Sync group-bindings';
     $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['INSTALL']                = 'Install %s';
 
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_documentation'] = 'con4gis Compendium (german)';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']     = 'Website Project';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']   = 'Coastforge @ GitHub';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osm_website']         = 'Website OpenStreetMap';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['ol_website']          = 'Website OpenLayers';
-    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['overpassapi_website'] = 'Overpass-API informations';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_documentation']  = 'con4gis Compendium (german)';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']        = 'Website Project';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['github_coastforge']      = 'Coastforge @ GitHub';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osm_website']            = 'Website OpenStreetMap';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['ol_website']             = 'Website OpenLayers';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['overpassapi_website']    = 'Overpass-API informations (OpenStreetMap requests)';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['nominatim_website']      = 'Nominatim Informations (Search and reverse search)';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osrm_website']           = 'OSRM Informationen (Open Source Routing Machine)';
 
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_support']        = 'con4gis website';
+    $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['coastforge_support']     = 'Küstenschmiede website';
 
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_successful']           = "%s successfully uploaded: \\n- Size: %s KB";
     $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['file_upload_error']                = "Unable to upload the file";
