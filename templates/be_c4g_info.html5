@@ -249,11 +249,6 @@
         <div>
             <ul>
                 <li>
-                    <a href="https://con4gis.org/downloads.html#handbuch" target="_blank"><span>
-                        <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_documentation']?>
-                    </span></a>
-                </li>
-                <li>
                     <a href="https://con4gis.org" target="_blank"><span>
                         <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_website']?>
                     </span></a>
@@ -277,6 +272,39 @@
                     <a href="http://wiki.openstreetmap.org/wiki/Overpass_API" target="_blank"><span>
                         <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['overpassapi_website']?>
                     </span></a>
+                </li>
+                <li>
+                    <a href="http://wiki.openstreetmap.org/wiki/Nominatim" target="_blank"><span>
+                        <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['nominatim_website']?>
+                    </span></a>
+                </li>
+                <li>
+                    <a href="https://github.com/Project-OSRM/osrm-backend/wiki" target="_blank"><span>
+                        <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['osrm_website']?>
+                    </span></a>
+                </li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <fieldset id="pal_c4g_support" class="tl_box">
+        <legend onclick="AjaxRequest.toggleFieldset(this,'c4g_support')">support</legend>
+        <div>
+            <ul>
+                <li>
+                    <a href="https://con4gis.org/downloads.html#handbuch" target="_blank"><span>
+                            <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_documentation']?>
+                        </span></a>
+                </li>
+                <li>
+                    <a href="https://con4gis.org/support-kontakt.html" target="_blank"><span>
+                            <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['con4gis_support']?>
+                        </span></a>
+                </li>
+                <li>
+                    <a href="https://kuestenschmiede.de/kontakt.html" target="_blank"><span>
+                            <?php echo $GLOBALS['TL_LANG']['MSC']['C4G_BE_INFO']['coastforge_support']?>
+                        </span></a>
                 </li>
             </ul>
         </div>

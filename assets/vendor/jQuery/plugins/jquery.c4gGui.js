@@ -275,7 +275,7 @@ this.c4g = this.c4g || {};
 
 
       var content
-      if(data.content) {
+      if(data && data.content) {
         content = data.content;
       } else {
         content = data;
@@ -508,6 +508,7 @@ this.c4g = this.c4g || {};
                 .appendTo(contentDiv);
 
               var actioncol=-1;
+              var selectrow=-1;
               var tooltipcol=-1;
               var selectOnHover = false;
               var clickAction = false;
@@ -517,6 +518,9 @@ this.c4g = this.c4g || {};
               if (typeof(contentoptions)!='undefined') {
                 if (typeof(contentoptions.actioncol)!='undefined') {
                   actioncol = contentoptions.actioncol;
+                }
+                if (typeof(contentoptions.selectrow)!='undefined') {
+                  selectrow = contentoptions.selectrow;
                 }
                 if (typeof(contentoptions.tooltipcol)!='undefined') {
                   tooltipcol = contentoptions.tooltipcol;
@@ -536,6 +540,12 @@ this.c4g = this.c4g || {};
                       {
                         if (actioncol!=-1) {
                           $(nRow).attr( 'data-action', aData[actioncol] );
+                        }
+                        if (selectrow!=-1) {
+                          if (iDisplayIndex == selectrow) {
+                            $(nRow).addClass('selected');
+                            $(".dataTables_scrollBody").scrollTo(nRow);
+                          }
                         }
                         if ((tooltipcol!=-1) && (typeof(jQuery.fn.tooltip) == 'function')) {
                           if (aData[tooltipcol]) {
