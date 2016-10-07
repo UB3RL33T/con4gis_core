@@ -12,7 +12,7 @@
  */
 
 $GLOBALS['con4gis_core_extension']['installed'] = true;
-$GLOBALS['con4gis_core_extension']['version']   = '1.6.8-snapshot';
+$GLOBALS['con4gis_core_extension']['version']   = '1.6.9-snapshot';
 $GLOBALS['con4gis_core_extension']['con4gis_version'] = 'v3.4';
 
 // API-Registration
