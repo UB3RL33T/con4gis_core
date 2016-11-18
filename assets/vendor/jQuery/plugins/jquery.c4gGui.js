@@ -280,7 +280,7 @@ this.c4g = this.c4g || {};
       } else {
         content = data;
       }
-      if (typeof(content)!='object') {
+      if (content && typeof(content)!='object') {
         content = $.parseJSON( content );
       }
       if (content==null) {
