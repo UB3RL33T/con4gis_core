@@ -77,13 +77,17 @@ class C4GJQueryGUI
             $GLOBALS['TL_JAVASCRIPT']['c4g_jq_scrollTo'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/jquery.scrollTo/jquery.scrollTo.min.js';
             $GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_scroller'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js';
 			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_sort_date_de'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Sorting/date-de.js';
+            $GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_responsive'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js';
+            $GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_responsive_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Responsive/js/responsive.jqueryui.min.js';
 
 			// Include DataTables CSS
 			$GLOBALS['TL_CSS']['c4g_jq_datatables'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/media/css/jquery.dataTables_themeroller.css';
 			$GLOBALS['TL_CSS']['c4g_jq_datatables_buttons']	= 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Buttons/css/buttons.dataTables.min.css';
 			$GLOBALS['TL_CSS']['c4g_jq_datatables_buttons_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Buttons/css/buttons.jqueryui.min.css';
             $GLOBALS['TL_CSS']['c4g_jq_datatables_scroller'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Scroller/css/scroller.dataTables.min.css';
-            $GLOBALS['TL_CSS']['c4g_jq_datatables_scroller'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Scroller/css/scroller.jqueryui.min.css';
+            $GLOBALS['TL_CSS']['c4g_jq_datatables_scroller_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Scroller/css/scroller.jqueryui.min.css';
+            $GLOBALS['TL_CSS']['c4g_jq_datatables_responsive'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css';
+            $GLOBALS['TL_CSS']['c4g_jq_datatables_responsive_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Responsive/css/responsive.jqueryui.min.css';
         }
 
 		if ($useTree || $useMaps)
