@@ -96,7 +96,7 @@ class ResourceLoader
                 // jQuery is already loaded by Contao 3, don't load again!
             }
             else {
-                $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.1.min.js|static';
+                $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.3.min.js|static';
             }
         }
         if ($resources['magnific-popup']) {

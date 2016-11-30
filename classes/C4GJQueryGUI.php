@@ -42,7 +42,7 @@ class C4GJQueryGUI
    			}
    			else {
 				// Include JQuery JS
-				$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] 			= 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.1.min.js|static';
+				$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] 			= 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.3.min.js|static';
 				// just until the old plugins are replaced
 				// $GLOBALS['TL_JAVASCRIPT']['c4g_jquery_migrate']		= 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-migrate-1.2.1.min.js';
 				C4GJQueryGUI::optimizeJSForContao3('c4g_jquery');
@@ -177,7 +177,7 @@ class C4GJQueryGUI
 					// jQuery is already loaded by Contao 3, don't load again!
 				}
 				else {
-					$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.1.min.js|static';
+					$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.3.min.js|static';
 				}
 				// Load magnific-popup.js for projects
 		        if ($GLOBALS['con4gis_projects_extension']['installed']) {
