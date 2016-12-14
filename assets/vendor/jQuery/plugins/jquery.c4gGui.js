@@ -1047,9 +1047,13 @@ this.c4g = this.c4g || {};
              */
       if (typeof(content.usermessage)!='undefined') {
         var uiMessage = $('<div id="uiMessage">'+content.usermessage+'</div>');
+        var title = content.usermessage;
+        if (content.title) {
+          title = content.title;
+        }
         uiMessage.dialog({
           modal: true,
-                    title: content.usermessage,
+                    title: title,
                     buttons: {
                         'OK': function() {
                             $(this).dialog('close');
