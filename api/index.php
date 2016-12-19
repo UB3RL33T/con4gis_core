@@ -24,8 +24,13 @@
         define('BYPASS_TOKEN_CHECK', true);
     }
 
+    $initialize = $_SERVER["DOCUMENT_ROOT"].'/system/initialize.php';
+    if (!file_exists($initialize)) {
+        $initialize = '../../../../system/initialize.php';
+    }
+
     // Initialize the system
-    require($_SERVER["DOCUMENT_ROOT"].'/system/initialize.php');
+    require($initialize);
 
     /**
      * Class Api4Gis
