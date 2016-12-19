@@ -27,6 +27,9 @@ class ResourceLoader
      */
     public static function loadResourcesForModule($module)
     {
+
+        global $objPage;
+
         $neededResources = array();
 
         switch ($module) {
@@ -34,6 +37,7 @@ class ResourceLoader
                 // Maps 3
                 //
                 $neededResources['clipboard'] = true;
+
 
                 // check if jQuery needs to be loaded
                 $jQueryLoaded = false;
@@ -45,6 +49,16 @@ class ResourceLoader
                             break;
                         }
                     }
+                }
+
+                if ($objPage->hasJQuery)
+                {
+                    $jQueryLoaded = true;
+                }
+
+                if ($GLOBALS['CON4GIS']['JQUERY-LOADED'])
+                {
+                    $jQueryLoaded = true;
                 }
 
                 $neededResources['jquery'] = !$jQueryLoaded;
