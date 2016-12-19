@@ -24,9 +24,8 @@
         define('BYPASS_TOKEN_CHECK', true);
     }
 
-
     // Initialize the system
-    require('../../../../system/initialize.php');
+    require($_SERVER["DOCUMENT_ROOT"].'/system/initialize.php');
 
     /**
      * Class Api4Gis
