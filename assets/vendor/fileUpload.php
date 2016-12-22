@@ -10,8 +10,16 @@ class C4GFileUpload {
     public function generate() {
         try {
             define("TL_MODE", "FE");
-            $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../";
+//            $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../";
 //            require_once($sRootPath . "system/initialize.php");
+            $initialize = $_SERVER["DOCUMENT_ROOT"].'/system/initialize.php';
+            if (!file_exists($initialize)) {
+                $initialize = '../../../../../system/initialize.php';
+            }
+
+            // Initialize the system
+            require_once($initialize);
+
 
             // User not logged in...
             if (!FE_USER_LOGGED_IN) {

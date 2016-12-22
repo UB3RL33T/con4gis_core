@@ -30,7 +30,7 @@
     }
 
     // Initialize the system
-    require($initialize);
+    require_once($initialize);
 
     /**
      * Class Api4Gis
