@@ -100,15 +100,16 @@ ini_set("display_errors","1");
         $CKEditorFuncNum = \Input::get('CKEditorFuncNum');
         if (!empty($_FILES['upload']) && strlen($_FILES['upload']['name']) > 1 && !empty($_FILES['upload']['tmp_name'])) {
             $sUploadDir = trim($sUploadDir, '/') . '/';
-            $img_name   = basename($_FILES['upload']['name']);
+            $real_name   = basename($_FILES['upload']['name']);
 
             // get protocol and host name to send the absolute image path to CKEditor
             $protocol = !empty($_SERVER['HTTPS']) ? 'https://' : 'http://';
             $site     = $protocol . $_SERVER['SERVER_NAME'] . '/';
 
-            $uploadpath = TL_ROOT . '/' . $sUploadDir . $img_name;       // full file path
             $sExtension  = pathinfo($_FILES['upload']['name']);
             $sType       = $sExtension['extension'];       // gets extension
+            $img_name   = md5(uniqid('', true)) . "." .$sType;
+            $uploadpath = TL_ROOT . '/' . $sUploadDir . $img_name;       // full file path
             list($width, $height) = getimagesize($_FILES['upload']['tmp_name']);     // gets image width and height
             $err = '';         // to store the errors
 
@@ -135,7 +136,7 @@ ini_set("display_errors","1");
             if ($err == '') {
                 if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadpath)) {
                     $url     = $site . $path.$sUploadDir . $img_name;
-                    $message = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_successful'], $img_name, number_format($_FILES['upload']['size'] / 1024, 3, '.', ''), $width, $height);
+                    $message = sprintf($GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_successful'], $real_name, number_format($_FILES['upload']['size'] / 1024, 3, '.', ''), $width, $height);
                     $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$message')";
                 } else {
                     $sReturn = "window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '', '" . $GLOBALS['TL_LANG']['MSC']['C4G_ERROR']['image_upload_error'] . "')";

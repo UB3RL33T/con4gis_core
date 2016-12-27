@@ -50,6 +50,7 @@ ClassLoader::addClasses(array
 
 	// API
     'c4g\C4GFileUpload'         => 'system/modules/con4gis_core/assets/vendor/fileUpload.php',
+    'c4g\C4GImageUpload'        => 'system/modules/con4gis_core/assets/vendor/imgUpload.php',
 	'c4g\C4GDeliverFileApi'		=> 'system/modules/con4gis_core/classes/C4GDeliverFileApi.php'
 
 ));
