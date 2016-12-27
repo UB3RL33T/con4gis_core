@@ -18,7 +18,7 @@
 ClassLoader::addNamespaces(array
 (
 	'c4g',
-    'c4g\core'
+    'c4g\Core'
 ));
 
 
@@ -28,8 +28,8 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
     // Stack
-    'c4g\core\StackDatabase'        => 'system/modules/con4gis_core/classes/stack/StackDatabase.php',
-    'c4g\core\StackInterface'       => 'system/modules/con4gis_core/classes/stack/StackInterface.php',
+    'c4g\Core\StackDatabase'        => 'system/modules/con4gis_core/classes/stack/StackDatabase.php',
+    'c4g\Core\StackInterface'       => 'system/modules/con4gis_core/classes/stack/StackInterface.php',
 
 	// Classes
 	'c4g\C4GApiCheck'                => 'system/modules/con4gis_core/classes/C4GApiCheck.php',
