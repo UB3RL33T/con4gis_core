@@ -18,6 +18,7 @@
 ClassLoader::addNamespaces(array
 (
 	'c4g',
+    'c4g\core'
 ));
 
 
@@ -26,6 +27,10 @@ ClassLoader::addNamespaces(array
  */
 ClassLoader::addClasses(array
 (
+    // Stack
+    'c4g\core\StackDatabase'        => 'system/modules/con4gis_core/classes/stack/StackDatabase.php',
+    'c4g\core\StackInterface'       => 'system/modules/con4gis_core/classes/stack/StackInterface.php',
+
 	// Classes
 	'c4g\C4GApiCheck'                => 'system/modules/con4gis_core/classes/C4GApiCheck.php',
 	'c4g\C4GHTMLFactory'             => 'system/modules/con4gis_core/classes/C4GHTMLFactory.php',
@@ -37,7 +42,7 @@ ClassLoader::addClasses(array
 	'c4g\HttpResultHelper'           => 'system/modules/con4gis_core/classes/HttpResultHelper.php',
 	'c4g\Core\ResourceLoader'      	 => 'system/modules/con4gis_core/classes/ResourceLoader.php',
 	'c4g\Core\C4GApiCache' 			 => 'system/modules/con4gis_core/classes/C4GApiCache.php',
-	'c4g\Core\C4GAutomator'			 =>  'system/modules/con4gis_core/classes/C4GAutomator.php',
+	'c4g\Core\C4GAutomator'			 => 'system/modules/con4gis_core/classes/C4GAutomator.php',
 
 	// Elements
 	'c4g\Content_c4g_activationpage' => 'system/modules/con4gis_core/elements/Content_c4g_activationpage.php',
