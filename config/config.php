@@ -12,13 +12,13 @@
  */
 
 $GLOBALS['con4gis_core_extension']['installed'] = true;
-$GLOBALS['con4gis_core_extension']['version']   = '1.7.0-snapshot';
+$GLOBALS['con4gis_core_extension']['version']   = '1.7.1-snapshot';
 $GLOBALS['con4gis_core_extension']['con4gis_version'] = 'v3.5';
 
 // API-Registration
 $GLOBALS['TL_API'] = array();
 $GLOBALS['TL_API']['fileUpload']  = 'c4g\C4GFileUpload';
-//$GLOBALS['TL_API']['imageUpload'] = 'c4g\C4GImageUpload';
+$GLOBALS['TL_API']['imageUpload'] = 'c4g\C4GImageUpload';
 $GLOBALS['TL_API']['deliver']     = 'c4g\C4GDeliverFileApi';
 
 
