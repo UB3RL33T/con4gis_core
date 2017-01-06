@@ -1,8 +1,15 @@
 <?php
 
     define("TL_MODE", "FE");
-    $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../";
-    require_once($sRootPath . "system/initialize.php");
+//    $sRootPath = dirname($_SERVER['SCRIPT_FILENAME']) . "/../../../../../";
+//    require_once($sRootPath . "system/initialize.php");
+    $initialize = $_SERVER["DOCUMENT_ROOT"].'/system/initialize.php';
+    if (!file_exists($initialize)) {
+        $initialize = '../../../../../system/initialize.php';
+    }
+
+    // Initialize the system
+    require_once($initialize);
 
     // grab SERVER and GET-vars
     $sFilePath     = \Input::get("file");

@@ -42,7 +42,7 @@ class C4GJQueryGUI
    			}
    			else {
 				// Include JQuery JS
-				$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] 			= 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.1.min.js|static';
+				$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] 			= 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.3.min.js|static';
 				// just until the old plugins are replaced
 				// $GLOBALS['TL_JAVASCRIPT']['c4g_jquery_migrate']		= 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-migrate-1.2.1.min.js';
 				C4GJQueryGUI::optimizeJSForContao3('c4g_jquery');
@@ -55,7 +55,8 @@ class C4GJQueryGUI
    		if ($addJQueryUI || $useTree || $useMaps)
    		{
 			// Include JQuery UI JS - only js to append the css files to the end of $GLOBALS['TL_CSS'] array.
-			$GLOBALS['TL_JAVASCRIPT']['c4g_jquery_ui'] 		= 'system/modules/con4gis_core/assets/vendor/jQuery/ui-1.11.0.custom/jquery-ui.min.js';
+			$GLOBALS['TL_JAVASCRIPT']['c4g_jquery_ui'] 		= 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-ui-1.12.1.custom/jquery-ui.min.js';
+            $GLOBALS['TL_JAVASCRIPT']['c4g_jquery_ui_i18n'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-ui-i18n.min.js';
 			C4GJQueryGUI::optimizeJSForContao3('c4g_jquery_ui');
             $GLOBALS ['TL_JAVASCRIPT'] ['c4g_a'] 	= 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/jquery.legacy.min.js';
    		}
@@ -76,13 +77,17 @@ class C4GJQueryGUI
             $GLOBALS['TL_JAVASCRIPT']['c4g_jq_scrollTo'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/jquery.scrollTo/jquery.scrollTo.min.js';
             $GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_scroller'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js';
 			$GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_sort_date_de'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Sorting/date-de.js';
+            $GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_responsive'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js';
+            $GLOBALS['TL_JAVASCRIPT']['c4g_jq_datatables_responsive_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Responsive/js/responsive.jqueryui.min.js';
 
 			// Include DataTables CSS
 			$GLOBALS['TL_CSS']['c4g_jq_datatables'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/media/css/jquery.dataTables_themeroller.css';
 			$GLOBALS['TL_CSS']['c4g_jq_datatables_buttons']	= 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Buttons/css/buttons.dataTables.min.css';
 			$GLOBALS['TL_CSS']['c4g_jq_datatables_buttons_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Buttons/css/buttons.jqueryui.min.css';
             $GLOBALS['TL_CSS']['c4g_jq_datatables_scroller'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Scroller/css/scroller.dataTables.min.css';
-            $GLOBALS['TL_CSS']['c4g_jq_datatables_scroller'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Scroller/css/scroller.jqueryui.min.css';
+            $GLOBALS['TL_CSS']['c4g_jq_datatables_scroller_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Scroller/css/scroller.jqueryui.min.css';
+            $GLOBALS['TL_CSS']['c4g_jq_datatables_responsive'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Responsive/css/responsive.dataTables.min.css';
+            $GLOBALS['TL_CSS']['c4g_jq_datatables_responsive_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/datatables/extensions/Responsive/css/responsive.jqueryui.min.css';
         }
 
 		if ($useTree || $useMaps)
@@ -172,7 +177,7 @@ class C4GJQueryGUI
 					// jQuery is already loaded by Contao 3, don't load again!
 				}
 				else {
-					$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.1.min.js|static';
+					$GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.3.min.js|static';
 				}
 				// Load magnific-popup.js for projects
 		        if ($GLOBALS['con4gis_projects_extension']['installed']) {
@@ -200,10 +205,10 @@ class C4GJQueryGUI
 		if ($addJQueryUI || $useTree || $useMaps)
 		{
 			// Add the JQuery UI CSS to the bottom of the $GLOBALS['TL_CSS'] array to prevent overriding from other plugins
-			$GLOBALS['TL_CSS']['c4g_jquery_ui_core'] = 'system/modules/con4gis_core/assets/vendor/jQuery/ui-1.11.0.custom/jquery-ui.min.css';
+			$GLOBALS['TL_CSS']['c4g_jquery_ui_core'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-ui-1.12.1.custom/jquery-ui.min.css';
 			// Set the JQuery UI theme to be used
 			if (empty($GLOBALS['TL_CSS']['c4g_jquery_ui'])) {
-				$GLOBALS['TL_CSS']['c4g_jquery_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/ui-1.11.0.custom/jquery-ui.theme.min.css';
+				$GLOBALS['TL_CSS']['c4g_jquery_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css';
 			}
 		}
 

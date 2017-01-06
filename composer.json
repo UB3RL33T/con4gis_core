@@ -12,10 +12,10 @@
     }
   ],
   "require": {
-    "php":">=5.4.0",
-    "contao/core-bundle": "^3.5.2 || ~4.2",
-    "contao-community-alliance/composer-plugin": "~2.4 || ~3.0",
-    "con4gis/con4gis_api_bundle": "~1.0"
+    "php":">=5.5.0",
+    "contao/core-bundle": "^3.5.2 || ~4.3",
+    "con4gis/con4gis_api_bundle": "~1.1",
+    "menatwork/contao-multicolumnwizard": "3.3.8"
   },
   "support": {
     "issues": "https://github.com/Kuestenschmiede/con4gis_core/issues"

@@ -27,6 +27,9 @@ class ResourceLoader
      */
     public static function loadResourcesForModule($module)
     {
+
+        global $objPage;
+
         $neededResources = array();
 
         switch ($module) {
@@ -34,6 +37,7 @@ class ResourceLoader
                 // Maps 3
                 //
                 $neededResources['clipboard'] = true;
+
 
                 // check if jQuery needs to be loaded
                 $jQueryLoaded = false;
@@ -45,6 +49,16 @@ class ResourceLoader
                             break;
                         }
                     }
+                }
+
+                if ($objPage->hasJQuery)
+                {
+                    $jQueryLoaded = true;
+                }
+
+                if ($GLOBALS['CON4GIS']['JQUERY-LOADED'])
+                {
+                    $jQueryLoaded = true;
                 }
 
                 $neededResources['jquery'] = !$jQueryLoaded;
@@ -96,7 +110,7 @@ class ResourceLoader
                 // jQuery is already loaded by Contao 3, don't load again!
             }
             else {
-                $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.1.min.js|static';
+                $GLOBALS['TL_JAVASCRIPT']['c4g_jquery'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-1.11.3.min.js|static';
             }
         }
         if ($resources['magnific-popup']) {

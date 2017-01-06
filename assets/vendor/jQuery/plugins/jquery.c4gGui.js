@@ -230,7 +230,7 @@ this.c4g = this.c4g || {};
                                         language:options.contaoLanguage,
                                         defaultLanguage:"en",
                                         disableObjectResizing : true,
-                                        filebrowserImageUploadUrl: options.contaoPath + uploadApiUrl,
+                                        filebrowserImageUploadUrl: options.contaoPath + "system/modules/con4gis_core/assets/vendor/imgUpload.php",
                                         filebrowserUploadUrl: options.contaoPath + uploadApiUrl
                                     });
                                 },500);
@@ -280,7 +280,7 @@ this.c4g = this.c4g || {};
       } else {
         content = data;
       }
-      if (typeof(content)!='object') {
+      if (content && typeof(content)!='object') {
         content = $.parseJSON( content );
       }
       if (content==null) {
@@ -1047,9 +1047,13 @@ this.c4g = this.c4g || {};
              */
       if (typeof(content.usermessage)!='undefined') {
         var uiMessage = $('<div id="uiMessage">'+content.usermessage+'</div>');
+        var title = content.usermessage;
+        if (content.title) {
+          title = content.title;
+        }
         uiMessage.dialog({
           modal: true,
-                    title: content.usermessage,
+                    title: title,
                     buttons: {
                         'OK': function() {
                             $(this).dialog('close');
