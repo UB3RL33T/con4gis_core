@@ -31,7 +31,7 @@ class StackDatabase implements StackInterface
      * Gibt die Datenbankklaase zurück.
      * @return \Contao\Database
      */
-    protected  function getDb()
+    protected function getDb()
     {
         return \Contao\Database::getInstance();
     }
@@ -40,7 +40,7 @@ class StackDatabase implements StackInterface
     /**
      * @return string
      */
-    public  function getTable()
+    public function getTable()
     {
         return $this->table;
     }
@@ -48,9 +48,10 @@ class StackDatabase implements StackInterface
 
     /**
      * Führt eine Datanbankabfrage aus.
+     * (Kapselt den Zugirff auf \Contao\Database)
      * @param $query
      */
-    public  function execute($query)
+    public function execute($query)
     {
         $db = $this->getDb();
         return $db->execute($query);
@@ -58,14 +59,31 @@ class StackDatabase implements StackInterface
 
 
     /**
+     * Prüft, ob ein Feld existiert.
+     * (Kapselt den Zugirff auf \Contao\Database)
+     * @param $field
+     * @return bool
+     */
+    public function fieldExists($field)
+    {
+        $db = $this->getDb();
+        return $db->fieldExists($field, $this->table);
+    }
+
+
+    /**
      * Fügt dem Stack ein Element hinzu.
      * @param $item
      */
-    public  function push($item)
+    public function push(array $item)
     {
-        $item   = (!is_string($item)) ? serialize($item) : $item;
-        $query  = 'INSERT INTO `' . $this->table . '` SET `data` = \'' . $item . '\' , `tstamp` = ' . time();
-        return $this->execute($query);
+        if (count($item)) {
+            $data   = serialize($item);
+            $query  = 'INSERT INTO `' . $this->table . '` SET ';
+            $query .= '`data` = \'' . $data . '\', ';
+            $query .= ' `tstamp` = ' . time();
+            $this->execute($query);
+        }
     }
 
 
@@ -73,7 +91,7 @@ class StackDatabase implements StackInterface
      * Entfernt ein Element vom Stack.
      * @return array|mixed
      */
-    public  function pop()
+    public function pop()
     {
         $data = $this->top();
 
@@ -91,7 +109,7 @@ class StackDatabase implements StackInterface
      * Gibt das oberste Element vom Stack zurück.
      * @return array
      */
-    public  function top()
+    public function top()
     {
         $query  = 'SELECT * FROM `' . $this->table . '` ORDER BY id ASC LIMIT 1';
         $result = $this->execute($query);
@@ -108,7 +126,7 @@ class StackDatabase implements StackInterface
      * Prüft, ob der Stack leer ist.
      * @return bool
      */
-    public  function isEmpty()
+    public function isEmpty()
     {
         $query  = 'SELECT * FROM `' . $this->table . '` ORDER BY id ASC LIMIT 1';
         $result = $this->execute($query);
