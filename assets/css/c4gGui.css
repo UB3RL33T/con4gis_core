@@ -26,7 +26,7 @@
 	float: left;
 }
 .c4gGuiContentWrapper {
-	height: 100%;
+	height: 100% !important;
 	width: 50%;
 	float: left;
 	clear: none !important;

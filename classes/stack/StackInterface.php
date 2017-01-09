@@ -1,15 +1,15 @@
 <?php
 /**
- * @package     con4gis
- * @filesource  StackInterface.php
- * @version     1.0.0
- * @since       16.12.16 - 19:08
- * @author      Patrick Froch <info@easySolutionsIT.de>
- * @link        http://easySolutionsIT.de
- * @copyright   e@sy Solutions IT 2016
- * @license     EULA
+ * con4gis - the gis-kit
+ *
+ * @version   php 5
+ * @package   con4gis
+ * @author    con4gis contributors (see "authors.txt")
+ * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
+ * @link      https://www.kuestenschmiede.de
  */
-namespace c4g\core;
+namespace c4g\Core;
 
 /**
  * Interface StackInterface
