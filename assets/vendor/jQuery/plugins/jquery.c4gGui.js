@@ -561,6 +561,7 @@ this.c4g = this.c4g || {};
                         }
                         return nRow;
                       },
+                  //"lengthMenu": [ [25, 50, "-1"], [25, 50, "All"] ],
                   "fnDrawCallback": function() {
                       $(tableDiv).find('tr')
                       .unbind('hover')
