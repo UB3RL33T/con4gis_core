@@ -21,10 +21,10 @@ interface StackInterface
 
     /**
      * add an item to the top of the stack
-     * @param $item
+     * @param array $item
      * @return mixed
      */
-    public function push($item);
+    public function push(array $item);
 
 
     /**
