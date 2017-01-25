@@ -48,3 +48,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 *.TMP
+
+# CI
+/build.xml
+/commits.txt
