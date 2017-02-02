@@ -755,6 +755,7 @@ this.c4g = this.c4g || {};
             var aClass = (value['class'] ? value['class'] : '');
             var aAccesskey = (value['accesskey'] ? value['accesskey'] : '');
             dialogoptions.buttons.push( {cssClass: aClass, accesskey: aAccesskey, text: value.text,click:function() {
+                //todo value['onclick'] == ... dann click auf link für pdf dl
               if (value.type == 'send') {
                   if(($('#ckeditor').length > 0) && CKEDITOR && CKEDITOR.instances['ckeditor'] && typeof CKEDITOR.instances['ckeditor'] != "undefined") {
                           CKEDITOR.instances.ckeditor.updateElement();
@@ -1042,6 +1043,7 @@ this.c4g = this.c4g || {};
              * TODO: Consider providing a specific title based upon the usermessage or hiding the titlebar completely. This can be done via a CSS defition.
              */
       if (typeof(content.usermessage)!='undefined') {
+          /*
         var uiMessage = $('<div id="uiMessage">'+content.usermessage+'</div>');
         var title = content.usermessage;
         if (content.title) {
@@ -1064,6 +1066,16 @@ this.c4g = this.c4g || {};
                     }
         });
         uiMessage.dialog('moveToTop');
+        */
+
+        var title = content.usermessage;
+
+        if (content.title) {
+            title = content.title;
+        }
+
+        var dh = new DialogHandler(title, content.usermessage);
+        dh.show();
       }
 
       // additional action to be performed via ajax
