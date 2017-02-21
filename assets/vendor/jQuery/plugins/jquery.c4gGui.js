@@ -1086,9 +1086,9 @@ this.c4g = this.c4g || {};
                     title = content.title;
                 }
 
-                var dh = new DialogHandler(title, content.usermessage);
-                dh.show();
-            }
+        var dh = new DialogHandler();
+        dh.show(title, content.usermessage);
+      }
 
             // additional action to be performed via ajax
             if (typeof(content.performaction) != 'undefined') {
