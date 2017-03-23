@@ -31,8 +31,8 @@ this.c4g = this.c4g || {};
       jquiEmbeddedDialogs : true,
       wswgEditor : false,
       breadcrumbDelim : '',
-            contaoPath : '',
-            contaoLanguage: '',
+      contaoPath : '',
+      contaoLanguage: '',
       width : '',
       height : ''
     }, options);
