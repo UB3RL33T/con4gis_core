@@ -7,7 +7,7 @@
  * @package   con4gis
  * @author    con4gis contributors (see "authors.txt")
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2017.
  * @link      https://www.kuestenschmiede.de
  */
 
@@ -59,6 +59,8 @@ class C4GJQueryGUI
             $GLOBALS['TL_JAVASCRIPT']['c4g_jquery_ui_i18n'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-ui-i18n.min.js';
 			C4GJQueryGUI::optimizeJSForContao3('c4g_jquery_ui');
             $GLOBALS ['TL_JAVASCRIPT'] ['c4g_a'] 	= 'system/modules/con4gis_core/assets/vendor/jQuery/plugins/jquery.legacy.min.js';
+
+            $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/con4gis_core/assets/js/DialogHanlder.js';
    		}
 
 		if ($useTable)
@@ -211,6 +213,8 @@ class C4GJQueryGUI
 				$GLOBALS['TL_CSS']['c4g_jquery_ui'] = 'system/modules/con4gis_core/assets/vendor/jQuery/jquery-ui-1.12.1.custom/jquery-ui.theme.min.css';
 			}
 		}
+
+
 
     }
 }

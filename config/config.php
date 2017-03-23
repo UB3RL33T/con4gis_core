@@ -7,13 +7,13 @@
  * @package   con4gis
  * @author    con4gis contributors (see "authors.txt")
  * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
- * @copyright Küstenschmiede GmbH Software & Design 2011 - 2016.
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2017.
  * @link      https://www.kuestenschmiede.de
  */
 
 $GLOBALS['con4gis_core_extension']['installed'] = true;
-$GLOBALS['con4gis_core_extension']['version']   = '1.7.1';
-$GLOBALS['con4gis_core_extension']['con4gis_version'] = 'v3.5';
+$GLOBALS['con4gis_core_extension']['version']   = '1.8.0';
+$GLOBALS['con4gis_core_extension']['con4gis_version'] = 'v3.6';
 
 // API-Registration
 $GLOBALS['TL_API'] = array();

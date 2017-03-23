@@ -1,28 +1,14 @@
+
 /**
- * Contao Open Source CMS
- * Copyright (C) 2005-2012 Leo Feyer
+ * con4gis - the gis-kit
  *
- * Formerly known as TYPOlight Open Source CMS.
- *
- * This program is free software: you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation, either
- * version 3 of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this program. If not, please visit the Free
- * Software Foundation website at <http://www.gnu.org/licenses/>.
- *
- * @copyright  Küstenschmiede GmbH Software & Design 2012
- * @author     Jürgen Witte <http://www.kuestenschmiede.de>
- * @package    con4gis
- * @license    http://opensource.org/licenses/lgpl-3.0.html
+ * @package   con4gis
+ * @author    con4gis contributors (see "authors.txt")
+ * @license   GNU/LGPL http://opensource.org/licenses/lgpl-3.0.html
+ * @copyright Küstenschmiede GmbH Software & Design 2011 - 2017.
+ * @link      https://www.kuestenschmiede.de
  */
+
 this.c4g = this.c4g || {};
 
 // use local namespace with single execution function
@@ -45,8 +31,8 @@ this.c4g = this.c4g || {};
       jquiEmbeddedDialogs : true,
       wswgEditor : false,
       breadcrumbDelim : '',
-            contaoPath : '',
-            contaoLanguage: '',
+      contaoPath : '',
+      contaoLanguage: '',
       width : '',
       height : ''
     }, options);
@@ -257,20 +243,23 @@ this.c4g = this.c4g || {};
                 var state =
                   $(element).prev().show()
                   .attr('data-state');
-          if ((typeof(state)=="undefined") || (state=="")) {
-            state = $(contentDiv).attr('data-state');
-          }
-          if ($(element).prev().hasClass('c4gGuiContent')) {
-            $(buttonDiv).show();
-          }
+                  if ((typeof(state)=="undefined") || (state=="")) {
+                    state = $(contentDiv).attr('data-state');
+                  }
+                  if ($(element).prev().hasClass('c4gGuiContent')) {
+                    $(buttonDiv).show();
+                  }
 
-          if ((state!="") && (History!=null)) {
-            fnHistoryPush(state);
-          }
+                  if ((state!="") && (History!=null)) {
+                    fnHistoryPush(state);
+                  }
                 $(element).remove();
               } else {
                 $(element).parent().find(".ui-dialog-titlebar-close").trigger('click');
               }
+
+              //ToDo test
+              window.scrollTo(0, 0);
             };
 
 
@@ -670,7 +659,8 @@ this.c4g = this.c4g || {};
             fnMakeCollapsible(aHtmlDiv);
           }
 
-
+          //ToDo test
+          window.scrollTo(0, 0);
 
         }  // function fnAddContent
 
@@ -754,6 +744,7 @@ this.c4g = this.c4g || {};
           if ((state!="") && (History!=null)) {
             fnHistoryPush(state);
           }
+
           return true;
         };
 
@@ -764,6 +755,7 @@ this.c4g = this.c4g || {};
             var aClass = (value['class'] ? value['class'] : '');
             var aAccesskey = (value['accesskey'] ? value['accesskey'] : '');
             dialogoptions.buttons.push( {cssClass: aClass, accesskey: aAccesskey, text: value.text,click:function() {
+                //todo value['onclick'] == ... dann click auf link für pdf dl
               if (value.type == 'send') {
                   if(($('#ckeditor').length > 0) && CKEDITOR && CKEDITOR.instances['ckeditor'] && typeof CKEDITOR.instances['ckeditor'] != "undefined") {
                           CKEDITOR.instances.ckeditor.updateElement();
@@ -833,6 +825,8 @@ this.c4g = this.c4g || {};
         $('#c4gGuiDialog'+dialogid).remove();
 
         if (content.dialogtype=='html')  {
+          //ToDo test
+          window.scrollTo(0, 0);
           dialogClass = 'c4gGuiHtml';
           if (typeof(content.usedialog)!='undefined') {
             tmpDialogDiv = $('#c4gGuiDialog'+content.usedialog)
@@ -845,6 +839,8 @@ this.c4g = this.c4g || {};
         }
 
         if (content.dialogtype=='form')  {
+          //ToDo test
+          window.scrollTo(0, 0);
           dialogClass = 'c4gGuiForm';
           tmpDialogDiv = $('<div />')
             .attr('id', 'c4gGuiDialog'+dialogid);
@@ -1047,6 +1043,7 @@ this.c4g = this.c4g || {};
              * TODO: Consider providing a specific title based upon the usermessage or hiding the titlebar completely. This can be done via a CSS defition.
              */
       if (typeof(content.usermessage)!='undefined') {
+          /*
         var uiMessage = $('<div id="uiMessage">'+content.usermessage+'</div>');
         var title = content.usermessage;
         if (content.title) {
@@ -1069,6 +1066,16 @@ this.c4g = this.c4g || {};
                     }
         });
         uiMessage.dialog('moveToTop');
+        */
+
+        var title = content.usermessage;
+
+        if (content.title) {
+            title = content.title;
+        }
+
+        var dh = new DialogHandler();
+        dh.show(title, content.usermessage);
       }
 
       // additional action to be performed via ajax
